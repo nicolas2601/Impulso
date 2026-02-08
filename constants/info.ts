@@ -1,7 +1,7 @@
 export const CONTACT_INFO = {
-  whatsapp: '573000000000',
-  displayPhone: '+57 300 000 0000',
-  email: 'hola@impulso.pro',
+  whatsapp: '573112441684',
+  displayPhone: '+57 311 244 1684',
+  email: 'creaimpulsobga@gmail.com',
   address: 'Bucaramanga, Santander, Colombia',
   schedule: 'Lunes a Viernes: 8:00 AM - 6:00 PM',
   social: {

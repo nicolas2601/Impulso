@@ -1,27 +1,31 @@
 import { Metadata } from 'next';
 import { ModernHero } from '@/components/home/ModernHero';
 import { BentoServices } from '@/components/home/BentoServices';
-import { Benefits } from '@/components/home/Benefits';
-import { PortfolioGallery } from '@/components/home/PortfolioGallery';
-import { ProcessTimeline } from '@/components/home/ProcessTimeline';
-import { FinalCTA } from '@/components/home/FinalCTA';
+import { TrustMarquee } from '@/components/home/TrustMarquee';
+import { ImmersiveGallery } from '@/components/home/ImmersiveGallery';
+import { StickyProcess } from '@/components/home/StickyProcess';
+import { MassiveFooter } from '@/components/home/MassiveFooter';
 import { WhatsAppButton } from '@/components/common/WhatsAppButton';
+import { NoiseOverlay } from '@/components/common/NoiseOverlay';
 import { SITE_CONFIG, CONTACT_INFO } from '@/constants/info';
 
 export const metadata: Metadata = {
-  title: 'Impulso - Diseño, Impresión y Avisos Luminosos en Bucaramanga',
-  description: 'Fabricamos empaques, avisos luminosos y material publicitario para negocios en Bucaramanga. Precios claros, entrega rápida y diseño profesional.',
+  title: 'Impulso - Diseño Visual de Alto Impacto en Bucaramanga',
+  description: 'Estudio de producción gráfica y visual. Empaques, avisos luminosos y branding que transforman negocios. Calidad industrial, diseño boutique.',
   alternates: {
     canonical: SITE_CONFIG.domain,
   },
   openGraph: {
-    title: 'Impulso - Soluciones Visuales para Negocios',
-    description: 'Diseño, impresión y fabricación de empaques y avisos. Cotiza rápido por WhatsApp.',
+    title: 'Impulso - Make It Bold',
+    description: 'Diseño, impresión y fabricación visual. Hacemos que tu marca destaque.',
     url: SITE_CONFIG.domain,
     siteName: SITE_CONFIG.name,
     locale: SITE_CONFIG.locale,
     type: 'website',
   },
+  authors: [{ name: 'Nicolas Moreno', url: 'https://nicolasmoreno.site' }],
+  creator: 'Tikno.pro',
+  publisher: 'Tikno.pro',
 };
 
 export default function Home() {
@@ -52,20 +56,21 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-zinc-50 relative selection:bg-tikno-yellow selection:text-black">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       
-      <ModernHero />
-      <BentoServices />
-      <Benefits />
-      <PortfolioGallery />
-      <ProcessTimeline />
-      <FinalCTA />
+      <NoiseOverlay />
       
-      {/* Persistent Floating WhatsApp Button */}
+      <ModernHero />
+      <TrustMarquee />
+      <BentoServices />
+      <ImmersiveGallery />
+      <StickyProcess />
+      <MassiveFooter />
+      
       <WhatsAppButton variant="floating" />
     </main>
   );

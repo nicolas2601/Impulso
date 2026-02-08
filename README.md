@@ -98,7 +98,7 @@ El sitio utiliza archivos estáticos en `data/` para facilitar la edición sin b
 2.  Importar proyecto en Vercel.
 3.  Configurar Variables de Entorno:
     *   `NEXT_PUBLIC_SITE_URL`: https://tikno.pro
-    *   `NEXT_PUBLIC_WHATSAPP_NUMBER`: 573000000000
+    *   `NEXT_PUBLIC_WHATSAPP_NUMBER`: 573112441684
 4.  Build Command: `bun run build`.
 5.  Install Command: `bun install`.
 

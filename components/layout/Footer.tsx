@@ -69,8 +69,13 @@ export const Footer = () => {
         </div>
       </div>
 
-      <div className="container-tikno pt-8 border-t border-gray-800 text-center text-xs text-gray-600">
-        <p>&copy; {currentYear} Tikno. Todos los derechos reservados. Desarrollado en Bucaramanga.</p>
+      <div className="container-tikno pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-center text-xs text-gray-600">
+        <p>&copy; {currentYear} Impulso. Todos los derechos reservados. Desarrollado en Bucaramanga.</p>
+        <p className="flex gap-2">
+          Hecho por <a href="https://nicolasmoreno.site" target="_blank" rel="dofollow" className="text-gray-400 hover:text-tikno-yellow transition-colors">Nicolas Moreno</a> 
+          <span>•</span> 
+          Power by <a href="https://tikno.pro" target="_blank" rel="dofollow" className="text-gray-400 hover:text-tikno-yellow transition-colors">Tikno.pro</a>
+        </p>
       </div>
     </footer>
   );

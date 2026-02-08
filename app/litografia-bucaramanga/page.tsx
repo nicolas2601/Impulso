@@ -3,6 +3,7 @@ import { PageHero } from '@/components/common/PageHero';
 import { Section } from '@/components/ui/Section';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
 import { Button } from '@/components/ui/Button';
+import { generateWhatsAppLink } from '@/utils/whatsapp';
 
 export const metadata: Metadata = {
   title: 'Litografía Bucaramanga | Impresión Offset Mayorista',
@@ -65,7 +66,7 @@ export default function LitografiaPage() {
              
              <div className="mt-8 text-center">
                <p className="text-sm text-gray-500 mb-4">¿Dudas si tu proyecto requiere offset?</p>
-               <Button variant="secondary" href="https://wa.me/573000000000">Asesoría Técnica Gratuita</Button>
+               <Button variant="secondary" href={generateWhatsAppLink("Hola, necesito asesoría técnica para un proyecto de litografía...")}>Asesoría Técnica Gratuita</Button>
              </div>
           </div>
         </div>

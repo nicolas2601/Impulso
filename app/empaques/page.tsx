@@ -6,6 +6,7 @@ import { Breadcrumbs } from '@/components/common/Breadcrumbs';
 import { productsData } from '@/data/products';
 import { FaLeaf, FaPalette, FaTruck } from 'react-icons/fa';
 import { Button } from '@/components/ui/Button';
+import { generateWhatsAppLink } from '@/utils/whatsapp';
 
 export const metadata: Metadata = {
   title: 'Empaques Personalizados Comida Rápida | Tikno Bucaramanga',
@@ -75,7 +76,7 @@ export default function EmpaquesPage() {
         <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
           Fabricamos empaques a la medida para todo tipo de productos. Cuéntanos tu idea.
         </p>
-        <Button variant="secondary" href="https://wa.me/573000000000">
+        <Button variant="secondary" href={generateWhatsAppLink("Hola, quiero consultar por un pedido especial de empaques...")}>
           Consultar pedido especial
         </Button>
       </Section>

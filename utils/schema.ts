@@ -6,7 +6,7 @@ export const generateLocalBusinessSchema = () => {
     image: 'https://tikno.pro/logo.png', // Replace with real asset
     '@id': 'https://tikno.pro',
     url: 'https://tikno.pro',
-    telephone: '+573000000000',
+    telephone: '+573112441684',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Calle 34 # 25-15', // Fake address for demo
