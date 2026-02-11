@@ -31,13 +31,13 @@ export const Header = () => {
   return (
     <>
       <motion.header 
-        className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 md:pt-6 px-4"
+        className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-2 md:pt-4 px-4"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ type: "spring", stiffness: 100, damping: 20 }}
       >
         <motion.div 
-          className={`relative flex items-center justify-between px-6 py-3 rounded-full border transition-all duration-300 ${
+          className={`relative flex items-center justify-between px-6 py-2.5 rounded-full border transition-all duration-300 ${
             isScrolled 
               ? 'bg-black/80 backdrop-blur-xl border-white/10 shadow-2xl w-full max-w-4xl' 
               : 'bg-transparent border-transparent w-full max-w-7xl'
