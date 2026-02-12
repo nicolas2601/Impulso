@@ -13,7 +13,8 @@ const projects = [
     category: 'EMPAQUES', 
     desc: 'Rediseño de experiencia unboxing para marcas de food delivery. Empaques sostenibles.',
     color: 'from-orange-600 to-red-900',
-    image: '/projects/empaques.jpeg'
+    image: '/projects/empaques.jpeg',
+    href: '/empaques'
   },
   { 
     id: 'p2', 
@@ -21,7 +22,8 @@ const projects = [
     category: 'SEÑALÉTICA', 
     desc: 'Ofrecemos señalización interna y externa en acrílico, PVC, aluminio y materiales resistentes, garantizando visibilidad, organización y cumplimiento normativo.',
     color: 'from-blue-600 to-indigo-900',
-    image: '/projects/SEÑALITICA.jpeg'
+    image: '/projects/SEÑALITICA.jpeg',
+    href: '/avisos-profesionales'
   },
   { 
     id: 'p3', 
@@ -29,7 +31,8 @@ const projects = [
     category: 'AVISOS', 
     desc: 'Realizamos avisos luminosos, letras corpóreas, avisos en acrílico, aluminio y estructuras metálicas para exteriores e interiores. Soluciones resistentes y personalizadas para destacar tu marca.',
     color: 'from-fuchsia-600 to-purple-900',
-    image: '/projects/AVISOS.jpeg'
+    image: '/projects/AVISOS.jpeg',
+    href: '/avisos'
   },
   { 
     id: 'p4', 
@@ -37,7 +40,8 @@ const projects = [
     category: 'IMPRESIÓN LITOGRAFICA', 
     desc: 'Imprimimos tarjetas de presentación, brochures, volantes, catálogos y papelería corporativa con acabados precisos y colores vibrantes. Servicio rápido y personalizado..',
     color: 'from-emerald-600 to-teal-900',
-    image: '/projects/IMPRESION.jpeg'
+    image: '/projects/IMPRESION.jpeg',
+    href: '/impresion'
   },
   { 
     id: 'p5', 
@@ -45,7 +49,8 @@ const projects = [
     category: 'AHDESIVOS', 
     desc: 'Diseñamos e instalamos vinilo adhesivo para paredes, vitrinas, fachadas y señalización interna, con acabados profesionales y materiales de alta durabilidad..',
     color: 'from-amber-500 to-orange-800',
-    image: '/projects/VINILOS.jpeg'
+    image: '/projects/VINILOS.jpeg',
+    href: '/adhesivos'
   },
   { 
     id: 'p6', 
@@ -53,7 +58,8 @@ const projects = [
     category: 'ETIQUETAS', 
     desc: 'Fabricamos etiquetas para productos adhesivas y en cartón, ideales para alimentos, cosméticos, ropa, empaques y todo tipo de marcas. Ofrecemos impresión de alta calidad, acabados profesionales y materiales resistentes que realzan la presentación de tu producto.',
     color: 'from-zinc-700 to-black',
-    image: '/projects/ETIQUETAS.jpeg'
+    image: '/projects/ETIQUETAS.jpeg',
+    href: '/etiquetas'
   },
 ];
 
@@ -66,7 +72,7 @@ const ProjectRow = ({ project, index }: { project: any, index: number }) => {
       transition={{ duration: 0.6, delay: index * 0.1 }}
       className="group relative border-t border-white/10 py-10 md:py-14 transition-colors hover:bg-white/5 cursor-pointer"
     >
-      <Link href="/proyectos" className="container-impulso flex flex-col md:flex-row md:items-center justify-between gap-6 md:gap-8">
+      <Link href={project.href} className="container-impulso flex flex-col md:flex-row md:items-center justify-between gap-6 md:gap-8">
         
         {/* Text Content */}
         <div className="flex-1">
