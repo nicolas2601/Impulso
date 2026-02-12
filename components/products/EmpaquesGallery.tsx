@@ -43,98 +43,99 @@ export const EmpaquesGallery = () => {
   const prev = () => setIndex((prev) => (prev - 1 + images.length) % images.length);
 
   return (
-    <section ref={containerRef} className="relative py-32 bg-zinc-950 overflow-hidden -mt-1">
+    <section ref={containerRef} className="relative py-20 md:py-32 bg-zinc-950 overflow-hidden -mt-1">
       {/* Visual connection with Hero - Subtle gradient top */}
       <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black/20 to-transparent pointer-events-none"></div>
 
       {/* Decorative text background */}
       <div className="absolute top-1/2 left-0 w-full overflow-hidden pointer-events-none opacity-[0.03] select-none -translate-y-1/2">
-        <span className="text-[25vw] font-black leading-none whitespace-nowrap block text-white -ml-[10%] italic">
+        <span className="text-[30vw] md:text-[25vw] font-black leading-none whitespace-nowrap block text-white -ml-[10%] italic uppercase">
           PREMIUM PACKAGING PREMIUM PACKAGING
         </span>
       </div>
 
       <div className="container-impulso relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
           {/* Left Side: Content */}
           <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8 }}
+            className="w-full text-left"
           >
-            <div className="flex items-center gap-4 mb-8">
+            <div className="flex items-center gap-4 mb-6 md:mb-8">
               <span className="w-12 h-[1px] bg-impulso-yellow"></span>
-              <span className="text-impulso-yellow font-black text-xs tracking-[0.3em] uppercase">
+              <span className="text-impulso-yellow font-black text-[10px] md:text-xs tracking-[0.3em] uppercase">
                 Portafolio de Producción
               </span>
             </div>
             
-            <h2 className="text-6xl md:text-8xl font-black text-white leading-[0.9] tracking-tighter mb-8">
+            <h2 className="text-[14vw] sm:text-6xl md:text-8xl font-black text-white leading-[0.9] tracking-tighter mb-6 md:mb-8">
               CALIDAD QUE <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-impulso-yellow via-white to-zinc-500">SE SIENTE.</span>
             </h2>
             
-            <p className="text-xl text-zinc-400 mb-12 max-w-lg leading-relaxed font-light">
+            <p className="text-base md:text-xl text-zinc-400 mb-8 md:mb-12 max-w-lg leading-relaxed font-light">
               Desde cartón microcorrugado hasta acabados de lujo. Cada imagen es un proyecto real entregado en Bucaramanga. <span className="text-white font-medium">Diseño que protege, marca que vende.</span>
             </p>
             
-            <div className="flex flex-wrap gap-6 items-center">
+            <div className="flex flex-wrap gap-4 md:gap-6 items-center">
               <motion.a 
                 href={generateWhatsAppLink("Hola, vi la galería de empaques y quiero cotizar...")}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-4 bg-impulso-yellow text-black px-10 py-5 rounded-full font-black text-sm uppercase tracking-widest hover:bg-white transition-colors shadow-xl shadow-impulso-yellow/10"
+                className="inline-flex items-center gap-4 bg-impulso-yellow text-black px-8 md:px-10 py-4 md:py-5 rounded-full font-black text-xs md:text-sm uppercase tracking-widest hover:bg-white transition-colors shadow-xl shadow-impulso-yellow/10"
               >
-                <FaWhatsapp className="text-2xl" /> COTIZAR ESTO
+                <FaWhatsapp className="text-xl md:text-2xl" /> COTIZAR ESTO
               </motion.a>
               
               <div className="flex items-center gap-4">
                 <button 
                   onClick={prev}
-                  className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white hover:border-impulso-yellow hover:text-impulso-yellow transition-all"
+                  className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/10 flex items-center justify-center text-white hover:border-impulso-yellow hover:text-impulso-yellow transition-all"
                 >
                   <FaChevronLeft />
                 </button>
                 <button 
                   onClick={next}
-                  className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white hover:border-impulso-yellow hover:text-impulso-yellow transition-all"
+                  className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/10 flex items-center justify-center text-white hover:border-impulso-yellow hover:text-impulso-yellow transition-all"
                 >
                   <FaChevronRight />
                 </button>
               </div>
             </div>
 
-            <div className="mt-12 flex gap-3">
+            <div className="mt-8 md:mt-12 flex gap-3">
               {images.map((_, i) => (
                 <button 
                   key={i} 
                   onClick={() => setIndex(i)}
-                  className={`h-1 rounded-full transition-all duration-500 ${i === index ? 'w-12 bg-impulso-yellow' : 'w-4 bg-white/10 hover:bg-white/30'}`}
+                  className={`h-1 rounded-full transition-all duration-500 ${i === index ? 'w-10 md:w-12 bg-impulso-yellow' : 'w-3 md:w-4 bg-white/10 hover:bg-white/30'}`}
                 />
               ))}
             </div>
           </motion.div>
 
           {/* Right Side: Immersive Image Display */}
-          <div className="relative aspect-square md:aspect-[4/5] group">
+          <div className="relative w-full aspect-square md:aspect-[4/5] group">
             <AnimatePresence mode="wait">
               <motion.div
                 key={index}
-                initial={{ opacity: 0, filter: 'blur(10px)', scale: 1.1, rotateY: 10 }}
-                animate={{ opacity: 1, filter: 'blur(0px)', scale: 1, rotateY: 0 }}
-                exit={{ opacity: 0, filter: 'blur(10px)', scale: 0.9, rotateY: -10 }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.5 }}
                 className="relative w-full h-full rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/5"
               >
                 <Image 
                   src={images[index]} 
                   alt="Galería de Empaques Impulso" 
                   fill 
-                  className="object-contain bg-zinc-900"
+                  className="object-cover bg-zinc-900"
                   priority
                 />
                 
@@ -150,7 +151,7 @@ export const EmpaquesGallery = () => {
             />
             
             {/* Project info tag */}
-            <div className="absolute -bottom-6 -right-6 bg-zinc-900 border border-white/10 p-6 rounded-2xl shadow-2xl z-20 hidden md:block backdrop-blur-md">
+            <div className="absolute -bottom-6 -right-6 bg-zinc-900 border border-white/10 p-6 rounded-2xl shadow-2xl z-20 hidden lg:block backdrop-blur-md">
               <div className="flex flex-col gap-1">
                 <span className="text-[10px] font-black text-impulso-yellow tracking-widest uppercase">Impulso Lab</span>
                 <span className="text-white text-lg font-bold">Producción Real #0{index + 1}</span>

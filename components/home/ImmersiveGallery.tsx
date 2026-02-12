@@ -62,7 +62,7 @@ const ProjectRow = ({ project, index }: { project: any, index: number }) => {
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       className="group relative border-t border-white/10 py-10 md:py-14 transition-colors hover:bg-white/5 cursor-pointer"
     >

@@ -67,7 +67,7 @@ export const StickyProcess = () => {
                 key={i}
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="group bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-zinc-100 hover:border-zinc-300 transition-all hover:-translate-y-2"
               >

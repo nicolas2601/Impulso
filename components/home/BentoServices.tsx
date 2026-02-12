@@ -8,7 +8,7 @@ const BentoCard = ({ title, desc, icon: Icon, href, className, delay }: any) => 
   <motion.div
     initial={{ opacity: 0, scale: 0.9 }}
     whileInView={{ opacity: 1, scale: 1 }}
-    viewport={{ once: true }}
+    viewport={{ once: true, amount: 0.1 }}
     transition={{ delay, duration: 0.5 }}
     className={`group relative overflow-hidden rounded-3xl bg-zinc-50 border border-zinc-100 p-8 flex flex-col justify-between hover:border-zinc-300 transition-all hover:shadow-xl ${className}`}
   >
@@ -79,7 +79,7 @@ export const BentoServices = () => {
 
           {/* Impresión */}
           <BentoCard 
-            title="Impresión Digital"
+            title="Impresión Litografica"
             desc="Stickers, gran formato y papelería comercial."
             icon={FaPrint}
             href="/impresion"

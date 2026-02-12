@@ -63,23 +63,18 @@ export const ProjectsCollage = () => {
 
         {/* Masonry-style Collage */}
         <motion.div 
-          layout
-          className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6"
+          className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 md:gap-6 space-y-4 md:space-y-6"
         >
           <AnimatePresence mode="popLayout">
             {filteredPhotos.map((photo, idx) => (
               <motion.div
                 key={photo.src}
                 layout
-                initial={{ opacity: 0, scale: 0.8 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: idx * 0.05,
-                  ease: [0.22, 1, 0.36, 1]
-                }}
-                className="relative group cursor-zoom-in overflow-hidden rounded-[2rem] bg-zinc-200"
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.4 }}
+                className="relative group cursor-zoom-in overflow-hidden rounded-[1.5rem] md:rounded-[2rem] bg-zinc-200 break-inside-avoid"
               >
                 <div className="relative w-full aspect-[4/5] sm:aspect-auto">
                    <Image
@@ -87,7 +82,8 @@ export const ProjectsCollage = () => {
                     alt={`Proyecto Impulso ${photo.category}`}
                     width={800}
                     height={1000}
-                    className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-auto object-cover transition-transform duration-700 md:group-hover:scale-110"
+                    loading="lazy"
                   />
                 </div>
                 

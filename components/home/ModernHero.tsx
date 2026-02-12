@@ -24,7 +24,7 @@ export const ModernHero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-sm font-medium text-gray-300 mb-8 backdrop-blur-sm"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs md:text-sm font-medium text-gray-300 mb-8 backdrop-blur-sm"
         >
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-impulso-yellow opacity-75"></span>
@@ -34,9 +34,9 @@ export const ModernHero = () => {
         </motion.div>
 
         {/* Massive Headline */}
-        <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-black tracking-tighter text-white leading-[0.85] mb-8 mix-blend-overlay">
-          <motion.div initial={{ y: 100, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.1, duration: 0.8 }}>IMPULSAMOS</motion.div>
-          <motion.div initial={{ y: 100, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2, duration: 0.8 }} className="text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500">TU MARCA</motion.div>
+        <h1 className="text-5xl md:text-8xl lg:text-[10rem] font-black tracking-tighter text-white leading-[0.85] mb-8">
+          <motion.div initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.1, duration: 0.8 }}>IMPULSAMOS</motion.div>
+          <motion.div initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2, duration: 0.8 }} className="text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-500">TU MARCA</motion.div>
         </h1>
 
         <motion.p 
