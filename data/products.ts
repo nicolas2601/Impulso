@@ -3,8 +3,8 @@ import { Product } from '../types';
 export const productsData: Record<string, Product[]> = {
   empaques: [
     {
-      id: 'cajas-hamburguesa',
-      name: 'Cajas para Hamburguesas',
+      id: 'cajas-comida-rapida',
+      name: '',
       slug: 'cajas-hamburguesas-bucaramanga',
       description: 'Cajas en cartón kraft o esmaltado con tu logo. Resistentes a grasa, automontables y 100% personalizables.',
       priceRange: { min: 450, max: 900 },

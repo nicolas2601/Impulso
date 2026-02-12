@@ -50,7 +50,6 @@ export default function Home() {
     },
     priceRange: '$$',
     sameAs: [
-      CONTACT_INFO.social.instagram,
       CONTACT_INFO.social.facebook,
     ],
   };

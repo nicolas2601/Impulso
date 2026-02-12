@@ -7,6 +7,7 @@ import { productsData } from '@/data/products';
 import { FaLeaf, FaPalette, FaTruck } from 'react-icons/fa';
 import { Button } from '@/components/ui/Button';
 import { generateWhatsAppLink } from '@/utils/whatsapp';
+import { EmpaquesGallery } from '@/components/products/EmpaquesGallery';
 
 export const metadata: Metadata = {
   title: 'Empaques Personalizados Comida Rápida | Impulso Bucaramanga',
@@ -31,33 +32,10 @@ export default function EmpaquesPage() {
         title="Empaques Personalizados para tu Negocio de Comida"
         subtitle="Eleva la presentación de tus productos con cajas y bolsas que venden. Biodegradables, resistentes y a precios que te convienen."
         ctaMessage="Hola, quiero cotizar empaques personalizados..."
+        bgImage="/projects/empaques.jpeg"
       />
-      
-      <Breadcrumbs />
 
-      <Section>
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl font-bold mb-6 text-impulso-gray-dark">
-            Tu marca en manos de tus clientes
-          </h2>
-          <p className="text-gray-600 text-lg">
-            En el negocio de la comida en Bucaramanga, la primera impresión entra por los ojos. Un buen empaque no solo protege, también comunica calidad y justifica tus precios.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product) => (
-            <ProductCard 
-              key={product.id}
-              title={product.name}
-              description={product.description}
-              href={`/empaques/${product.slug}`}
-              priceFrom={product.priceRange?.min}
-              badge={product.isPopular ? 'Más Vendido' : undefined}
-            />
-          ))}
-        </div>
-      </Section>
+      <EmpaquesGallery />
 
       <Section bg="gray">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">

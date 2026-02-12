@@ -5,8 +5,7 @@ export const CONTACT_INFO = {
   address: 'Bucaramanga, Santander, Colombia',
   schedule: 'Lunes a Viernes: 8:00 AM - 6:00 PM',
   social: {
-    instagram: 'https://instagram.com/impulso',
-    facebook: 'https://facebook.com/impulso',
+    facebook: 'https://www.facebook.com/share/1DtV77vD6t/?mibextid=wwXIfr',
   },
 };
 

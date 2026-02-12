@@ -21,7 +21,7 @@ const projects = [
     category: 'SEÑALÉTICA', 
     desc: 'Ofrecemos señalización interna y externa en acrílico, PVC, aluminio y materiales resistentes, garantizando visibilidad, organización y cumplimiento normativo.',
     color: 'from-blue-600 to-indigo-900',
-    image: '/projects/p2.png'
+    image: '/projects/SEÑALITICA.jpeg'
   },
   { 
     id: 'p3', 
@@ -29,7 +29,7 @@ const projects = [
     category: 'AVISOS', 
     desc: 'Realizamos avisos luminosos, letras corpóreas, avisos en acrílico, aluminio y estructuras metálicas para exteriores e interiores. Soluciones resistentes y personalizadas para destacar tu marca.',
     color: 'from-fuchsia-600 to-purple-900',
-    image: '/projects/p3.png'
+    image: '/projects/AVISOS.jpeg'
   },
   { 
     id: 'p4', 
@@ -37,7 +37,7 @@ const projects = [
     category: 'IMPRESIÓN LITOGRAFICA', 
     desc: 'Imprimimos tarjetas de presentación, brochures, volantes, catálogos y papelería corporativa con acabados precisos y colores vibrantes. Servicio rápido y personalizado..',
     color: 'from-emerald-600 to-teal-900',
-    image: '/projects/p4.png'
+    image: '/projects/IMPRESION.jpeg'
   },
   { 
     id: 'p5', 
@@ -45,7 +45,7 @@ const projects = [
     category: 'AHDESIVOS', 
     desc: 'Diseñamos e instalamos vinilo adhesivo para paredes, vitrinas, fachadas y señalización interna, con acabados profesionales y materiales de alta durabilidad..',
     color: 'from-amber-500 to-orange-800',
-    image: '/projects/p5.png'
+    image: '/projects/VINILOS.jpeg'
   },
   { 
     id: 'p6', 
@@ -53,7 +53,7 @@ const projects = [
     category: 'ETIQUETAS', 
     desc: 'Fabricamos etiquetas para productos adhesivas y en cartón, ideales para alimentos, cosméticos, ropa, empaques y todo tipo de marcas. Ofrecemos impresión de alta calidad, acabados profesionales y materiales resistentes que realzan la presentación de tu producto.',
     color: 'from-zinc-700 to-black',
-    image: '/projects/p6.png'
+    image: '/projects/ETIQUETAS.jpeg'
   },
 ];
 

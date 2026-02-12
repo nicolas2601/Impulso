@@ -53,9 +53,7 @@ export const MassiveFooter = () => {
            <div>
              <h4 className="font-black text-xl mb-4">SOCIAL</h4>
              <div className="flex gap-4 font-medium text-zinc-800">
-               <a href="#" className="hover:underline">Instagram</a>
-               <a href="#" className="hover:underline">Facebook</a>
-               <a href="#" className="hover:underline">LinkedIn</a>
+               <a href={CONTACT_INFO.social.facebook} target="_blank" rel="noopener noreferrer" className="hover:underline">Facebook</a>
              </div>
            </div>
         </div>

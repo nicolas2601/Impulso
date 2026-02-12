@@ -33,8 +33,7 @@ export const generateLocalBusinessSchema = () => {
       closes: '18:00'
     },
     sameAs: [
-      'https://facebook.com/impulso',
-      'https://instagram.com/impulso'
+      'https://www.facebook.com/share/1DtV77vD6t/?mibextid=wwXIfr'
     ],
     areaServed: [
       {

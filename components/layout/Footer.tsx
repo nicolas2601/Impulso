@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FaInstagram, FaFacebook, FaWhatsapp, FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
+import { FaFacebook, FaWhatsapp, FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
 import { CONTACT_INFO } from '@/constants/info';
 
 export const Footer = () => {
@@ -18,8 +18,7 @@ export const Footer = () => {
             Ayudamos a negocios a verse profesionales y vender más.
           </p>
           <div className="flex gap-4">
-            <a href={CONTACT_INFO.social.instagram} className="text-gray-400 hover:text-impulso-yellow transition-colors"><FaInstagram size={24} /></a>
-            <a href={CONTACT_INFO.social.facebook} className="text-gray-400 hover:text-impulso-yellow transition-colors"><FaFacebook size={24} /></a>
+            <a href={CONTACT_INFO.social.facebook} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-impulso-yellow transition-colors"><FaFacebook size={24} /></a>
           </div>
         </div>
 
