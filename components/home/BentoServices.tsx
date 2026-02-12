@@ -17,7 +17,7 @@ const BentoCard = ({ title, desc, icon: Icon, href, className, delay }: any) => 
     </div>
     
     <div className="relative z-10">
-      <div className="w-12 h-12 rounded-xl bg-tikno-yellow text-black flex items-center justify-center mb-6 text-xl">
+      <div className="w-12 h-12 rounded-xl bg-impulso-yellow text-black flex items-center justify-center mb-6 text-xl">
         <Icon />
       </div>
       <h3 className="text-2xl font-bold text-zinc-900 mb-2">{title}</h3>
@@ -25,7 +25,7 @@ const BentoCard = ({ title, desc, icon: Icon, href, className, delay }: any) => 
     </div>
 
     <div className="relative z-10 mt-8">
-      <Link href={href} className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide text-zinc-900 hover:text-tikno-yellow transition-colors">
+      <Link href={href} className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide text-zinc-900 hover:text-impulso-yellow transition-colors">
         Explorar <FaArrowRight />
       </Link>
     </div>
@@ -35,11 +35,11 @@ const BentoCard = ({ title, desc, icon: Icon, href, className, delay }: any) => 
 export const BentoServices = () => {
   return (
     <section className="py-24 bg-white">
-      <div className="container-tikno">
+      <div className="container-impulso">
         <div className="mb-16 md:text-center max-w-3xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-black text-zinc-900 mb-6 tracking-tight">
             TODO LO QUE NECESITAS. <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-tikno-yellow to-yellow-600">EN UN SOLO LUGAR.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-impulso-yellow to-yellow-600">EN UN SOLO LUGAR.</span>
           </h2>
           <p className="text-xl text-zinc-500">
             Simplificamos la producción visual de tu negocio. Calidad industrial, diseño boutique.
@@ -67,13 +67,13 @@ export const BentoServices = () => {
             delay={0.2}
           />
 
-          {/* Kits - Tall */}
+          {/* Litografía - Tall */}
           <BentoCard 
-            title="Kits Emprendedor"
-            desc="Paquetes todo incluido para arrancar rápido y barato."
+            title="Litografía"
+            desc="Impresión offset para grandes volúmenes. Revistas y catálogos."
             icon={FaRocket}
-            href="/kits-emprendedor-publicidad"
-            className="md:col-span-1 md:row-span-2 bg-tikno-yellow text-zinc-900"
+            href="/litografia-bucaramanga"
+            className="md:col-span-1 md:row-span-2 bg-impulso-yellow text-zinc-900"
             delay={0.3}
           />
 

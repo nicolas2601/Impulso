@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { productsData } from '@/data/products';
 import { projects } from '@/data/projects';
 
-const SITE_URL = 'https://tikno.pro';
+const SITE_URL = 'https://impulso.pro';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Static Routes
@@ -11,7 +11,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/empaques',
     '/avisos',
     '/papeleria-comercial',
-    '/kits-emprendedor-publicidad',
     '/impresion',
     '/diseno-empaques',
     '/litografia-bucaramanga',

@@ -14,7 +14,7 @@ export const PriceRange = ({ min, max, label = "Precio estimado", className = ""
         {label}
       </span>
       <div className="flex items-baseline gap-1">
-        <span className="text-2xl font-bold text-tikno-gray-dark">
+        <span className="text-2xl font-bold text-impulso-gray-dark">
           {formatPrice(min)}
         </span>
         {max && (

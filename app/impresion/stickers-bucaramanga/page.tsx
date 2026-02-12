@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'Stickers en Bucaramanga | Impresión de Etiquetas Adhesivas',
   description: 'Impresión de stickers personalizados y etiquetas adhesivas en vinilo o papel. Troquelado digital cualquier forma. Precios por cantidad.',
   alternates: {
-    canonical: 'https://tikno.pro/impresion/stickers-bucaramanga',
+    canonical: 'https://impulso.pro/impresion/stickers-bucaramanga',
   },
 };
 
@@ -32,7 +32,7 @@ export default function StickersPage() {
             <h2 className="text-3xl font-bold mb-6">Etiquetas que Pegan</h2>
             <p className="text-gray-600 mb-8">
               No es lo mismo un sticker de papel que se rompe, a uno de vinilo PVC lavable. 
-              En Tikno usamos vinilo americano de alta adherencia y tintas eco-solventes.
+              En Impulso usamos vinilo americano de alta adherencia y tintas eco-solventes.
             </p>
 
             <h3 className="font-bold text-xl mb-4">Materiales Disponibles</h3>
@@ -44,7 +44,7 @@ export default function StickersPage() {
                 { name: "Holográfico", desc: "Efecto arcoíris premium." }
               ].map((m, i) => (
                 <li key={i} className="bg-gray-50 p-4 rounded-lg border border-gray-100">
-                  <span className="font-bold block text-tikno-gray-dark">{m.name}</span>
+                  <span className="font-bold block text-impulso-gray-dark">{m.name}</span>
                   <span className="text-xs text-gray-500">{m.desc}</span>
                 </li>
               ))}
@@ -61,7 +61,7 @@ export default function StickersPage() {
                 { qty: "500 unds", price: "$120.000", unit: "$240 c/u", best: true },
                 { qty: "1000 unds", price: "$180.000", unit: "$180 c/u" },
               ].map((tier, i) => (
-                <div key={i} className={`flex justify-between items-center p-4 rounded-lg ${tier.best ? 'bg-tikno-yellow/10 border border-tikno-yellow' : 'bg-gray-50'}`}>
+                <div key={i} className={`flex justify-between items-center p-4 rounded-lg ${tier.best ? 'bg-impulso-yellow/10 border border-impulso-yellow' : 'bg-gray-50'}`}>
                   <span className="font-bold">{tier.qty}</span>
                   <div className="text-right">
                     <span className="block font-bold text-lg">{tier.price}</span>

@@ -7,11 +7,11 @@ import { FaWhatsapp, FaArrowRight } from 'react-icons/fa';
 
 export const MassiveFooter = () => {
   return (
-    <section className="relative bg-tikno-yellow pt-32 pb-20 overflow-hidden text-zinc-900">
+    <section className="relative bg-impulso-yellow pt-32 pb-20 overflow-hidden text-zinc-900">
       {/* Background Noise */}
       <div className="absolute inset-0 z-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] mix-blend-multiply"></div>
 
-      <div className="container-tikno relative z-10 text-center">
+      <div className="container-impulso relative z-10 text-center">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -65,7 +65,7 @@ export const MassiveFooter = () => {
           <div className="flex gap-2 items-center">
             CREADO POR <a href="https://nicolasmoreno.site" target="_blank" rel="dofollow" className="hover:text-white transition-colors underline decoration-black/20 underline-offset-4">NICOLAS MORENO</a> 
             <span>•</span> 
-            UNA PRODUCCIÓN DE <a href="https://tikno.pro" target="_blank" rel="dofollow" className="hover:text-white transition-colors underline decoration-black/20 underline-offset-4">TIKNO.PRO</a>
+            UNA PRODUCCIÓN DE <a href="https://impulso.pro" target="_blank" rel="dofollow" className="hover:text-white transition-colors underline decoration-black/20 underline-offset-4">TIKNO.PRO</a>
           </div>
         </div>
       </div>

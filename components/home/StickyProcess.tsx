@@ -17,7 +17,7 @@ const steps = [
     title: "Propuesta Flash",
     desc: "Te damos precios claros y opciones. Si necesitas diseño, nuestros creativos entran en acción de inmediato.",
     icon: FaCalculator,
-    color: "bg-tikno-yellow"
+    color: "bg-impulso-yellow"
   },
   {
     num: "03",
@@ -38,21 +38,21 @@ const steps = [
 export const StickyProcess = () => {
   return (
     <section className="py-32 bg-zinc-50 relative">
-      <div className="container-tikno">
+      <div className="container-impulso">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           
           {/* Sticky Header */}
           <div className="lg:sticky lg:top-32 h-min">
             <h2 className="text-5xl md:text-7xl font-black text-zinc-900 mb-8 tracking-tighter leading-[0.9]">
               PROCESO <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-tikno-yellow to-orange-500">SIN FRICCIÓN.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-impulso-yellow to-orange-500">SIN FRICCIÓN.</span>
             </h2>
             <p className="text-xl text-zinc-500 max-w-md mb-12">
               Diseñamos un flujo de trabajo pensado en emprendedores que no tienen tiempo que perder.
             </p>
             <div className="hidden lg:block w-32 h-1 bg-zinc-200 rounded-full overflow-hidden">
                <motion.div 
-                 className="h-full bg-tikno-yellow"
+                 className="h-full bg-impulso-yellow"
                  initial={{ width: 0 }}
                  whileInView={{ width: "100%" }}
                  transition={{ duration: 1.5 }}

@@ -15,9 +15,9 @@ export const ModernHero = () => {
       <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-zinc-950 to-transparent z-10"></div>
 
       {/* Radiant Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-tikno-yellow/10 rounded-full blur-[120px] z-0 animate-pulse"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-impulso-yellow/10 rounded-full blur-[120px] z-0 animate-pulse"></div>
 
-      <div className="container-tikno relative z-20 text-center flex flex-col items-center">
+      <div className="container-impulso relative z-20 text-center flex flex-col items-center">
         
         {/* Badge */}
         <motion.div 
@@ -27,10 +27,10 @@ export const ModernHero = () => {
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-sm font-medium text-gray-300 mb-8 backdrop-blur-sm"
         >
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-tikno-yellow opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-tikno-yellow"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-impulso-yellow opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-impulso-yellow"></span>
           </span>
-          Disponible para proyectos en Bucaramanga
+          Disponible para proyectos en Colombia
         </motion.div>
 
         {/* Massive Headline */}
@@ -59,7 +59,7 @@ export const ModernHero = () => {
             href={generateWhatsAppLink("Hola Impulso, quiero que mi marca destaque...")}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative px-8 py-4 bg-tikno-yellow text-black font-black text-lg rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(247,211,51,0.5)]"
+            className="group relative px-8 py-4 bg-impulso-yellow text-black font-black text-lg rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(247,211,51,0.5)]"
           >
             <span className="relative z-10 flex items-center justify-center gap-2">
               COTIZAR PROYECTO <FaArrowRight className="group-hover:translate-x-1 transition-transform" />

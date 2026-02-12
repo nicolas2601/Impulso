@@ -117,41 +117,6 @@ export const productsData: Record<string, Product[]> = {
       isPopular: false
     }
   ],
-  kits: [
-    {
-      id: 'kit-basico',
-      name: 'Kit Inicial Básico',
-      slug: 'kit-basico',
-      description: 'Lo esencial para empezar a vender ya.',
-      priceRange: { min: 350000, max: 350000 },
-      category: 'Kits',
-      images: [],
-      features: ['Diseño Logo Básico', '1000 Tarjetas', '1000 Volantes', '100 Stickers'],
-      isPopular: false
-    },
-    {
-      id: 'kit-pro',
-      name: 'Kit Profesional',
-      slug: 'kit-pro',
-      description: 'Imagen sólida para negocios serios.',
-      priceRange: { min: 850000, max: 850000 },
-      category: 'Kits',
-      images: [],
-      features: ['Logo Profesional', 'Tarjetas Premium', 'Volantes', '200 Stickers', '50 Bolsas Kraft', 'Aviso Acrílico Pequeño'],
-      isPopular: true
-    },
-    {
-      id: 'kit-premium',
-      name: 'Kit Premium Completo',
-      slug: 'kit-premium',
-      description: 'Dominio total de tu categoría.',
-      priceRange: { min: 2500000, max: 2500000 },
-      category: 'Kits',
-      images: [],
-      features: ['Branding Completo', 'Tarjetas Lujo', 'Volantes', '500 Stickers', '100 Bolsas', 'Caja de Luz 1m', 'Diseño Redes'],
-      isPopular: false
-    }
-  ],
   impresion: [
     {
       id: 'gran-formato',

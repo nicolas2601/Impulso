@@ -7,5 +7,5 @@ export const generateWhatsAppLink = (message: string): string => {
 };
 
 export const getProductInquiryMessage = (productName: string): string => {
-  return `Hola Tikno, vi ${productName} en la web y quiero cotizar...`;
+  return `Hola Impulso, vi ${productName} en la web y quiero cotizar...`;
 };

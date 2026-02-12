@@ -2,10 +2,10 @@ export const generateLocalBusinessSchema = () => {
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    name: 'Tikno',
-    image: 'https://tikno.pro/logo.png', // Replace with real asset
-    '@id': 'https://tikno.pro',
-    url: 'https://tikno.pro',
+    name: 'Impulso',
+    image: 'https://impulso.pro/logo.png', // Replace with real asset
+    '@id': 'https://impulso.pro',
+    url: 'https://impulso.pro',
     telephone: '+573112441684',
     address: {
       '@type': 'PostalAddress',
@@ -33,8 +33,8 @@ export const generateLocalBusinessSchema = () => {
       closes: '18:00'
     },
     sameAs: [
-      'https://facebook.com/tikno',
-      'https://instagram.com/tikno'
+      'https://facebook.com/impulso',
+      'https://instagram.com/impulso'
     ],
     areaServed: [
       {

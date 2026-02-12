@@ -33,20 +33,20 @@ export const ProductCard = ({ title, description, imageSrc, priceFrom, badge, hr
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center bg-tikno-gray-light text-gray-400 font-bold text-xl uppercase tracking-widest">
+            <div className="w-full h-full flex items-center justify-center bg-impulso-gray-light text-gray-400 font-bold text-xl uppercase tracking-widest">
               {title.substring(0, 2)}
             </div>
           )}
           
           {badge && (
-            <div className="absolute top-4 right-4 bg-tikno-yellow text-tikno-gray-dark text-xs font-bold px-3 py-1 rounded-full shadow-md z-10">
+            <div className="absolute top-4 right-4 bg-impulso-yellow text-impulso-gray-dark text-xs font-bold px-3 py-1 rounded-full shadow-md z-10">
               {badge}
             </div>
           )}
         </div>
 
         <div className="p-6 flex flex-col flex-grow">
-          <h3 className="text-xl font-bold text-tikno-gray-dark mb-2 group-hover:text-tikno-blue transition-colors">
+          <h3 className="text-xl font-bold text-impulso-gray-dark mb-2 group-hover:text-impulso-blue transition-colors">
             {title}
           </h3>
           <p className="text-gray-600 text-sm mb-4 line-clamp-3 flex-grow">
@@ -57,10 +57,10 @@ export const ProductCard = ({ title, description, imageSrc, priceFrom, badge, hr
             {priceFrom && (
               <div className="flex flex-col">
                 <span className="text-xs text-gray-500 uppercase font-semibold">Desde</span>
-                <span className="text-lg font-bold text-tikno-gray-dark">{formatPrice(priceFrom)}</span>
+                <span className="text-lg font-bold text-impulso-gray-dark">{formatPrice(priceFrom)}</span>
               </div>
             )}
-            <span className="text-tikno-blue font-bold text-sm group-hover:translate-x-1 transition-transform">
+            <span className="text-impulso-blue font-bold text-sm group-hover:translate-x-1 transition-transform">
               Ver detalles &rarr;
             </span>
           </div>

@@ -1,10 +1,10 @@
-# Reporte Final de Desarrollo - Proyecto Tikno
+# Reporte Final de Desarrollo - Proyecto Impulso
 
 **Fecha:** 6 de Febrero de 2026
 **Estado:** ✅ Completado y Listo para Producción
 
 ## 1. Resumen Ejecutivo
-Se ha desarrollado con éxito el sistema web de adquisición de clientes para **Tikno**. El sitio cumple al 100% con los requerimientos de diseño "Industrial Minimal", arquitectura SEO de silos y enfoque en conversión a WhatsApp. La infraestructura técnica está basada en Next.js 15 y Tailwind v4, garantizando velocidad y escalabilidad futura.
+Se ha desarrollado con éxito el sistema web de adquisición de clientes para **Impulso**. El sitio cumple al 100% con los requerimientos de diseño "Industrial Minimal", arquitectura SEO de silos y enfoque en conversión a WhatsApp. La infraestructura técnica está basada en Next.js 15 y Tailwind v4, garantizando velocidad y escalabilidad futura.
 
 ## 2. Cobertura del Proyecto
 
@@ -59,4 +59,4 @@ Se ejecutaron pruebas unitarias con Vitest cubriendo los componentes críticos:
 2.  **Blog (Fase 2):** Crear artículos sobre "Cómo diseñar tu caja", "Tipos de avisos", etc., para captar más tráfico informativo.
 
 ## 5. Conclusión
-Tikno cuenta ahora con una herramienta de ventas robusta, no solo una tarjeta de presentación digital. La arquitectura está diseñada para escalar: agregar nuevos productos es tan simple como editar un archivo de texto.
+Impulso cuenta ahora con una herramienta de ventas robusta, no solo una tarjeta de presentación digital. La arquitectura está diseñada para escalar: agregar nuevos productos es tan simple como editar un archivo de texto.

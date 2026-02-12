@@ -15,15 +15,15 @@ const projects = [
 export const PortfolioGallery = () => {
   return (
     <section className="section-padding bg-white">
-      <div className="container-tikno">
+      <div className="container-impulso">
         <div className="flex justify-between items-end mb-12">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-tikno-gray-dark mb-2">
+            <h2 className="text-3xl md:text-4xl font-bold text-impulso-gray-dark mb-2">
               Proyectos Realizados
             </h2>
             <p className="text-gray-600">Calidad que se ve y se siente.</p>
           </div>
-          <a href="/proyectos" className="hidden md:block text-tikno-blue font-bold hover:underline">
+          <a href="/proyectos" className="hidden md:block text-impulso-blue font-bold hover:underline">
             Ver todo el portafolio &rarr;
           </a>
         </div>
@@ -44,7 +44,7 @@ export const PortfolioGallery = () => {
               </div>
               
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                <span className="text-tikno-yellow text-sm font-bold uppercase tracking-wider mb-1">
+                <span className="text-impulso-yellow text-sm font-bold uppercase tracking-wider mb-1">
                   {project.category}
                 </span>
                 <h3 className="text-white text-2xl font-bold">{project.title}</h3>
@@ -54,7 +54,7 @@ export const PortfolioGallery = () => {
         </div>
         
         <div className="mt-8 text-center md:hidden">
-          <a href="/proyectos" className="text-tikno-blue font-bold hover:underline">
+          <a href="/proyectos" className="text-impulso-blue font-bold hover:underline">
             Ver todo el portafolio &rarr;
           </a>
         </div>

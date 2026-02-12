@@ -2,15 +2,17 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
-import { FaBars, FaTimes, FaWhatsapp, FaBolt } from 'react-icons/fa';
+import { FaBars, FaTimes, FaWhatsapp } from 'react-icons/fa';
 import { generateWhatsAppLink } from '@/utils/whatsapp';
 
 const navLinks = [
   { name: 'Empaques', href: '/empaques' },
   { name: 'Avisos', href: '/avisos' },
-  { name: 'Kits', href: '/kits-emprendedor-publicidad' },
+  { name: 'Impresión Litográfica', href: '/impresion' },
+  { name: 'Señalética Profesional', href: '/avisos-profesionales', key: 'senaletica' },
   { name: 'Proyectos', href: '/proyectos' },
 ];
 
@@ -49,8 +51,14 @@ export const Header = () => {
         >
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="bg-tikno-yellow p-1.5 rounded-lg text-black transform group-hover:rotate-12 transition-transform">
-              <FaBolt size={16} />
+            <div className="relative w-8 h-8 transform group-hover:scale-110 transition-transform">
+              <Image
+                src="/logo.png"
+                alt="Impulso Logo"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
             <span className={`text-xl font-black tracking-tighter ${isScrolled ? 'text-white' : 'text-zinc-900'} uppercase`}>
               Impulso
@@ -58,14 +66,14 @@ export const Header = () => {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-1 bg-white/5 rounded-full p-1 border border-white/5">
+          <nav className="hidden lg:flex items-center gap-1 bg-white/5 rounded-full p-1 border border-white/5">
             {navLinks.map((link) => {
               const isActive = pathname.startsWith(link.href);
               return (
                 <Link 
-                  key={link.href} 
+                  key={link.key || link.href} 
                   href={link.href}
-                  className={`px-4 py-1.5 rounded-full text-sm font-bold transition-all ${
+                  className={`px-3 py-1.5 rounded-full text-[13px] font-bold transition-all whitespace-nowrap ${
                     isActive 
                       ? 'bg-white text-black shadow-sm' 
                       : isScrolled ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-black'
@@ -83,7 +91,7 @@ export const Header = () => {
               href={generateWhatsAppLink("Hola Impulso, quiero cotizar...")}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:flex items-center gap-2 bg-tikno-yellow text-black px-5 py-2 rounded-full font-bold text-sm hover:bg-yellow-300 transition-colors shadow-[0_0_15px_rgba(247,211,51,0.4)]"
+              className="hidden md:flex items-center gap-2 bg-impulso-yellow text-black px-5 py-2 rounded-full font-bold text-sm hover:bg-yellow-300 transition-colors shadow-[0_0_15px_rgba(247,211,51,0.4)]"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -121,7 +129,7 @@ export const Header = () => {
                 >
                   <Link 
                     href={link.href}
-                    className="block w-full text-center text-3xl font-black text-white py-2 hover:text-tikno-yellow transition-colors"
+                    className="block w-full text-center text-3xl font-black text-white py-2 hover:text-impulso-yellow transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -135,7 +143,7 @@ export const Header = () => {
               >
                 <a
                   href={generateWhatsAppLink("Hola Impulso, quiero cotizar...")}
-                  className="flex items-center justify-center gap-2 bg-tikno-yellow text-black w-full py-4 rounded-xl font-black text-lg"
+                  className="flex items-center justify-center gap-2 bg-impulso-yellow text-black w-full py-4 rounded-xl font-black text-lg"
                 >
                   <FaWhatsapp size={24} />
                   Iniciar Chat

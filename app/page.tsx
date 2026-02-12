@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     type: 'website',
   },
   authors: [{ name: 'Nicolas Moreno', url: 'https://nicolasmoreno.site' }],
-  creator: 'Tikno.pro',
-  publisher: 'Tikno.pro',
+  creator: 'Impulso.pro',
+  publisher: 'Impulso.pro',
 };
 
 export default function Home() {
@@ -56,7 +56,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-zinc-50 relative selection:bg-tikno-yellow selection:text-black">
+    <main className="min-h-screen bg-zinc-50 relative selection:bg-impulso-yellow selection:text-black">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

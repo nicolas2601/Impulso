@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --color-tikno-yellow: #E6FF00; /* Acid Yellow / Volt */
-  --color-tikno-gray-dark: #09090b; /* Zinc 950 */
-  --color-tikno-gray-light: #e4e4e7; /* Zinc 200 */
-  --color-tikno-blue: #2563eb;
-  --color-tikno-white: #FFFFFF;
+  --color-impulso-yellow: #E6FF00; /* Acid Yellow / Volt */
+  --color-impulso-gray-dark: #09090b; /* Zinc 950 */
+  --color-impulso-gray-light: #e4e4e7; /* Zinc 200 */
+  --color-impulso-blue: #2563eb;
+  --color-impulso-white: #FFFFFF;
   
   --animate-fade-in: fade-in 0.5s ease-out forwards;
   --animate-slide-up: slide-up 0.5s ease-out forwards;
@@ -47,7 +47,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Utility classes */
-.container-tikno {
+.container-impulso {
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 

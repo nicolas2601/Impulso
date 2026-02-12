@@ -23,14 +23,14 @@ const benefits = [
 export const Benefits = () => {
   return (
     <section className="section-padding bg-white">
-      <div className="container-tikno">
+      <div className="container-impulso">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
           {benefits.map((benefit, idx) => (
             <div key={idx} className="flex flex-col items-center group">
-              <div className="w-20 h-20 bg-tikno-yellow/20 rounded-full flex items-center justify-center text-3xl text-tikno-gray-dark mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-20 h-20 bg-impulso-yellow/20 rounded-full flex items-center justify-center text-3xl text-impulso-gray-dark mb-6 group-hover:scale-110 transition-transform duration-300">
                 <benefit.icon />
               </div>
-              <h3 className="text-xl font-bold mb-4 text-tikno-gray-dark">{benefit.title}</h3>
+              <h3 className="text-xl font-bold mb-4 text-impulso-gray-dark">{benefit.title}</h3>
               <p className="text-gray-600 max-w-xs">{benefit.desc}</p>
             </div>
           ))}

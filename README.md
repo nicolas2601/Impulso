@@ -1,10 +1,10 @@
-# Tikno - Sistema de Adquisición de Clientes (Lead Gen)
+# Impulso - Sistema de Adquisición de Clientes (Lead Gen)
 
 **Versión:** 1.0.0
 **Estado:** Production Ready
 **URL Desarrollo:** http://localhost:3000
 
-Tikno es una plataforma web optimizada para SEO local y conversión, diseñada para una empresa de producción gráfica en Bucaramanga. No es un sitio informativo tradicional; es un embudo de ventas que captura intención de búsqueda transaccional y la dirige a WhatsApp.
+Impulso es una plataforma web optimizada para SEO local y conversión, diseñada para una empresa de producción gráfica en Bucaramanga. No es un sitio informativo tradicional; es un embudo de ventas que captura intención de búsqueda transaccional y la dirige a WhatsApp.
 
 ## 🚀 Stack Tecnológico
 
@@ -97,10 +97,10 @@ El sitio utiliza archivos estáticos en `data/` para facilitar la edición sin b
 1.  Push a repositorio Git (GitHub/GitLab).
 2.  Importar proyecto en Vercel.
 3.  Configurar Variables de Entorno:
-    *   `NEXT_PUBLIC_SITE_URL`: https://tikno.pro
+    *   `NEXT_PUBLIC_SITE_URL`: https://impulso.pro
     *   `NEXT_PUBLIC_WHATSAPP_NUMBER`: 573112441684
 4.  Build Command: `bun run build`.
 5.  Install Command: `bun install`.
 
 ---
-© 2026 Tikno. Desarrollado con ❤️ en Bucaramanga.
+© 2026 Impulso. Desarrollado con ❤️ en Bucaramanga.

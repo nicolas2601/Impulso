@@ -6,7 +6,7 @@
 > **Ubicación:** Bucaramanga, Colombia
 
 ## 1. Visión del Proyecto
-Tikno no es un sitio web informativo corporativo; es un **sistema de adquisición de clientes (Lead Gen)**.
+Impulso no es un sitio web informativo corporativo; es un **sistema de adquisición de clientes (Lead Gen)**.
 El objetivo único es capturar tráfico de búsquedas locales en Google con alta intención de compra ("cajas para hamburguesas bucaramanga", "avisos neón") y convertirlo en conversaciones de WhatsApp.
 
 **Propuesta de Valor:** "Diseñamos, imprimimos y fabricamos todo lo visual de tu negocio en Bucaramanga. Precios claros, sin vueltas."
@@ -112,7 +112,7 @@ La estrategia es competir por **Long Tail Local** + **Producto Específico**.
 
 ## 7. Estrategia de Conversión
 *   **Funnel:** Búsqueda Google -> Landing de Producto Específico -> Ver Fotos/Precio -> Clic en WhatsApp -> Cierre Manual.
-*   **Mensajes Pre-definidos:** El link de WhatsApp debe llevar un mensaje pre-cargado: *"Hola Tikno, vi las cajas para hamburguesa en la web y quiero cotizar..."*
+*   **Mensajes Pre-definidos:** El link de WhatsApp debe llevar un mensaje pre-cargado: *"Hola Impulso, vi las cajas para hamburguesa en la web y quiero cotizar..."*
 
 ---
 *Este documento debe ser consultado antes de crear cualquier nueva página o componente para asegurar consistencia con la visión de la marca.*

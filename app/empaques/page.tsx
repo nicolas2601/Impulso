@@ -9,10 +9,10 @@ import { Button } from '@/components/ui/Button';
 import { generateWhatsAppLink } from '@/utils/whatsapp';
 
 export const metadata: Metadata = {
-  title: 'Empaques Personalizados Comida Rápida | Tikno Bucaramanga',
+  title: 'Empaques Personalizados Comida Rápida | Impulso Bucaramanga',
   description: 'Fabricación de cajas para hamburguesa, bolsas de papel y empaques take away con tu logo. Materiales biodegradables y entregas rápidas en Bucaramanga.',
   alternates: {
-    canonical: 'https://tikno.pro/empaques',
+    canonical: 'https://impulso.pro/empaques',
   },
 };
 
@@ -37,7 +37,7 @@ export default function EmpaquesPage() {
 
       <Section>
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl font-bold mb-6 text-tikno-gray-dark">
+          <h2 className="text-3xl font-bold mb-6 text-impulso-gray-dark">
             Tu marca en manos de tus clientes
           </h2>
           <p className="text-gray-600 text-lg">
@@ -63,7 +63,7 @@ export default function EmpaquesPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {features.map((feature, idx) => (
             <div key={idx} className="flex flex-col items-center text-center">
-              <div className="text-tikno-gray-dark mb-4">{feature.icon}</div>
+              <div className="text-impulso-gray-dark mb-4">{feature.icon}</div>
               <h3 className="font-bold text-xl mb-2">{feature.title}</h3>
               <p className="text-gray-600">{feature.desc}</p>
             </div>

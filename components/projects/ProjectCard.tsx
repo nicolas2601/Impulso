@@ -25,19 +25,19 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
            {/* Placeholder handling if image fails or is empty, relying on next/image */}
            <Image
              src={project.imageUrl}
-             alt={`Proyecto ${project.title} - Tikno`}
+             alt={`Proyecto ${project.title} - Impulso`}
              fill
              className="object-cover transition-transform duration-700 group-hover:scale-110"
              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
            />
            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-              <span className="inline-block px-3 py-1 bg-tikno-yellow text-tikno-gray-dark text-xs font-bold rounded-full mb-3 w-fit">
+              <span className="inline-block px-3 py-1 bg-impulso-yellow text-impulso-gray-dark text-xs font-bold rounded-full mb-3 w-fit">
                 {project.category}
               </span>
               <h3 className="text-white text-xl font-bold mb-1">{project.title}</h3>
               <p className="text-gray-300 text-sm mb-4 line-clamp-2">{project.description}</p>
               
-              <span className="text-tikno-yellow font-bold text-sm flex items-center gap-2">
+              <span className="text-impulso-yellow font-bold text-sm flex items-center gap-2">
                 Ver caso completo <FaArrowRight />
               </span>
            </div>

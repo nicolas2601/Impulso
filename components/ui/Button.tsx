@@ -30,10 +30,10 @@ export const Button = ({
   const baseStyles = "inline-flex items-center justify-center font-bold rounded-lg transition-all duration-300 relative overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
   
   const variants = {
-    primary: "bg-tikno-yellow text-tikno-gray-dark hover:bg-yellow-400 focus:ring-tikno-yellow shadow-md hover:shadow-lg",
-    secondary: "bg-tikno-gray-dark text-white hover:bg-black focus:ring-gray-800 shadow-md",
-    outline: "border-2 border-tikno-gray-dark text-tikno-gray-dark hover:bg-tikno-gray-dark hover:text-white",
-    ghost: "text-tikno-gray-dark hover:bg-gray-100",
+    primary: "bg-impulso-yellow text-impulso-gray-dark hover:bg-yellow-400 focus:ring-impulso-yellow shadow-md hover:shadow-lg",
+    secondary: "bg-impulso-gray-dark text-white hover:bg-black focus:ring-gray-800 shadow-md",
+    outline: "border-2 border-impulso-gray-dark text-impulso-gray-dark hover:bg-impulso-gray-dark hover:text-white",
+    ghost: "text-impulso-gray-dark hover:bg-gray-100",
   };
 
   const sizes = "px-6 py-3 text-base md:text-lg";

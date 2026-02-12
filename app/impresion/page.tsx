@@ -6,10 +6,10 @@ import { Breadcrumbs } from '@/components/common/Breadcrumbs';
 import { productsData } from '@/data/products';
 
 export const metadata: Metadata = {
-  title: 'Impresión Digital y Gran Formato Bucaramanga | Tikno',
-  description: 'Centro de impresión digital en Bucaramanga. Gran formato, vinilos adhesivos, sublimación y stickers. Calidad fotográfica y entregas express.',
+  title: 'Impresión Litográfica y Gran Formato Bucaramanga | Impulso',
+  description: 'Centro de impresión digital y litográfica en Bucaramanga. Gran formato, vinilos adhesivos, sublimación y stickers. Calidad fotográfica y entregas express.',
   alternates: {
-    canonical: 'https://tikno.pro/impresion',
+    canonical: 'https://impulso.pro/impresion',
   },
 };
 
@@ -31,7 +31,7 @@ export default function ImpresionPage() {
   return (
     <main>
       <PageHero 
-        title="Impresión Digital y Offset"
+        title="Impresión Litográfica y Digital"
         subtitle="Desde una tarjeta de presentación hasta vallas gigantes. Tecnología de punta para colores fieles y duraderos."
         ctaMessage="Hola, necesito imprimir..."
         ctaText="Cotizar Impresión"

@@ -22,7 +22,7 @@ export const PageHero = ({
   align = 'left'
 }: PageHeroProps) => {
   return (
-    <div className="relative w-full py-24 md:py-32 overflow-hidden bg-tikno-gray-dark text-white">
+    <div className="relative w-full py-24 md:py-32 overflow-hidden bg-impulso-gray-dark text-white">
       {/* Background with overlay */}
       <div className="absolute inset-0 z-0 opacity-30">
         <div className={`absolute inset-0 bg-gradient-to-r ${align === 'left' ? 'from-black via-black/50 to-transparent' : 'from-black/80 via-black/80 to-black/80'} z-10`} />
@@ -32,7 +32,7 @@ export const PageHero = ({
         />
       </div>
 
-      <div className={`container-tikno relative z-20 ${align === 'center' ? 'text-center' : ''}`}>
+      <div className={`container-impulso relative z-20 ${align === 'center' ? 'text-center' : ''}`}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

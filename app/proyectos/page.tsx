@@ -6,10 +6,10 @@ import { projects } from '@/data/projects';
 import { ProjectsGallery } from '@/components/projects/ProjectsGallery';
 
 export const metadata: Metadata = {
-  title: 'Portafolio de Proyectos - Tikno Bucaramanga',
+  title: 'Portafolio de Proyectos - Impulso Bucaramanga',
   description: 'Galería de trabajos realizados en diseño gráfico, empaques, avisos luminosos e impresión digital. Clientes satisfechos en Santander.',
   alternates: {
-    canonical: 'https://tikno.pro/proyectos',
+    canonical: 'https://impulso.pro/proyectos',
   },
 };
 

@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/admin/'],
     },
-    sitemap: 'https://tikno.pro/sitemap.xml',
+    sitemap: 'https://impulso.pro/sitemap.xml',
   };
 }

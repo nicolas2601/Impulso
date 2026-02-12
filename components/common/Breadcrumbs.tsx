@@ -12,10 +12,10 @@ export const Breadcrumbs = () => {
 
   return (
     <nav aria-label="Breadcrumb" className="py-4 bg-gray-50">
-      <div className="container-tikno">
+      <div className="container-impulso">
         <ol className="flex items-center text-sm text-gray-500">
           <li>
-            <Link href="/" className="hover:text-tikno-blue transition-colors">Inicio</Link>
+            <Link href="/" className="hover:text-impulso-blue transition-colors">Inicio</Link>
           </li>
           {paths.map((path, idx) => {
             const href = `/${paths.slice(0, idx + 1).join('/')}`;
@@ -26,11 +26,11 @@ export const Breadcrumbs = () => {
               <li key={path} className="flex items-center">
                 <FaChevronRight className="mx-2 text-xs text-gray-300" />
                 {isLast ? (
-                  <span className="font-bold text-tikno-gray-dark capitalize" aria-current="page">
+                  <span className="font-bold text-impulso-gray-dark capitalize" aria-current="page">
                     {title}
                   </span>
                 ) : (
-                  <Link href={href} className="hover:text-tikno-blue transition-colors capitalize">
+                  <Link href={href} className="hover:text-impulso-blue transition-colors capitalize">
                     {title}
                   </Link>
                 )}

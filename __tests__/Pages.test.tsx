@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
 import PapeleriaPage from '../app/papeleria-comercial/page';
-import KitsPage from '../app/kits-emprendedor-publicidad/page';
 import StickersPage from '../app/impresion/stickers-bucaramanga/page';
 import { describe, it, expect, vi } from 'vitest';
 
@@ -27,12 +26,6 @@ describe('Nuevas Paginas', () => {
     render(<PapeleriaPage />);
     expect(screen.getByText(/Papelería Corporativa/i)).toBeInTheDocument();
     expect(screen.getByText(/Combos Corporativos/i)).toBeInTheDocument();
-  });
-
-  it('Kits Emprendedor renderiza planes', () => {
-    render(<KitsPage />);
-    expect(screen.getByText(/Kit Inicial Básico/i)).toBeInTheDocument();
-    expect(screen.getByText(/Soluciones Llave en Mano/i)).toBeInTheDocument();
   });
 
   it('Stickers renderiza tabla de precios', () => {

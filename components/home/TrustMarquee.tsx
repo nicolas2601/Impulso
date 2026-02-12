@@ -11,7 +11,7 @@ const words = [
 
 export const TrustMarquee = () => {
   return (
-    <section className="py-12 bg-tikno-yellow border-y border-black overflow-hidden relative z-20">
+    <section className="py-12 bg-impulso-yellow border-y border-black overflow-hidden relative z-20">
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20 mix-blend-multiply"></div>
       
       <motion.div 

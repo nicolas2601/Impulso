@@ -6,20 +6,20 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-tikno-gray-dark text-white pt-16 pb-8">
-      <div className="container-tikno grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+    <footer className="bg-impulso-gray-dark text-white pt-16 pb-8">
+      <div className="container-impulso grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
         {/* Brand */}
         <div>
-          <span className="text-2xl font-black tracking-tighter mb-6 block">
-            TIKNO<span className="text-tikno-yellow">.</span>
+          <span className="text-2xl font-black tracking-tighter mb-6 block uppercase">
+            IMPULSO<span className="text-impulso-yellow">.</span>
           </span>
           <p className="text-gray-400 text-sm leading-relaxed mb-6">
             Especialistas en producción gráfica y señalética comercial en Bucaramanga. 
             Ayudamos a negocios a verse profesionales y vender más.
           </p>
           <div className="flex gap-4">
-            <a href={CONTACT_INFO.social.instagram} className="text-gray-400 hover:text-tikno-yellow transition-colors"><FaInstagram size={24} /></a>
-            <a href={CONTACT_INFO.social.facebook} className="text-gray-400 hover:text-tikno-yellow transition-colors"><FaFacebook size={24} /></a>
+            <a href={CONTACT_INFO.social.instagram} className="text-gray-400 hover:text-impulso-yellow transition-colors"><FaInstagram size={24} /></a>
+            <a href={CONTACT_INFO.social.facebook} className="text-gray-400 hover:text-impulso-yellow transition-colors"><FaFacebook size={24} /></a>
           </div>
         </div>
 
@@ -27,11 +27,11 @@ export const Footer = () => {
         <div>
           <h4 className="font-bold text-lg mb-6">Servicios</h4>
           <ul className="space-y-3 text-sm text-gray-400">
-            <li><Link href="/empaques" className="hover:text-white transition-colors">Empaques Personalizados</Link></li>
-            <li><Link href="/avisos" className="hover:text-white transition-colors">Avisos Luminosos</Link></li>
-            <li><Link href="/papeleria-comercial" className="hover:text-white transition-colors">Papelería Comercial</Link></li>
-            <li><Link href="/kits-emprendedor-publicidad" className="hover:text-white transition-colors">Kits Emprendedor</Link></li>
-            <li><Link href="/impresion" className="hover:text-white transition-colors">Impresión Digital</Link></li>
+            <li><Link href="/empaques" className="hover:text-white transition-colors">Empaques</Link></li>
+            <li><Link href="/avisos" className="hover:text-white transition-colors">Avisos</Link></li>
+            <li><Link href="/impresion" className="hover:text-white transition-colors">Impresión Litográfica</Link></li>
+            <li><Link href="/avisos-profesionales" className="hover:text-white transition-colors">Señalética Profesional</Link></li>
+            <li><Link href="/proyectos" className="hover:text-white transition-colors">Proyectos</Link></li>
           </ul>
         </div>
 
@@ -40,19 +40,19 @@ export const Footer = () => {
           <h4 className="font-bold text-lg mb-6">Contacto</h4>
           <ul className="space-y-4 text-sm text-gray-400">
             <li className="flex items-start gap-3">
-              <FaMapMarkerAlt className="mt-1 text-tikno-yellow" />
+              <FaMapMarkerAlt className="mt-1 text-impulso-yellow" />
               <span>{CONTACT_INFO.address}</span>
             </li>
             <li className="flex items-center gap-3">
-              <FaPhone className="text-tikno-yellow" />
+              <FaPhone className="text-impulso-yellow" />
               <span>{CONTACT_INFO.displayPhone}</span>
             </li>
             <li className="flex items-center gap-3">
-              <FaWhatsapp className="text-tikno-yellow" />
+              <FaWhatsapp className="text-impulso-yellow" />
               <span>{CONTACT_INFO.whatsapp}</span>
             </li>
             <li className="flex items-center gap-3">
-              <FaEnvelope className="text-tikno-yellow" />
+              <FaEnvelope className="text-impulso-yellow" />
               <span>{CONTACT_INFO.email}</span>
             </li>
           </ul>
@@ -69,12 +69,12 @@ export const Footer = () => {
         </div>
       </div>
 
-      <div className="container-tikno pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-center text-xs text-gray-600">
+      <div className="container-impulso pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-center text-xs text-gray-600">
         <p>&copy; {currentYear} Impulso. Todos los derechos reservados. Desarrollado en Bucaramanga.</p>
         <p className="flex gap-2">
-          Hecho por <a href="https://nicolasmoreno.site" target="_blank" rel="dofollow" className="text-gray-400 hover:text-tikno-yellow transition-colors">Nicolas Moreno</a> 
+          Hecho por <a href="https://nicolasmoreno.site" target="_blank" rel="dofollow" className="text-gray-400 hover:text-impulso-yellow transition-colors">Nicolas Moreno</a> 
           <span>•</span> 
-          Power by <a href="https://tikno.pro" target="_blank" rel="dofollow" className="text-gray-400 hover:text-tikno-yellow transition-colors">Tikno.pro</a>
+          Power by <a href="https://impulso.pro" target="_blank" rel="dofollow" className="text-gray-400 hover:text-impulso-yellow transition-colors">Impulso.pro</a>
         </p>
       </div>
     </footer>

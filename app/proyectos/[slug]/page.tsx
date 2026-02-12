@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${project.title} - Caso de Éxito Tikno`,
+    title: `${project.title} - Caso de Éxito Impulso`,
     description: project.description,
     openGraph: {
       images: [project.imageUrl],
@@ -60,10 +60,10 @@ export default async function ProjectDetailPage({ params }: Props) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Main Content */}
           <div className="lg:col-span-2">
-            <h2 className="text-3xl font-bold mb-6 text-tikno-gray-dark">El Desafío</h2>
+            <h2 className="text-3xl font-bold mb-6 text-impulso-gray-dark">El Desafío</h2>
             <p className="text-gray-600 mb-8 text-lg leading-relaxed">{project.challenge}</p>
 
-            <h2 className="text-3xl font-bold mb-6 text-tikno-gray-dark">La Solución Tikno</h2>
+            <h2 className="text-3xl font-bold mb-6 text-impulso-gray-dark">La Solución Impulso</h2>
             <p className="text-gray-600 mb-8 text-lg leading-relaxed">{project.solution}</p>
 
             {/* Gallery */}
@@ -105,7 +105,7 @@ export default async function ProjectDetailPage({ params }: Props) {
 
                {project.testimonial && (
                  <div className="mb-8 relative">
-                   <FaQuoteLeft className="text-tikno-yellow/30 text-4xl absolute -top-4 -left-2" />
+                   <FaQuoteLeft className="text-impulso-yellow/30 text-4xl absolute -top-4 -left-2" />
                    <blockquote className="relative z-10 italic text-gray-600 mb-4 pl-4">
                      "{project.testimonial.text}"
                    </blockquote>
@@ -134,7 +134,7 @@ export default async function ProjectDetailPage({ params }: Props) {
             name: project.title,
             creator: {
               '@type': 'Organization',
-              name: 'Tikno'
+              name: 'Impulso'
             },
             description: project.description,
             image: project.imageUrl

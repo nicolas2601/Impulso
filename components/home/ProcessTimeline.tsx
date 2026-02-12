@@ -11,11 +11,11 @@ const steps = [
 
 export const ProcessTimeline = () => {
   return (
-    <section className="section-padding bg-tikno-gray-light/20">
-      <div className="container-tikno">
+    <section className="section-padding bg-impulso-gray-light/20">
+      <div className="container-impulso">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-tikno-gray-dark mb-4">
-            Así trabajamos en Tikno
+          <h2 className="text-3xl md:text-4xl font-bold text-impulso-gray-dark mb-4">
+            Así trabajamos en Impulso
           </h2>
           <p className="text-gray-600 max-w-xl mx-auto">
             Sin burocracia. Un proceso simple diseñado para emprendedores ocupados.
@@ -29,10 +29,10 @@ export const ProcessTimeline = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {steps.map((step, idx) => (
               <div key={idx} className="relative flex flex-col items-center text-center bg-white md:bg-transparent p-6 md:p-0 rounded-xl shadow-sm md:shadow-none">
-                <div className="w-24 h-24 bg-white border-4 border-tikno-yellow rounded-full flex items-center justify-center text-3xl text-tikno-gray-dark mb-6 shadow-md relative z-10">
+                <div className="w-24 h-24 bg-white border-4 border-impulso-yellow rounded-full flex items-center justify-center text-3xl text-impulso-gray-dark mb-6 shadow-md relative z-10">
                   <step.icon />
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-tikno-gray-dark">{step.title}</h3>
+                <h3 className="text-xl font-bold mb-3 text-impulso-gray-dark">{step.title}</h3>
                 <p className="text-gray-600 text-sm">{step.desc}</p>
                 
                 {/* Mobile connector */}

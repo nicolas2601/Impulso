@@ -8,32 +8,52 @@ import { FaArrowRight } from 'react-icons/fa';
 
 const projects = [
   { 
-    id: 1, 
-    title: 'BURGER STACK', 
+    id: 'p1', 
+    title: 'EMPAQUES PARA COMIDAS RAPIDAS', 
     category: 'EMPAQUES', 
-    desc: 'Rediseño total de experiencia unboxing.',
-    color: 'from-orange-600 to-red-900'
+    desc: 'Rediseño de experiencia unboxing para marcas de food delivery. Empaques sostenibles.',
+    color: 'from-orange-600 to-red-900',
+    image: '/projects/empaques.jpeg'
   },
   { 
-    id: 2, 
-    title: 'NEON JUNGLE', 
+    id: 'p2', 
+    title: 'VISIBILIDAD INTERNA', 
+    category: 'SEÑALÉTICA', 
+    desc: 'Ofrecemos señalización interna y externa en acrílico, PVC, aluminio y materiales resistentes, garantizando visibilidad, organización y cumplimiento normativo.',
+    color: 'from-blue-600 to-indigo-900',
+    image: '/projects/p2.png'
+  },
+  { 
+    id: 'p3', 
+    title: 'LETREROS COMERCIALES DE ALTO IMPACTO', 
     category: 'AVISOS', 
-    desc: 'Instalación de neón flex de 4 metros.',
-    color: 'from-fuchsia-600 to-purple-900'
+    desc: 'Realizamos avisos luminosos, letras corpóreas, avisos en acrílico, aluminio y estructuras metálicas para exteriores e interiores. Soluciones resistentes y personalizadas para destacar tu marca.',
+    color: 'from-fuchsia-600 to-purple-900',
+    image: '/projects/p3.png'
   },
   { 
-    id: 3, 
-    title: 'VELVET BOUTIQUE', 
-    category: 'KITS', 
-    desc: 'Kit de inicio completo para marca de lujo.',
-    color: 'from-rose-400 to-pink-900'
+    id: 'p4', 
+    title: 'IMPRIME CON CALIDAD PORFESIONAL', 
+    category: 'IMPRESIÓN LITOGRAFICA', 
+    desc: 'Imprimimos tarjetas de presentación, brochures, volantes, catálogos y papelería corporativa con acabados precisos y colores vibrantes. Servicio rápido y personalizado..',
+    color: 'from-emerald-600 to-teal-900',
+    image: '/projects/p4.png'
   },
   { 
-    id: 4, 
-    title: 'URBAN PIZZA', 
-    category: 'EMPAQUES', 
-    desc: 'Cajas negras con tinta metalizada.',
-    color: 'from-zinc-700 to-black'
+    id: 'p5', 
+    title: 'DISEÑO Y PRODUCCIÓN DE ADHESIVOS', 
+    category: 'AHDESIVOS', 
+    desc: 'Diseñamos e instalamos vinilo adhesivo para paredes, vitrinas, fachadas y señalización interna, con acabados profesionales y materiales de alta durabilidad..',
+    color: 'from-amber-500 to-orange-800',
+    image: '/projects/p5.png'
+  },
+  { 
+    id: 'p6', 
+    title: 'IMPRESION DE ETIQUETAS AHDESIVAS Y CARTON', 
+    category: 'ETIQUETAS', 
+    desc: 'Fabricamos etiquetas para productos adhesivas y en cartón, ideales para alimentos, cosméticos, ropa, empaques y todo tipo de marcas. Ofrecemos impresión de alta calidad, acabados profesionales y materiales resistentes que realzan la presentación de tu producto.',
+    color: 'from-zinc-700 to-black',
+    image: '/projects/p6.png'
   },
 ];
 
@@ -44,38 +64,50 @@ const ProjectRow = ({ project, index }: { project: any, index: number }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="group relative border-t border-white/10 py-16 transition-colors hover:bg-white/5 cursor-pointer"
+      className="group relative border-t border-white/10 py-10 md:py-14 transition-colors hover:bg-white/5 cursor-pointer"
     >
-      <Link href="/proyectos" className="container-tikno flex flex-col md:flex-row md:items-center justify-between gap-8">
+      <Link href="/proyectos" className="container-impulso flex flex-col md:flex-row md:items-center justify-between gap-6 md:gap-8">
         
         {/* Text Content */}
         <div className="flex-1">
-          <div className="flex items-center gap-4 mb-4">
-             <span className="text-xs font-bold text-tikno-yellow px-2 py-1 border border-tikno-yellow/20 rounded-full">
+          <div className="flex items-center gap-4 mb-2 md:mb-3">
+             <span className="text-[10px] font-bold text-impulso-yellow px-2 py-0.5 border border-impulso-yellow/20 rounded-full">
                0{index + 1}
              </span>
-             <span className="text-sm font-bold text-gray-400 tracking-widest uppercase">
+             <span className="text-[10px] md:text-xs font-bold text-gray-500 tracking-widest uppercase">
                {project.category}
              </span>
           </div>
-          <h3 className="text-5xl md:text-7xl font-black text-white mb-4 group-hover:text-tikno-yellow transition-colors leading-[0.9]">
+          <h3 className="text-2xl md:text-5xl font-black text-white mb-2 md:mb-3 group-hover:text-impulso-yellow transition-colors leading-tight uppercase">
             {project.title}
           </h3>
-          <p className="text-gray-400 max-w-md text-lg group-hover:text-white transition-colors">
+          <p className="text-gray-400 max-w-xl text-xs md:text-base group-hover:text-white transition-colors leading-relaxed">
             {project.desc}
           </p>
         </div>
 
-        {/* Visual Preview (Abstract for now) */}
-        <div className="relative w-full md:w-1/3 aspect-[16/9] overflow-hidden rounded-xl bg-zinc-900 group-hover:scale-105 transition-transform duration-500">
-           <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-40 group-hover:opacity-100 transition-opacity duration-500`}></div>
-           {/* Placeholder text mimicking image */}
+        {/* Visual Preview */}
+        <div className="relative w-full md:w-[450px] aspect-[16/9] overflow-hidden rounded-xl bg-zinc-900 group-hover:scale-105 transition-transform duration-500 shadow-2xl">
+           {project.image ? (
+             <>
+               <Image 
+                 src={project.image} 
+                 alt={project.title} 
+                 fill 
+                 className="object-cover opacity-70 group-hover:opacity-90 transition-opacity duration-500"
+               />
+               <div className={`absolute inset-0 bg-gradient-to-br ${project.color} mix-blend-overlay opacity-20`}></div>
+             </>
+           ) : (
+             <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-40 group-hover:opacity-100 transition-opacity duration-500`}></div>
+           )}
+           
            <div className="absolute inset-0 flex items-center justify-center">
-             <span className="text-white/20 font-black text-4xl uppercase mix-blend-overlay group-hover:scale-110 transition-transform duration-700">Preview</span>
+             <span className="text-white/40 font-black text-xl md:text-2xl uppercase mix-blend-overlay group-hover:scale-110 transition-transform duration-700 tracking-tighter">Explorar</span>
            </div>
         </div>
         
-        <div className="md:hidden flex items-center gap-2 text-tikno-yellow font-bold text-sm mt-4">
+        <div className="md:hidden flex items-center gap-2 text-impulso-yellow font-bold text-[10px] mt-2 tracking-widest">
           VER PROYECTO <FaArrowRight />
         </div>
       </Link>
@@ -89,13 +121,13 @@ export const ImmersiveGallery = () => {
       {/* Background Glow */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
 
-      <div className="container-tikno mb-20 flex flex-col md:flex-row items-end justify-between gap-8">
+      <div className="container-impulso mb-20 flex flex-col md:flex-row items-end justify-between gap-8">
         <div>
-          <h2 className="text-6xl md:text-8xl font-black text-white tracking-tighter mb-6 leading-[0.85]">
+          <h2 className="text-4xl md:text-8xl font-black text-white tracking-tighter mb-4 md:mb-6 leading-[0.85]">
             TRABAJO <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-tikno-yellow to-white">REAL.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-impulso-yellow to-white">REAL.</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-xl">
+          <p className="text-base md:text-xl text-gray-400 max-w-xl">
             No vendemos humo. Vendemos resultados visuales que hacen que tu caja registradora suene.
           </p>
         </div>
@@ -114,7 +146,7 @@ export const ImmersiveGallery = () => {
         ))}
       </div>
       
-      <div className="container-tikno mt-12 md:hidden">
+      <div className="container-impulso mt-12 md:hidden">
         <Link 
           href="/proyectos"
           className="flex w-full justify-center items-center gap-2 px-8 py-4 rounded-full bg-white text-black font-bold"

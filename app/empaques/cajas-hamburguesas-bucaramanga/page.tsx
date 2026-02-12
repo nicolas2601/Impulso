@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'Cajas para Hamburguesas en Bucaramanga | Personalizadas',
   description: 'Fabricación de cajas para hamburguesas con logo en Bucaramanga. Cartón kraft antigrasa, automontables y económicas. Cotiza por millar.',
   alternates: {
-    canonical: 'https://tikno.pro/empaques/cajas-hamburguesas-bucaramanga',
+    canonical: 'https://impulso.pro/empaques/cajas-hamburguesas-bucaramanga',
   },
 };
 
@@ -31,7 +31,7 @@ export default function CajasHamburguesaPage() {
       <Section>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl font-bold mb-6 text-tikno-gray-dark">
+            <h2 className="text-3xl font-bold mb-6 text-impulso-gray-dark">
               Especificaciones Técnicas
             </h2>
             <p className="text-gray-600 mb-6">
@@ -47,7 +47,7 @@ export default function CajasHamburguesaPage() {
                 "Ventilación trasera para evitar condensación"
               ].map((item, idx) => (
                 <li key={idx} className="flex items-start gap-3">
-                  <span className="mt-1 text-tikno-yellow bg-tikno-gray-dark rounded-full p-1 text-xs"><FaCheck /></span>
+                  <span className="mt-1 text-impulso-yellow bg-impulso-gray-dark rounded-full p-1 text-xs"><FaCheck /></span>
                   <span className="text-gray-700 font-medium">{item}</span>
                 </li>
               ))}
@@ -70,7 +70,7 @@ export default function CajasHamburguesaPage() {
       </Section>
 
       <Section bg="gray">
-        <h2 className="text-3xl font-bold mb-10 text-center text-tikno-gray-dark">Opciones Disponibles</h2>
+        <h2 className="text-3xl font-bold mb-10 text-center text-impulso-gray-dark">Opciones Disponibles</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             { title: "Línea Económica", desc: "Cartón Kraft 280g, 1 tinta, sin plastificar. Ideal para iniciar.", price: "Desde $450" },
@@ -80,7 +80,7 @@ export default function CajasHamburguesaPage() {
             <div key={idx} className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
               <h3 className="font-bold text-xl mb-2">{opt.title}</h3>
               <p className="text-gray-600 text-sm mb-4">{opt.desc}</p>
-              <p className="text-tikno-blue font-bold text-lg mb-6">{opt.price}</p>
+              <p className="text-impulso-blue font-bold text-lg mb-6">{opt.price}</p>
               <Button variant="outline" fullWidth href={generateWhatsAppLink(`Me interesa la ${opt.title} de cajas...`)}>
                 Cotizar esta
               </Button>
@@ -97,7 +97,7 @@ export default function CajasHamburguesaPage() {
             '@type': 'Product',
             name: 'Cajas para Hamburguesas Personalizadas',
             description: 'Cajas de cartón para hamburguesas con impresión personalizada en Bucaramanga.',
-            brand: { '@type': 'Brand', name: 'Tikno' },
+            brand: { '@type': 'Brand', name: 'Impulso' },
             offers: {
               '@type': 'AggregateOffer',
               priceCurrency: 'COP',
