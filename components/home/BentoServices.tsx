@@ -2,7 +2,16 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { FaBox, FaLightbulb, FaPrint, FaRocket, FaArrowRight } from 'react-icons/fa';
+import { 
+  FaBox, 
+  FaLightbulb, 
+  FaPrint, 
+  FaArrowRight, 
+  FaFillDrip, 
+  FaTags, 
+  FaDirections, 
+  FaBriefcase 
+} from 'react-icons/fa';
 
 const BentoCard = ({ title, desc, icon: Icon, href, className, delay }: any) => (
   <motion.div
@@ -41,16 +50,16 @@ export const BentoServices = () => {
             TODO LO QUE NECESITAS. <br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-impulso-yellow to-yellow-600">EN UN SOLO LUGAR.</span>
           </h2>
-          <p className="text-xl text-zinc-500">
-            Simplificamos la producción visual de tu negocio. Calidad industrial, diseño boutique.
+          <p className="text-xl text-zinc-500 px-4 md:px-0">
+            Simplificamos la producción visual de tu negocio. Calidad industrial, diseño boutique para cada necesidad.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
-          {/* Empaques - Large */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px] md:auto-rows-[350px]">
+          {/* Empaques */}
           <BentoCard 
-            title="Empaques Branding"
-            desc="Cajas y bolsas que convierten entregas en experiencias. El unboxing perfecto."
+            title="Empaques"
+            desc="Cajas y bolsas personalizadas que elevan la experiencia de unboxing de tu marca."
             icon={FaBox}
             href="/empaques"
             className="md:col-span-2 bg-zinc-900 text-white"
@@ -59,32 +68,62 @@ export const BentoServices = () => {
           
           {/* Avisos */}
           <BentoCard 
-            title="Avisos Luminosos"
-            desc="Neón flex y cajas de luz para dominar la noche."
+            title="Avisos"
+            desc="Letreros luminosos y neón flex para que tu negocio destaque día y noche."
             icon={FaLightbulb}
             href="/avisos"
             className="md:col-span-1 bg-zinc-100"
             delay={0.2}
           />
 
-          {/* Litografía - Tall */}
+          {/* Adhesivos */}
           <BentoCard 
-            title="Litografía"
-            desc="Impresión offset para grandes volúmenes. Revistas y catálogos."
-            icon={FaRocket}
-            href="/litografia-bucaramanga"
-            className="md:col-span-1 md:row-span-2 bg-impulso-yellow text-zinc-900"
+            title="Adhesivos"
+            desc="Vinilos decorativos y microperforados para transformar tus paredes y vidrios."
+            icon={FaFillDrip}
+            href="/adhesivos"
+            className="md:col-span-1 bg-zinc-50"
             delay={0.3}
+          />
+
+          {/* Etiquetas */}
+          <BentoCard 
+            title="Etiquetas"
+            desc="Stickers y etiquetas adhesivas de alta resistencia para todos tus productos."
+            icon={FaTags}
+            href="/etiquetas"
+            className="md:col-span-1 bg-impulso-yellow text-zinc-900"
+            delay={0.4}
+          />
+
+          {/* Señalética */}
+          <BentoCard 
+            title="Señalética"
+            desc="Sistemas de señalización profesional para interiores y exteriores de empresas."
+            icon={FaDirections}
+            href="/avisos-profesionales"
+            className="md:col-span-1 bg-zinc-100"
+            delay={0.5}
           />
 
           {/* Impresión */}
           <BentoCard 
-            title="Impresión Litografica"
-            desc="Stickers, gran formato y papelería comercial."
+            title="Impresión"
+            desc="Gran formato, papelería comercial y servicios de litografía de alta precisión."
             icon={FaPrint}
             href="/impresion"
-            className="md:col-span-2 bg-zinc-100"
-            delay={0.4}
+            className="md:col-span-2 bg-zinc-50"
+            delay={0.6}
+          />
+
+          {/* Proyectos */}
+          <BentoCard 
+            title="Proyectos"
+            desc="Explora nuestro portafolio de trabajos realizados para clientes satisfechos."
+            icon={FaBriefcase}
+            href="/proyectos"
+            className="md:col-span-1 bg-zinc-900 text-white"
+            delay={0.7}
           />
         </div>
       </div>
