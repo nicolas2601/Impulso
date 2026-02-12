@@ -3,9 +3,9 @@ export const generateLocalBusinessSchema = () => {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'Impulso',
-    image: 'https://impulso.pro/logo.png', // Replace with real asset
-    '@id': 'https://impulso.pro',
-    url: 'https://impulso.pro',
+    image: 'https://impulsopublicidad.pro/logo.png', // Replace with real asset
+    '@id': 'https://impulsopublicidad.pro',
+    url: 'https://impulsopublicidad.pro',
     telephone: '+573112441684',
     address: {
       '@type': 'PostalAddress',

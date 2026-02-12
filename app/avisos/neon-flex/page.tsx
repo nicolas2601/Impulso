@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: 'Letreros Neón Flex Personalizados | Impulso Bucaramanga',
   description: 'Diseño y fabricación de letreros en neón flex. Decoración moderna para bares, restaurantes y habitaciones. Colores vibrantes y bajo consumo.',
   alternates: {
-    canonical: 'https://impulso.pro/avisos/neon-flex',
+    canonical: 'https://impulsopublicidad.pro/avisos/neon-flex',
   },
 };
 

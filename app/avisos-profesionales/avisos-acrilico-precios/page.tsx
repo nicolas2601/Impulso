@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'Avisos en Acrílico Precios | Señalética Oficina Bucaramanga',
   description: 'Precios transparentes de avisos en acrílico y vidrio templado. Señalética para oficinas, recepciones y consultorios en Bucaramanga.',
   alternates: {
-    canonical: 'https://impulso.pro/avisos/avisos-acrilico-precios',
+    canonical: 'https://impulsopublicidad.pro/avisos/avisos-acrilico-precios',
   },
 };
 

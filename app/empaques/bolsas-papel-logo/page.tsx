@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'Bolsas de Papel con Logo | Kraft y Bond en Bucaramanga',
   description: 'Bolsas de papel personalizadas para tiendas y domicilios. Ecológicas, resistentes y económicas. Cotiza bolsas kraft con tu marca.',
   alternates: {
-    canonical: 'https://impulso.pro/empaques/bolsas-papel-logo',
+    canonical: 'https://impulsopublicidad.pro/empaques/bolsas-papel-logo',
   },
 };
 

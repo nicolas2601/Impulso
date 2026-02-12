@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Señalética Profesional e Industrial Bucaramanga | Impulso',
   description: 'Fabricación de señalética corporativa, industrial y de seguridad. Materiales resistentes como acrílico, PVC y aluminio en Bucaramanga.',
   alternates: {
-    canonical: 'https://impulso.pro/avisos-profesionales',
+    canonical: 'https://impulsopublicidad.pro/avisos-profesionales',
   },
 };
 

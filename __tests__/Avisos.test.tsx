@@ -4,27 +4,11 @@ import AcrilicoPage from '../app/avisos/avisos-acrilico-precios/page';
 import NeonPage from '../app/avisos/neon-flex/page';
 import { describe, it, expect, vi } from 'vitest';
 
-// Reuse mocks or create setup file
-vi.mock('framer-motion', () => ({
-  motion: {
-    div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
-    button: ({ children, ...props }: any) => <button {...props}>{children}</button>,
-    article: ({ children, ...props }: any) => <article {...props}>{children}</article>,
-  },
-}));
-
-vi.mock('next/navigation', () => ({
-  usePathname: () => '/avisos',
-}));
-
-vi.mock('next/image', () => ({
-  default: (props: any) => <img {...props} />,
-}));
-
 describe('Avisos Silo', () => {
   it('renders Avisos Hub page', () => {
     render(<AvisosPage />);
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/Avisos Luminosos/i);
+    expect(screen.getByText(/ILUMINA TU/i)).toBeInTheDocument();
   });
 
   it('renders Acrilico Table', () => {

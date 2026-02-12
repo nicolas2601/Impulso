@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     type: 'website',
   },
   authors: [{ name: 'Nicolas Moreno', url: 'https://nicolasmoreno.site' }],
-  creator: 'Impulso.pro',
-  publisher: 'Impulso.pro',
+  creator: 'impulsopublicidad.pro',
+  publisher: 'impulsopublicidad.pro',
 };
 
 export default function Home() {

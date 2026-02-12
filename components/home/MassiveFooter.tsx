@@ -63,7 +63,7 @@ export const MassiveFooter = () => {
           <div className="flex gap-2 items-center">
             CREADO POR <a href="https://nicolasmoreno.site" target="_blank" rel="dofollow" className="hover:text-white transition-colors underline decoration-black/20 underline-offset-4">NICOLAS MORENO</a> 
             <span>•</span> 
-            UNA PRODUCCIÓN DE <a href="https://impulso.pro" target="_blank" rel="dofollow" className="hover:text-white transition-colors underline decoration-black/20 underline-offset-4">TIKNO.PRO</a>
+            UNA PRODUCCIÓN DE <a href="https://impulsopublicidad.pro" target="_blank" rel="dofollow" className="hover:text-white transition-colors underline decoration-black/20 underline-offset-4">TIKNO.PRO</a>
           </div>
         </div>
       </div>

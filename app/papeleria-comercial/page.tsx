@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'Papelería Comercial Bucaramanga | Tarjetas y Factureros',
   description: 'Imprenta de papelería corporativa: tarjetas de presentación, volantes, factureros y carpetas. Precios especiales por mayor en Bucaramanga.',
   alternates: {
-    canonical: 'https://impulso.pro/papeleria-comercial',
+    canonical: 'https://impulsopublicidad.pro/papeleria-comercial',
   },
 };
 

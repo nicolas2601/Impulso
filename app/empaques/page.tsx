@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'Empaques Personalizados Comida Rápida | Impulso Bucaramanga',
   description: 'Fabricación de cajas para hamburguesa, bolsas de papel y empaques take away con tu logo. Materiales biodegradables y entregas rápidas en Bucaramanga.',
   alternates: {
-    canonical: 'https://impulso.pro/empaques',
+    canonical: 'https://impulsopublicidad.pro/empaques',
   },
 };
 

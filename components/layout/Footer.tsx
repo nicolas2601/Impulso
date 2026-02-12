@@ -73,7 +73,7 @@ export const Footer = () => {
         <p className="flex gap-2">
           Hecho por <a href="https://nicolasmoreno.site" target="_blank" rel="dofollow" className="text-gray-400 hover:text-impulso-yellow transition-colors">Nicolas Moreno</a> 
           <span>•</span> 
-          Power by <a href="https://impulso.pro" target="_blank" rel="dofollow" className="text-gray-400 hover:text-impulso-yellow transition-colors">Impulso.pro</a>
+          Power by <a href="https://impulsopublicidad.pro" target="_blank" rel="dofollow" className="text-gray-400 hover:text-impulso-yellow transition-colors">impulsopublicidad.pro</a>
         </p>
       </div>
     </footer>

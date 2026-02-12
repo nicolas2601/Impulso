@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Impresión Litográfica y Digital en Bucaramanga | Impulso',
   description: 'Servicios de impresión de alta calidad: volantes, tarjetas, catálogos y gran formato. Colores vibrantes y acabados profesionales en Bucaramanga.',
   alternates: {
-    canonical: 'https://impulso.pro/impresion',
+    canonical: 'https://impulsopublicidad.pro/impresion',
   },
 };
 

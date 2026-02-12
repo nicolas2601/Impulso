@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'Stickers en Bucaramanga | Impresión de Etiquetas Adhesivas',
   description: 'Impresión de stickers personalizados y etiquetas adhesivas en vinilo o papel. Troquelado digital cualquier forma. Precios por cantidad.',
   alternates: {
-    canonical: 'https://impulso.pro/impresion/stickers-bucaramanga',
+    canonical: 'https://impulsopublicidad.pro/impresion/stickers-bucaramanga',
   },
 };
 

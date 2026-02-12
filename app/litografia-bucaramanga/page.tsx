@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: 'Litografía Bucaramanga | Impresión Offset Mayorista',
   description: 'Servicios de litografía e imprenta offset para grandes volúmenes. Revistas, catálogos, y papelería masiva. Calidad industrial.',
   alternates: {
-    canonical: 'https://impulso.pro/litografia-bucaramanga',
+    canonical: 'https://impulsopublicidad.pro/litografia-bucaramanga',
   },
 };
 

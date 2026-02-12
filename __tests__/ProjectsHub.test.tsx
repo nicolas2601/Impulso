@@ -15,8 +15,8 @@ vi.mock('next/navigation', () => ({
   usePathname: () => '/proyectos', // Mock usePathname to return a string
 }));
 
-vi.mock('../components/projects/ProjectsGallery', () => ({
-  ProjectsGallery: () => <div data-testid="gallery">Gallery Mock</div>,
+vi.mock('../components/projects/ProjectsCollage', () => ({
+  ProjectsCollage: () => <div data-testid="gallery">Gallery Mock</div>,
 }));
 
 vi.mock('../components/common/PageHero', () => ({
@@ -26,7 +26,7 @@ vi.mock('../components/common/PageHero', () => ({
 describe('Projects Hub Page', () => {
   it('renders page hero', () => {
     render(<ProyectosPage />);
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/Nuestros Trabajos/i);
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/Portafolio de Proyectos/i);
   });
 
   it('renders gallery component', () => {

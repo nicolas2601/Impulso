@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Etiquetas y Stickers Personalizados Bucaramanga | Impulso',
   description: 'Fabricación de etiquetas adhesivas para productos, stickers en rollo y etiquetas de cartón. Impresión de alta calidad para marcas en Bucaramanga.',
   alternates: {
-    canonical: 'https://impulso.pro/etiquetas',
+    canonical: 'https://impulsopublicidad.pro/etiquetas',
   },
 };
 

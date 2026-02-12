@@ -2,12 +2,13 @@ import { MetadataRoute } from 'next';
 import { productsData } from '@/data/products';
 import { projects } from '@/data/projects';
 
-const SITE_URL = 'https://impulso.pro';
+const SITE_URL = 'https://impulsopublicidad.pro';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Static Routes
   const staticRoutes = [
     '',
+    '/adhesivos',
     '/empaques',
     '/avisos',
     '/papeleria-comercial',

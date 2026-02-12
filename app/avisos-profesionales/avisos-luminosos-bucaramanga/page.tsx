@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'Avisos Luminosos Bucaramanga | Cajas de Luz y Letras 3D',
   description: 'Avisos luminosos LED, cajas de luz y letras corpóreas. Aumenta tus ventas con un aviso que destaque. Garantía y mantenimiento incluido.',
   alternates: {
-    canonical: 'https://impulso.pro/avisos/avisos-luminosos-bucaramanga',
+    canonical: 'https://impulsopublicidad.pro/avisos/avisos-luminosos-bucaramanga',
   },
 };
 

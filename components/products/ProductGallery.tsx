@@ -46,34 +46,35 @@ export const ProductGallery = ({
     <section ref={containerRef} className="relative py-32 bg-zinc-950 overflow-hidden -mt-1">
       <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black/20 to-transparent pointer-events-none"></div>
 
-      <div className="absolute top-1/2 left-0 w-full overflow-hidden pointer-events-none opacity-[0.03] select-none -translate-y-1/2">
-        <span className="text-[25vw] font-black leading-none whitespace-nowrap block text-white -ml-[10%] italic uppercase">
-          {category} {category}
+      <div className="absolute top-1/2 left-0 w-full overflow-hidden pointer-events-none opacity-[0.015] select-none -translate-y-1/2">
+        <span className="text-[20vw] font-black leading-none whitespace-nowrap block text-white -ml-[5%] italic uppercase">
+          {category} {category} {category}
         </span>
       </div>
 
-      <div className="container-impulso relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="container-impulso relative z-10 px-6 md:px-8">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
           <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            className="w-full text-left lg:mb-0 lg:max-w-xl xl:max-w-2xl" 
           >
-            <div className="flex items-center gap-4 mb-8">
+            <div className="flex items-center gap-4 mb-6 md:mb-8">
               <span className="w-12 h-[1px] bg-impulso-yellow"></span>
-              <span className="text-impulso-yellow font-black text-xs tracking-[0.3em] uppercase">
+              <span className="text-impulso-yellow font-black text-[10px] md:text-xs tracking-[0.3em] uppercase">
                 Producción Real
               </span>
             </div>
             
-            <h2 className="text-6xl md:text-8xl font-black text-white leading-[0.9] tracking-tighter mb-8">
+            <h2 className="text-[12vw] sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-black text-white leading-[0.85] tracking-tighter mb-6 md:mb-8 max-w-[12ch] lg:max-w-none">
               {title} <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-impulso-yellow via-white to-zinc-500">{accentTitle}</span>
             </h2>
             
-            <p className="text-xl text-zinc-400 mb-12 max-w-lg leading-relaxed font-light">
+            <p className="text-base md:text-xl text-zinc-400 mb-8 md:mb-12 max-w-lg leading-relaxed font-light">
               {description}
             </p>
             

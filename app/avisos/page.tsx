@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Avisos Luminosos y Letreros Bucaramanga | Impulso',
   description: 'Fabricación de avisos luminosos, neón flex, letras corpóreas y cajas de luz. Visibilidad 24/7 para tu negocio en Bucaramanga.',
   alternates: {
-    canonical: 'https://impulso.pro/avisos',
+    canonical: 'https://impulsopublicidad.pro/avisos',
   },
 };
 

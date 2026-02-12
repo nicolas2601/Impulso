@@ -97,7 +97,7 @@ El sitio utiliza archivos estáticos en `data/` para facilitar la edición sin b
 1.  Push a repositorio Git (GitHub/GitLab).
 2.  Importar proyecto en Vercel.
 3.  Configurar Variables de Entorno:
-    *   `NEXT_PUBLIC_SITE_URL`: https://impulso.pro
+    *   `NEXT_PUBLIC_SITE_URL`: https://impulsopublicidad.pro
     *   `NEXT_PUBLIC_WHATSAPP_NUMBER`: 573112441684
 4.  Build Command: `bun run build`.
 5.  Install Command: `bun install`.

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'Cajas para Hamburguesas en Bucaramanga | Personalizadas',
   description: 'Fabricación de cajas para hamburguesas con logo en Bucaramanga. Cartón kraft antigrasa, automontables y económicas. Cotiza por millar.',
   alternates: {
-    canonical: 'https://impulso.pro/empaques/cajas-hamburguesas-bucaramanga',
+    canonical: 'https://impulsopublicidad.pro/empaques/cajas-hamburguesas-bucaramanga',
   },
 };
 

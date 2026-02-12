@@ -13,5 +13,5 @@ export const SITE_CONFIG = {
   name: 'Impulso',
   description: 'Diseñamos, imprimimos y fabricamos el impacto visual de tu negocio en Bucaramanga.',
   locale: 'es_CO',
-  domain: 'https://impulso.pro',
+  domain: 'https://impulsopublicidad.pro',
 };
