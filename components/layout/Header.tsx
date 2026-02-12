@@ -11,8 +11,10 @@ import { generateWhatsAppLink } from '@/utils/whatsapp';
 const navLinks = [
   { name: 'Empaques', href: '/empaques' },
   { name: 'Avisos', href: '/avisos' },
-  { name: 'Impresión Litográfica', href: '/impresion' },
-  { name: 'Señalética Profesional', href: '/avisos-profesionales', key: 'senaletica' },
+  { name: 'Adhesivos', href: '/adhesivos' },
+  { name: 'Etiquetas', href: '/etiquetas' },
+  { name: 'Impresión', href: '/impresion' },
+  { name: 'Señalética', href: '/avisos-profesionales', key: 'senaletica' },
   { name: 'Proyectos', href: '/proyectos' },
 ];
 
@@ -50,8 +52,8 @@ export const Header = () => {
           }}
         >
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="relative w-8 h-8 transform group-hover:scale-110 transition-transform">
+          <Link href="/" className="flex items-center gap-3 group shrink-0">
+            <div className="relative w-9 h-9 transform group-hover:scale-110 transition-transform duration-300">
               <Image
                 src="/logo.png"
                 alt="Impulso Logo"
@@ -60,23 +62,23 @@ export const Header = () => {
                 priority
               />
             </div>
-            <span className={`text-xl font-black tracking-tighter ${isScrolled ? 'text-white' : 'text-zinc-900'} uppercase`}>
+            <span className={`text-xl font-black tracking-tighter ${isScrolled ? 'text-white' : 'text-zinc-900'} uppercase transition-colors`}>
               Impulso
             </span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-1 bg-white/5 rounded-full p-1 border border-white/5">
+          <nav className="hidden lg:flex items-center gap-2 bg-white/5 rounded-full p-1.5 border border-white/5 mx-8">
             {navLinks.map((link) => {
               const isActive = pathname.startsWith(link.href);
               return (
                 <Link 
                   key={link.key || link.href} 
                   href={link.href}
-                  className={`px-3 py-1.5 rounded-full text-[13px] font-bold transition-all whitespace-nowrap ${
+                  className={`px-4 py-2 rounded-full text-[13px] font-bold transition-all whitespace-nowrap tracking-wide ${
                     isActive 
-                      ? 'bg-white text-black shadow-sm' 
-                      : isScrolled ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-black'
+                      ? 'bg-white text-black shadow-lg scale-105' 
+                      : isScrolled ? 'text-gray-300 hover:text-white hover:bg-white/10' : 'text-gray-600 hover:text-black hover:bg-black/5'
                   }`}
                 >
                   {link.name}

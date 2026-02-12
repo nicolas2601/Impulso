@@ -25,11 +25,11 @@ export const metadata: Metadata = {
   description: SITE_CONFIG.description,
   icons: {
     icon: [
-      { url: '/favicon.png', size: '32x32' },
-      { url: '/icon.png', size: '192x192' },
+      { url: '/favicon.png', sizes: '32x32' },
+      { url: '/icon.png', sizes: '192x192' },
     ],
     apple: [
-      { url: '/apple-icon.png', size: '180x180' },
+      { url: '/apple-icon.png', sizes: '180x180' },
     ],
     shortcut: '/favicon.png',
   },

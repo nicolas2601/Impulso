@@ -6,30 +6,30 @@ import Image from 'next/image';
 import { FaChevronLeft, FaChevronRight, FaWhatsapp } from 'react-icons/fa';
 import { generateWhatsAppLink } from '@/utils/whatsapp';
 
-const images = [
-  '/Empaques/Empaques.jpeg',
-  '/Empaques/Empaques 2.jpeg',
-  '/Empaques/Empaques 3.jpeg',
-  '/Empaques/Empaques 4.jpeg',
-  '/Empaques/Empaques 5.jpeg',
-  '/Empaques/Empaques 6.jpeg',
-  '/Empaques/Empaques 7.jpeg',
-  '/Empaques/Empaques 8.jpeg',
-  '/Empaques/Empaques 9.jpeg',
-  '/Empaques/Empaques 10.jpeg',
-];
+interface ProductGalleryProps {
+  title: string;
+  accentTitle: string;
+  description: string;
+  images: string[];
+  category: string;
+}
 
-export const EmpaquesGallery = () => {
+export const ProductGallery = ({ 
+  title, 
+  accentTitle, 
+  description, 
+  images, 
+  category 
+}: ProductGalleryProps) => {
   const [index, setIndex] = useState(0);
   const containerRef = useRef(null);
   
-  // Auto-play functionality
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [images.length]);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -44,20 +44,17 @@ export const EmpaquesGallery = () => {
 
   return (
     <section ref={containerRef} className="relative py-32 bg-zinc-950 overflow-hidden -mt-1">
-      {/* Visual connection with Hero - Subtle gradient top */}
       <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black/20 to-transparent pointer-events-none"></div>
 
-      {/* Decorative text background */}
       <div className="absolute top-1/2 left-0 w-full overflow-hidden pointer-events-none opacity-[0.03] select-none -translate-y-1/2">
-        <span className="text-[25vw] font-black leading-none whitespace-nowrap block text-white -ml-[10%] italic">
-          PREMIUM PACKAGING PREMIUM PACKAGING
+        <span className="text-[25vw] font-black leading-none whitespace-nowrap block text-white -ml-[10%] italic uppercase">
+          {category} {category}
         </span>
       </div>
 
       <div className="container-impulso relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
-          {/* Left Side: Content */}
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -67,22 +64,22 @@ export const EmpaquesGallery = () => {
             <div className="flex items-center gap-4 mb-8">
               <span className="w-12 h-[1px] bg-impulso-yellow"></span>
               <span className="text-impulso-yellow font-black text-xs tracking-[0.3em] uppercase">
-                Portafolio de Producción
+                Producción Real
               </span>
             </div>
             
             <h2 className="text-6xl md:text-8xl font-black text-white leading-[0.9] tracking-tighter mb-8">
-              CALIDAD QUE <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-impulso-yellow via-white to-zinc-500">SE SIENTE.</span>
+              {title} <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-impulso-yellow via-white to-zinc-500">{accentTitle}</span>
             </h2>
             
             <p className="text-xl text-zinc-400 mb-12 max-w-lg leading-relaxed font-light">
-              Desde cartón microcorrugado hasta acabados de lujo. Cada imagen es un proyecto real entregado en Bucaramanga. <span className="text-white font-medium">Diseño que protege, marca que vende.</span>
+              {description}
             </p>
             
             <div className="flex flex-wrap gap-6 items-center">
               <motion.a 
-                href={generateWhatsAppLink("Hola, vi la galería de empaques y quiero cotizar...")}
+                href={generateWhatsAppLink(`Hola, vi la galería de ${category} y quiero cotizar...`)}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
@@ -119,7 +116,6 @@ export const EmpaquesGallery = () => {
             </div>
           </motion.div>
 
-          {/* Right Side: Immersive Image Display */}
           <div className="relative aspect-square md:aspect-[4/5] group">
             <AnimatePresence mode="wait">
               <motion.div
@@ -132,31 +128,27 @@ export const EmpaquesGallery = () => {
               >
                 <Image 
                   src={images[index]} 
-                  alt="Galería de Empaques Impulso" 
+                  alt={`Galería de ${category} Impulso`} 
                   fill 
                   className="object-contain bg-zinc-900"
                   priority
                 />
-                
-                {/* Subtle vignette */}
                 <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_100px_rgba(0,0,0,0.8)]"></div>
               </motion.div>
             </AnimatePresence>
             
-            {/* Background decorative elements */}
             <motion.div 
               style={{ y }}
               className="absolute -top-12 -right-12 w-64 h-64 bg-impulso-yellow/10 rounded-full blur-[80px] pointer-events-none -z-10"
             />
             
-            {/* Project info tag */}
             <div className="absolute -bottom-6 -right-6 bg-zinc-900 border border-white/10 p-6 rounded-2xl shadow-2xl z-20 hidden md:block backdrop-blur-md">
               <div className="flex flex-col gap-1">
                 <span className="text-[10px] font-black text-impulso-yellow tracking-widest uppercase">Impulso Lab</span>
                 <span className="text-white text-lg font-bold">Producción Real #0{index + 1}</span>
                 <div className="flex gap-2 mt-2">
                   <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                  <span className="text-[9px] text-zinc-500 uppercase font-bold">Material Disponible</span>
+                  <span className="text-[9px] text-zinc-500 uppercase font-bold">Calidad Certificada</span>
                 </div>
               </div>
             </div>

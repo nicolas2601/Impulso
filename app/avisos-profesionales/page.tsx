@@ -1,81 +1,72 @@
 import { Metadata } from 'next';
 import { PageHero } from '@/components/common/PageHero';
 import { Section } from '@/components/ui/Section';
-import { ProductCard } from '@/components/ui/Card';
-import { Breadcrumbs } from '@/components/common/Breadcrumbs';
-import { productsData } from '@/data/products';
-import { FaLightbulb, FaBolt, FaEye } from 'react-icons/fa';
+import { ProductGallery } from '@/components/products/ProductGallery';
+import { FaExclamationTriangle, FaDoorOpen, FaShieldAlt } from 'react-icons/fa';
 
 export const metadata: Metadata = {
-  title: 'Señalética Profesional y Avisos Luminosos Bucaramanga | Impulso',
-  description: 'Fabricación de señalética profesional, neón flex y avisos en acrílico. Haz que tu negocio destaque día y noche. Instalación incluida en Bucaramanga.',
+  title: 'Señalética Profesional e Industrial Bucaramanga | Impulso',
+  description: 'Fabricación de señalética corporativa, industrial y de seguridad. Materiales resistentes como acrílico, PVC y aluminio en Bucaramanga.',
   alternates: {
-    canonical: 'https://impulso.pro/avisos',
+    canonical: 'https://impulso.pro/avisos-profesionales',
   },
 };
 
-export default function AvisosPage() {
-  const products = productsData.avisos;
+export default function SenaleticaPage() {
+  const images = [
+    '/Señalitica/Señalitica 1.jpeg',
+    '/Señalitica/Señalitica 2.jpeg',
+    '/Señalitica/Señalitica 3.jpeg',
+    '/Señalitica/Señalitica 4.jpeg',
+    '/Señalitica/Señalitica 5.jpeg',
+  ];
 
-  const benefits = [
-    { icon: <FaEye size={28} />, title: 'Visibilidad 24/7', desc: 'Tu negocio vendiendo incluso cuando está cerrado.' },
-    { icon: <FaBolt size={28} />, title: 'Bajo Consumo', desc: 'Tecnología LED eficiente que no impacta tu recibo de luz.' },
-    { icon: <FaLightbulb size={28} />, title: 'Larga Duración', desc: 'Materiales resistentes al sol y lluvia (IP65).' },
+  const categories = [
+    { icon: <FaShieldAlt size={28} />, title: 'Corporativa', desc: 'Directorios, placas de escritorio y señalización de oficinas con acabados premium.' },
+    { icon: <FaExclamationTriangle size={28} />, title: 'Industrial', desc: 'Señales de seguridad vial y salud ocupacional bajo normativa vigente.' },
+    { icon: <FaDoorOpen size={28} />, title: 'Arquitectónica', desc: 'Señalización para edificios, centros comerciales y conjuntos residenciales.' },
   ];
 
   return (
     <main>
       <PageHero 
-        title="Señalética Profesional y Avisos"
-        subtitle="Que te vean desde la otra cuadra. Fabricamos avisos impactantes con tecnología LED y acabados premium."
-        ctaMessage="Hola, quiero cotizar un aviso..."
-        bgImage="https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=2000&auto=format&fit=crop"
-        ctaText="Cotizar Aviso"
+        title="Señalética Profesional y Corporativa"
+        subtitle="Organiza y protege tus espacios con señalización de alta durabilidad. Diseñamos bajo norma y con la estética de tu marca."
+        ctaMessage="Hola, quiero cotizar señalética profesional..."
+        bgImage="/projects/SEÑALITICA.jpeg"
+        ctaText="Cotizar Señalética"
       />
-      
-      <Breadcrumbs />
 
-      <Section>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 -mt-20 relative z-30">
-           {products.map((product) => (
-            <ProductCard 
-              key={product.id}
-              title={product.name}
-              description={product.description}
-              href={`/avisos/${product.slug}`}
-              priceFrom={product.priceRange?.min}
-              badge={product.isPopular ? 'Tendencia' : undefined}
-            />
-          ))}
-        </div>
-      </Section>
+      <ProductGallery 
+        title="ORDEN Y"
+        accentTitle="SEGURIDAD."
+        description="Soluciones integrales de señalización en materiales como Acrílico, PVC, Poliestireno y Aluminio. Visibilidad clara y duradera para interiores y exteriores."
+        images={images}
+        category="SEÑALÉTICA"
+      />
 
       <Section bg="dark">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-          {benefits.map((benefit, idx) => (
-            <div key={idx} className="bg-white/5 p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
-              <div className="text-impulso-yellow mb-4 flex justify-center">{benefit.icon}</div>
-              <h3 className="font-bold text-xl mb-2 text-white">{benefit.title}</h3>
-              <p className="text-gray-400">{benefit.desc}</p>
+          {categories.map((cat, idx) => (
+            <div key={idx} className="bg-white/5 p-8 rounded-3xl border border-white/10 hover:border-impulso-yellow transition-all group">
+              <div className="text-impulso-yellow mb-4 flex justify-center group-hover:scale-110 transition-transform">{cat.icon}</div>
+              <h3 className="font-bold text-xl mb-3 text-white uppercase tracking-tighter">{cat.title}</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">{cat.desc}</p>
             </div>
           ))}
         </div>
       </Section>
 
       <Section>
-        <div className="text-center max-w-3xl mx-auto">
-           <h2 className="text-3xl font-bold mb-6">Proceso de Instalación</h2>
-           <p className="text-gray-600 mb-12">No te preocupes por nada. Nosotros medimos, diseñamos, fabricamos e instalamos.</p>
-           
-           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-bold text-impulso-gray-dark">
-              <div className="bg-gray-100 px-6 py-4 rounded-lg w-full">1. Visita Técnica</div>
-              <div className="hidden md:block text-gray-300">➜</div>
-              <div className="bg-gray-100 px-6 py-4 rounded-lg w-full">2. Diseño 3D</div>
-              <div className="hidden md:block text-gray-300">➜</div>
-              <div className="bg-gray-100 px-6 py-4 rounded-lg w-full">3. Fabricación</div>
-              <div className="hidden md:block text-gray-300">➜</div>
-              <div className="bg-impulso-yellow/20 px-6 py-4 rounded-lg w-full text-impulso-gray-dark border border-impulso-yellow">4. Instalación</div>
-           </div>
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-black mb-8 italic uppercase tracking-tighter">Materiales de Alta Resistencia</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {['Acrílico 3mm/5mm', 'PVC Espumado', 'Aluminio Compuesto', 'Vinilo Reflectivo'].map((mat, i) => (
+              <div key={i} className="py-4 px-2 border border-black/10 rounded-xl font-bold text-xs uppercase bg-gray-50">
+                {mat}
+              </div>
+            ))}
+          </div>
         </div>
       </Section>
     </main>
