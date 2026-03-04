@@ -36,7 +36,7 @@ const projects = [
   },
   { 
     id: 'p4', 
-    title: 'IMPRIME CON CALIDAD PORFESIONAL', 
+    title: 'IMPRIME CON CALIDAD PROFESIONAL', 
     category: 'IMPRESIÓN LITOGRAFICA', 
     desc: 'Imprimimos tarjetas de presentación, brochures, volantes, catálogos y papelería corporativa con acabados precisos y colores vibrantes. Servicio rápido y personalizado..',
     color: 'from-emerald-600 to-teal-900',
@@ -46,7 +46,7 @@ const projects = [
   { 
     id: 'p5', 
     title: 'DISEÑO Y PRODUCCIÓN DE ADHESIVOS', 
-    category: 'AHDESIVOS', 
+    category: 'ADHESIVOS', 
     desc: 'Diseñamos e instalamos vinilo adhesivo para paredes, vitrinas, fachadas y señalización interna, con acabados profesionales y materiales de alta durabilidad..',
     color: 'from-amber-500 to-orange-800',
     image: '/projects/VINILOS.jpeg',
