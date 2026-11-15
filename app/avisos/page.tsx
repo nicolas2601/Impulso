@@ -5,7 +5,7 @@ import { ProductGallery } from '@/components/products/ProductGallery';
 import { FaEye, FaBolt, FaLightbulb } from 'react-icons/fa';
 
 export const metadata: Metadata = {
-  title: 'Avisos Luminosos y Letreros Bucaramanga | Impulso',
+  title: { absolute: 'Avisos Luminosos y Letreros Bucaramanga | Impulso' },
   description: 'Fabricación de avisos luminosos, neón flex, letras corpóreas y cajas de luz. Visibilidad 24/7 para tu negocio en Bucaramanga.',
   alternates: {
     canonical: 'https://impulsopublicidad.pro/avisos',

@@ -5,7 +5,7 @@ import { ProductGallery } from '@/components/products/ProductGallery';
 import { FaPrint, FaLayerGroup, FaMagic } from 'react-icons/fa';
 
 export const metadata: Metadata = {
-  title: 'Impresión Litográfica y Digital en Bucaramanga | Impulso',
+  title: { absolute: 'Impresión Litográfica y Digital en Bucaramanga | Impulso' },
   description: 'Servicios de impresión de alta calidad: volantes, tarjetas, catálogos y gran formato. Colores vibrantes y acabados profesionales en Bucaramanga.',
   alternates: {
     canonical: 'https://impulsopublicidad.pro/impresion',

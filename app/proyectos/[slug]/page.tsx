@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${project.title} - Caso de Éxito Impulso`,
+    title: `${project.title} - Caso de Éxito`,
     description: project.description,
     openGraph: {
       images: [project.imageUrl],

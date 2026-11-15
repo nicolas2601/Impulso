@@ -5,7 +5,7 @@ import { ProductGallery } from '@/components/products/ProductGallery';
 import { FaExclamationTriangle, FaDoorOpen, FaShieldAlt } from 'react-icons/fa';
 
 export const metadata: Metadata = {
-  title: 'Señalética Profesional e Industrial Bucaramanga | Impulso',
+  title: { absolute: 'Señalética Profesional e Industrial Bucaramanga | Impulso' },
   description: 'Fabricación de señalética corporativa, industrial y de seguridad. Materiales resistentes como acrílico, PVC y aluminio en Bucaramanga.',
   alternates: {
     canonical: 'https://impulsopublicidad.pro/avisos-profesionales',

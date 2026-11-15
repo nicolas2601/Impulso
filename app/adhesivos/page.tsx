@@ -6,7 +6,7 @@ import { FaShapes, FaFillDrip, FaStore, FaCheckCircle, FaQuestionCircle } from '
 import { generateLocalBusinessSchema, generateBreadcrumbSchema } from '@/utils/schema';
 
 export const metadata: Metadata = {
-  title: 'Vinilos Adhesivos en Bucaramanga | Decoración y Publicidad | Impulso',
+  title: { absolute: 'Vinilos Adhesivos en Bucaramanga | Decoración y Publicidad | Impulso' },
   description: 'Expertos en vinilos adhesivos en Bucaramanga. Decoración de paredes, vitrinas (vitrinismo), vinilo microperforado, esmerilado y stickers de alta calidad. ¡Cotiza hoy!',
   alternates: {
     canonical: 'https://impulsopublicidad.pro/adhesivos',

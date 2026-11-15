@@ -3,7 +3,7 @@ import { PageHero } from '@/components/common/PageHero';
 import { ProjectsCollage } from '@/components/projects/ProjectsCollage';
 
 export const metadata: Metadata = {
-  title: 'Portafolio de Proyectos - Impulso Bucaramanga',
+  title: { absolute: 'Portafolio de Proyectos - Impulso Bucaramanga' },
   description: 'Galería de trabajos realizados en diseño gráfico, empaques, avisos luminosos e impresión digital. Clientes satisfechos en Santander.',
   alternates: {
     canonical: 'https://impulsopublicidad.pro/proyectos',

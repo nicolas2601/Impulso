@@ -10,7 +10,7 @@ import { NoiseOverlay } from '@/components/common/NoiseOverlay';
 import { SITE_CONFIG, CONTACT_INFO } from '@/constants/info';
 
 export const metadata: Metadata = {
-  title: 'Impulso - Diseño Visual de Alto Impacto en Bucaramanga',
+  title: { absolute: 'Impulso - Diseño Visual de Alto Impacto en Bucaramanga' },
   description: 'Estudio de producción gráfica y visual. Empaques, avisos luminosos y branding que transforman negocios. Calidad industrial, diseño boutique.',
   alternates: {
     canonical: SITE_CONFIG.domain,

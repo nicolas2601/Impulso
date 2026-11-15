@@ -5,7 +5,7 @@ import { Breadcrumbs } from '@/components/common/Breadcrumbs';
 import { Button } from '@/components/ui/Button';
 
 export const metadata: Metadata = {
-  title: 'Diseño Gráfico para Empaques y Packaging | Impulso',
+  title: { absolute: 'Diseño Gráfico para Empaques y Packaging | Impulso' },
   description: 'Agencia de diseño de empaques en Bucaramanga. Creamos la identidad visual de tu producto. Packaging que enamora y vende.',
   alternates: {
     canonical: 'https://impulsopublicidad.pro/diseno-empaques',

@@ -1,47 +1,42 @@
 import { MetadataRoute } from 'next';
-import { productsData } from '@/data/products';
 import { projects } from '@/data/projects';
 
 const SITE_URL = 'https://impulsopublicidad.pro';
 
+// Keep in sync with app/**/page.tsx — __tests__/Seo.test.ts fails on any drift.
+const SERVICE_ROUTES = [
+  '/adhesivos',
+  '/empaques',
+  '/avisos',
+  '/avisos-profesionales',
+  '/papeleria-comercial',
+  '/impresion',
+  '/etiquetas',
+  '/diseno-empaques',
+  '/litografia-bucaramanga',
+  '/proyectos',
+];
+
+const LANDING_ROUTES = [
+  '/empaques/cajas-hamburguesas-bucaramanga',
+  '/empaques/bolsas-papel-logo',
+  '/avisos/avisos-luminosos-bucaramanga',
+  '/avisos/avisos-acrilico-precios',
+  '/avisos/neon-flex',
+  '/impresion/stickers-bucaramanga',
+];
+
+type Entry = MetadataRoute.Sitemap[number];
+
+function entry(route: string, priority: number, changeFrequency: Entry['changeFrequency']): Entry {
+  return { url: `${SITE_URL}${route}`, lastModified: new Date(), changeFrequency, priority };
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Static Routes
-  const staticRoutes = [
-    '',
-    '/adhesivos',
-    '/empaques',
-    '/avisos',
-    '/papeleria-comercial',
-    '/impresion',
-    '/diseno-empaques',
-    '/litografia-bucaramanga',
-    '/proyectos',
-  ].map((route) => ({
-    url: `${SITE_URL}${route}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: route === '' ? 1 : 0.8,
-  }));
-
-  // Product Subpages (from silos)
-  const productRoutes = [
-    ...productsData.empaques,
-    ...productsData.avisos,
-    ...productsData.impresion.filter(p => p.slug === 'stickers-bucaramanga'), // Only subpages that exist
-  ].map((product) => ({
-    url: `${SITE_URL}/${product.category.toLowerCase()}/${product.slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.7,
-  }));
-
-  // Project Detail Pages
-  const projectRoutes = projects.map((project) => ({
-    url: `${SITE_URL}/proyectos/${project.slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.6,
-  }));
-
-  return [...staticRoutes, ...productRoutes, ...projectRoutes];
+  return [
+    entry('', 1, 'weekly'),
+    ...SERVICE_ROUTES.map((route) => entry(route, 0.8, 'weekly')),
+    ...LANDING_ROUTES.map((route) => entry(route, 0.7, 'weekly')),
+    ...projects.map((project) => entry(`/proyectos/${project.slug}`, 0.6, 'monthly')),
+  ];
 }
