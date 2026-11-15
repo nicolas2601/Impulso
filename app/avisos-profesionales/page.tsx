@@ -14,11 +14,11 @@ export const metadata: Metadata = {
 
 export default function SenaleticaPage() {
   const images = [
-    '/Señalitica/Señalitica 1.jpeg',
-    '/Señalitica/Señalitica 2.jpeg',
-    '/Señalitica/Señalitica 3.jpeg',
-    '/Señalitica/Señalitica 4.jpeg',
-    '/Señalitica/Señalitica 5.jpeg',
+    '/Señalética/Señalética 1.jpeg',
+    '/Señalética/Señalética 2.jpeg',
+    '/Señalética/Señalética 3.jpeg',
+    '/Señalética/Señalética 4.jpeg',
+    '/Señalética/Señalética 5.jpeg',
   ];
 
   const categories = [
@@ -33,7 +33,7 @@ export default function SenaleticaPage() {
         title="Señalética Profesional y Corporativa"
         subtitle="Organiza y protege tus espacios con señalización de alta durabilidad. Diseñamos bajo norma y con la estética de tu marca."
         ctaMessage="Hola, quiero cotizar señalética profesional..."
-        bgImage="/projects/SEÑALITICA.jpeg"
+        bgImage="/projects/SEÑALÉTICA.jpeg"
         ctaText="Cotizar Señalética"
       />
 

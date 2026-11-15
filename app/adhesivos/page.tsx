@@ -31,14 +31,14 @@ export const metadata: Metadata = {
 
 export default function AdhesivosPage() {
   const images = [
-    '/Ahdesivos/Ahdesivos 1.jpeg',
-    '/Ahdesivos/Ahdesivos 2.jpeg',
-    '/Ahdesivos/Ahdesivos 3.jpeg',
-    '/Ahdesivos/Ahdesivos 4.jpeg',
-    '/Ahdesivos/Ahdesivos 5.jpeg',
-    '/Ahdesivos/Ahdesivos 6.jpeg',
-    '/Ahdesivos/Ahdesivos 7.jpeg',
-    '/Ahdesivos/Ahdesivos 8.jpeg',
+    '/Adhesivos/Adhesivos 1.jpeg',
+    '/Adhesivos/Adhesivos 2.jpeg',
+    '/Adhesivos/Adhesivos 3.jpeg',
+    '/Adhesivos/Adhesivos 4.jpeg',
+    '/Adhesivos/Adhesivos 5.jpeg',
+    '/Adhesivos/Adhesivos 6.jpeg',
+    '/Adhesivos/Adhesivos 7.jpeg',
+    '/Adhesivos/Adhesivos 8.jpeg',
   ];
 
   const services = [

@@ -9,7 +9,7 @@ import { FaArrowRight } from 'react-icons/fa';
 const projects = [
   { 
     id: 'p1', 
-    title: 'EMPAQUES PARA COMIDAS RAPIDAS', 
+    title: 'EMPAQUES PARA COMIDAS RÁPIDAS', 
     category: 'EMPAQUES', 
     desc: 'Rediseño de experiencia unboxing para marcas de food delivery. Empaques sostenibles.',
     color: 'from-orange-600 to-red-900',
@@ -22,7 +22,7 @@ const projects = [
     category: 'SEÑALÉTICA', 
     desc: 'Ofrecemos señalización interna y externa en acrílico, PVC, aluminio y materiales resistentes, garantizando visibilidad, organización y cumplimiento normativo.',
     color: 'from-blue-600 to-indigo-900',
-    image: '/projects/SEÑALITICA.jpeg',
+    image: '/projects/SEÑALÉTICA.jpeg',
     href: '/avisos-profesionales'
   },
   { 
@@ -37,7 +37,7 @@ const projects = [
   { 
     id: 'p4', 
     title: 'IMPRIME CON CALIDAD PROFESIONAL', 
-    category: 'IMPRESIÓN LITOGRAFICA', 
+    category: 'IMPRESIÓN LITOGRÁFICA', 
     desc: 'Imprimimos tarjetas de presentación, brochures, volantes, catálogos y papelería corporativa con acabados precisos y colores vibrantes. Servicio rápido y personalizado..',
     color: 'from-emerald-600 to-teal-900',
     image: '/projects/IMPRESION.jpeg',
@@ -54,7 +54,7 @@ const projects = [
   },
   { 
     id: 'p6', 
-    title: 'IMPRESION DE ETIQUETAS AHDESIVAS Y CARTON', 
+    title: 'IMPRESIÓN DE ETIQUETAS ADHESIVAS Y CARTÓN', 
     category: 'ETIQUETAS', 
     desc: 'Fabricamos etiquetas para productos adhesivas y en cartón, ideales para alimentos, cosméticos, ropa, empaques y todo tipo de marcas. Ofrecemos impresión de alta calidad, acabados profesionales y materiales resistentes que realzan la presentación de tu producto.',
     color: 'from-zinc-700 to-black',

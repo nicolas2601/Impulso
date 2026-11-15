@@ -16,21 +16,21 @@ const allPhotos = [
   { src: '/Avisos/Avisos 2.jpeg', category: 'Avisos', size: 'large' },
   { src: '/Avisos/Avisos 3.jpeg', category: 'Avisos', size: 'small' },
   { src: '/Avisos/Avisos 4.jpeg', category: 'Avisos', size: 'medium' },
-  // Impresion
+  // Impresión
   { src: '/Impresion/Impresion 1.jpeg', category: 'Impresión', size: 'small' },
   { src: '/Impresion/Impresion 2.jpeg', category: 'Impresión', size: 'medium' },
   { src: '/Impresion/Impresion 3.jpeg', category: 'Impresión', size: 'large' },
   { src: '/Impresion/Impresion 4.jpeg', category: 'Impresión', size: 'small' },
   // Adhesivos
-  { src: '/Ahdesivos/Ahdesivos 1.jpeg', category: 'Adhesivos', size: 'large' },
-  { src: '/Ahdesivos/Ahdesivos 2.jpeg', category: 'Adhesivos', size: 'small' },
-  { src: '/Ahdesivos/Ahdesivos 3.jpeg', category: 'Adhesivos', size: 'medium' },
+  { src: '/Adhesivos/Adhesivos 1.jpeg', category: 'Adhesivos', size: 'large' },
+  { src: '/Adhesivos/Adhesivos 2.jpeg', category: 'Adhesivos', size: 'small' },
+  { src: '/Adhesivos/Adhesivos 3.jpeg', category: 'Adhesivos', size: 'medium' },
   // Etiquetas
   { src: '/Etiquetas/Etiquetas 1.jpeg', category: 'Etiquetas', size: 'medium' },
   { src: '/Etiquetas/Etiquetas 2.jpeg', category: 'Etiquetas', size: 'large' },
-  // Señalitica
-  { src: '/Señalitica/Señalitica 1.jpeg', category: 'Señalética', size: 'small' },
-  { src: '/Señalitica/Señalitica 2.jpeg', category: 'Señalética', size: 'medium' },
+  // Señalética
+  { src: '/Señalética/Señalética 1.jpeg', category: 'Señalética', size: 'small' },
+  { src: '/Señalética/Señalética 2.jpeg', category: 'Señalética', size: 'medium' },
 ];
 
 export const ProjectsCollage = () => {
