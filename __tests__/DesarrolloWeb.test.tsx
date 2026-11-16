@@ -49,4 +49,14 @@ describe('Desarrollo web landing', () => {
     render(<DesarrolloWebPage />);
     expect(screen.getByRole('link', { name: /cotizar mi página por whatsapp/i }).getAttribute('href')).toMatch(whatsappHref);
   });
+
+  it('shows three real projects, each with its captures and a live link', () => {
+    render(<DesarrolloWebPage />);
+    const portfolio = screen.getByRole('region', { name: /webs que ya están en línea/i });
+    for (const [name, url] of [['Impulso Publicidad', 'https://impulsopublicidad.pro'], ['VERA', 'https://vera.tikno.pro'], ['Escala · CDE UNAB', 'https://4-sloop.tikno.pro']]) {
+      const project = within(portfolio).getByRole('heading', { level: 3, name }).closest('article') as HTMLElement;
+      expect(within(project).getAllByRole('img').length).toBeGreaterThanOrEqual(4);
+      expect(within(project).getByRole('link', { name: /en vivo/i })).toHaveAttribute('href', url);
+    }
+  });
 });

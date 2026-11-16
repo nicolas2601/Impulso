@@ -15,7 +15,7 @@ const navLinks = [
   { name: 'Etiquetas', href: '/etiquetas' },
   { name: 'Impresión', href: '/impresion' },
   { name: 'Señalética', href: '/avisos-profesionales', key: 'senaletica' },
-  { name: 'Web', href: '/desarrollo-web' },
+  { name: 'Web', href: '/desarrollo-web', isNew: true },
   { name: 'Proyectos', href: '/proyectos' },
 ];
 
@@ -92,7 +92,7 @@ export const Header = () => {
                 <Link 
                   key={link.key || link.href} 
                   href={link.href}
-                  className={`relative px-2.5 xl:px-4 py-2 rounded-full text-[10px] xl:text-[11px] font-black uppercase tracking-wide xl:tracking-wider transition-colors duration-200 ${
+                  className={`relative px-2.5 xl:px-3.5 py-2 rounded-full text-[10px] xl:text-[11px] font-black uppercase tracking-wide xl:tracking-wider transition-colors duration-200 ${
                     isActive ? 'text-black' : 'text-white/70 hover:text-white'
                   }`}
                 >
@@ -104,6 +104,11 @@ export const Header = () => {
                     />
                   )}
                   {link.name}
+                  {link.isNew && (
+                    <span className={`ml-1.5 rounded-full px-1.5 py-0.5 font-mono text-[8px] tracking-wide ${isActive ? 'bg-zinc-950 text-impulso-yellow' : 'bg-impulso-yellow text-zinc-950'}`}>
+                      NUEVO
+                    </span>
+                  )}
                 </Link>
               );
             })}
@@ -163,11 +168,14 @@ export const Header = () => {
                   >
                     <Link 
                       href={link.href}
-                      className={`text-5xl font-black uppercase tracking-tighter ${
+                      className={`inline-flex items-center gap-3 text-5xl font-black uppercase tracking-tighter ${
                         isActive ? 'text-impulso-yellow' : 'text-white/40 hover:text-white'
                       }`}
                     >
                       {link.name}
+                      {link.isNew && (
+                        <span className="rounded-full bg-impulso-yellow px-2 py-1 font-mono text-[11px] font-medium tracking-wide text-zinc-950">NUEVO</span>
+                      )}
                     </Link>
                   </motion.div>
                 );

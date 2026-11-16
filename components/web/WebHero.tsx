@@ -18,43 +18,26 @@ function useEnter(reduced: boolean) {
   });
 }
 
-/** The browser window shows Impulso's own site: the case study is the page itself. */
-const BrowserMock = () => (
+/** Real captures of sites we built: the page is the proof. */
+const BrowserMock = ({ src, url }: { src: string; url: string }) => (
   <div className="relative overflow-hidden rounded-[22px] border border-white/10 bg-zinc-900 shadow-[0_40px_80px_rgba(0,0,0,0.55)]">
-    <div className="flex h-11 items-center gap-2 bg-zinc-800 px-4">
+    <div className="flex h-10 items-center gap-2 bg-zinc-800 px-4">
       {[0, 1, 2].map((i) => <span key={i} className="h-2.5 w-2.5 rounded-full bg-zinc-500/50" />)}
-      <span className="mx-auto flex items-center gap-2 rounded-full bg-zinc-950 px-3.5 py-1.5 font-mono text-[11px] text-zinc-400">
-        <FaLock aria-hidden className="text-[9px]" /> impulsopublicidad.pro
+      <span className="mx-auto flex items-center gap-2 rounded-full bg-zinc-950 px-3.5 py-1 font-mono text-[11px] text-zinc-400">
+        <FaLock aria-hidden className="text-[9px]" /> {url}
       </span>
     </div>
-    <div className="px-5 pb-6 pt-8 text-center sm:px-6">
-      <p className="text-[clamp(1.75rem,4.2vw,3.1rem)] font-black uppercase leading-[0.88] tracking-[-0.05em] text-white">Impulsamos<br />tu marca</p>
-      <span className="mt-4 inline-block rounded-full bg-impulso-yellow px-4 py-2 text-[10px] font-bold tracking-[0.04em] text-zinc-950">COTIZAR PROYECTO</span>
-      <div className="mt-6 grid grid-cols-3 gap-3">
-        {['/Empaques/Empaques.jpeg', '/Avisos/Avisos 2.jpeg', '/Empaques/Empaques 2.jpeg'].map((src) => (
-          <span key={src} className="relative aspect-[172/140] overflow-hidden rounded-[14px]">
-            <Image src={src} alt="" fill sizes="(min-width: 1024px) 12vw, 30vw" className="object-cover" />
-          </span>
-        ))}
-      </div>
-    </div>
+    <span className="relative block aspect-[16/10]">
+      <Image src={src} alt="" fill priority sizes="(min-width: 1024px) 40vw, 90vw" className="object-cover object-top" />
+    </span>
   </div>
 );
 
 const PhoneMock = () => (
-  <div className="w-[232px] rounded-[44px] border-2 border-white/20 bg-zinc-950 p-2 shadow-[0_30px_60px_rgba(0,0,0,0.6)]">
-    <div className="overflow-hidden rounded-[36px] bg-zinc-900">
-      <div className="bg-impulso-yellow px-5 pb-3 pt-8 text-lg font-black tracking-[-0.04em] text-zinc-950">IMPULSO.</div>
-      <div className="flex flex-col gap-3 p-4">
-        <span className="relative aspect-[184/150] overflow-hidden rounded-2xl">
-          <Image src="/Empaques/Empaques 2.jpeg" alt="" fill sizes="200px" className="object-cover" />
-        </span>
-        <p className="text-[17px] font-bold leading-tight tracking-[-0.02em] text-white">Cajas para hamburguesa</p>
-        <span className="flex items-center justify-center gap-2 rounded-full bg-[#25D366] py-3 text-[13px] font-bold text-white">
-          <FaWhatsapp aria-hidden /> Pedir por WhatsApp
-        </span>
-      </div>
-    </div>
+  <div className="w-[200px] rounded-[40px] border-2 border-white/20 bg-zinc-950 p-2 shadow-[0_30px_60px_rgba(0,0,0,0.6)] lg:w-[214px]">
+    <span className="relative block aspect-[390/844] overflow-hidden rounded-[32px]">
+      <Image src="/portfolio/vera-mobile.webp" alt="" fill sizes="214px" className="object-cover object-top" />
+    </span>
   </div>
 );
 
@@ -129,8 +112,11 @@ export const WebHero = () => {
 
         {/* Composition: Impulso's own site, a phone, the Google result and the message it brings. */}
         <div aria-hidden className="relative mx-auto w-full max-w-[600px] lg:mx-0 lg:h-[600px]">
+          <motion.div {...enter(0.22, { opacity: 0, y: 40 })} className="absolute right-0 top-0 hidden w-[440px] rotate-[7deg] opacity-80 lg:block">
+            <BrowserMock src="/portfolio/escala-home.webp" url="4-sloop.tikno.pro" />
+          </motion.div>
           <motion.div {...enter(0.3, { opacity: 0, y: 40 })} className="relative lg:absolute lg:left-0 lg:top-16 lg:w-[540px] lg:rotate-3">
-            <BrowserMock />
+            <BrowserMock src="/portfolio/impulso-home.webp" url="impulsopublicidad.pro" />
           </motion.div>
           <motion.div {...enter(0.5, { opacity: 0, y: 40 })} className="absolute -right-2 top-[58%] hidden -rotate-6 sm:block lg:right-[-30px] lg:top-[210px]">
             <PhoneMock />

@@ -66,11 +66,16 @@ export const WebProof = () => (
         </p>
       </Rise>
       <Rise delay={0.08}>
-        <div className="grid grid-cols-3 gap-3 sm:gap-4">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4">
           {WEB_PROOF.figures.map((f, i) => (
-            <div key={f.label} className={`rounded-[24px] p-5 sm:p-7 ${i === 0 ? 'bg-impulso-yellow text-zinc-950' : 'border border-white/10 bg-zinc-900 text-white'}`}>
-              <p className="text-[clamp(2rem,5vw,3.5rem)] font-black leading-none tracking-[-0.05em]">{f.value}</p>
-              <p className={`mt-2 text-sm font-medium ${i === 0 ? 'text-zinc-950' : 'text-zinc-400'}`}>{f.label}</p>
+            <div
+              key={f.label}
+              className={`min-w-0 rounded-[24px] p-6 sm:p-8 ${i === 0 ? 'col-span-2 flex items-end justify-between gap-6 bg-impulso-yellow text-zinc-950' : 'border border-white/10 bg-zinc-900 text-white'}`}
+            >
+              <p className={`font-black leading-none tracking-[-0.05em] tabular-nums ${i === 0 ? 'text-[clamp(3.5rem,8vw,6rem)]' : 'text-[clamp(2.5rem,5vw,3.75rem)]'}`}>
+                {f.value}
+              </p>
+              <p className={`text-sm font-medium sm:text-base ${i === 0 ? 'max-w-[150px] text-right text-zinc-950' : 'mt-3 text-zinc-400'}`}>{f.label}</p>
             </div>
           ))}
         </div>
@@ -80,60 +85,76 @@ export const WebProof = () => (
   </section>
 );
 
-const COMBO = [
-  { k: '01 · En la calle', t: 'Tu aviso te hace visible', d: 'Letreros, neón y fachadas que la gente recuerda.', photo: '/projects/AVISOS.jpeg', alt: 'Letrero de neón de una heladería hecho por Impulso' },
-  { k: '02 · En la mano', t: 'Tu empaque lleva un QR', d: 'Cada caja o etiqueta lleva al cliente directo a tu web.', photo: '/Empaques/Empaques.jpeg', alt: 'Caja navideña impresa por Impulso' },
+const STATIONS = [
+  { n: '01', place: 'En la calle', line: 'Tu aviso hace que te vean.', photo: '/projects/AVISOS.jpeg', alt: 'Letrero de neón de una heladería hecho por Impulso' },
+  { n: '02', place: 'En la mano', line: 'Tu empaque lleva un QR a tu web.', photo: '/Empaques/Empaques.jpeg', alt: 'Caja navideña impresa por Impulso' },
+  { n: '03', place: 'En Google', line: 'Tu web cierra la venta por WhatsApp.', photo: '/portfolio/impulso-mobile.webp', alt: 'La web de Impulso abierta en un celular' },
 ];
 
-export const WebCombo = () => (
-  <section data-ground="#ffffff" aria-labelledby="web-combo-title" className="bg-white py-28 lg:py-32">
-    <div className="container-impulso">
-      <Rise>
-        <Kicker dark={false}>Nuestra ventaja</Kicker>
-        <H2 id="web-combo-title" dark={false}>El combo que nadie más te da.</H2>
-        <p className="mt-6 max-w-[620px] text-lg leading-relaxed text-zinc-800">
-          Una agencia web te hace la página. Una litografía te imprime. Nosotros hacemos las dos, y todo habla con la
-          misma voz: tu marca.
-        </p>
-      </Rise>
-      <div className="mt-14 grid gap-5 md:grid-cols-3">
-        {COMBO.map((c, i) => (
-          <Rise key={c.k} delay={i * 0.06}>
-            <article className="h-full overflow-hidden rounded-[28px] bg-zinc-950">
-              <span className="relative block aspect-[389/300]">
-                <Image src={c.photo} alt={c.alt} fill sizes="(min-width: 768px) 30vw, 100vw" className="object-cover" />
+const StationCaption = ({ n, place, line }: { n: string; place: string; line: string }) => (
+  <figcaption className="mt-5 flex items-start gap-4">
+    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-zinc-950 font-mono text-sm text-impulso-yellow">{n}</span>
+    <span>
+      <span className="block text-xl font-black tracking-[-0.03em] text-zinc-950">{place}</span>
+      <span className="block text-zinc-700">{line}</span>
+    </span>
+  </figcaption>
+);
+
+/** One brand, three moments: the sign on the street, the box in the hand, the site on the phone. */
+export const WebCombo = () => {
+  const [street, hand, google] = STATIONS;
+  return (
+    <section data-ground="#ffffff" aria-labelledby="web-combo-title" className="overflow-x-clip bg-white py-28 lg:py-36">
+      <div className="container-impulso">
+        <Rise>
+          <Kicker dark={false}>Nuestra ventaja</Kicker>
+          <H2 id="web-combo-title" dark={false}>El combo que nadie más te da.</H2>
+          <p className="mt-6 max-w-[620px] text-lg leading-relaxed text-zinc-800">
+            Una agencia web te hace la página. Una litografía te imprime. Nosotros hacemos las dos, y tu cliente
+            reconoce la misma marca en la calle, en la mano y en Google.
+          </p>
+        </Rise>
+
+        <div className="relative mt-16 grid gap-14 lg:mt-20 lg:grid-cols-12 lg:gap-6">
+          {/* the path that links the three moments */}
+          <svg aria-hidden viewBox="0 0 1200 520" preserveAspectRatio="none" className="pointer-events-none absolute inset-x-0 top-24 hidden h-[520px] w-full lg:block">
+            <path d="M260 300 C 420 160, 520 470, 690 330 S 960 120, 1080 240" fill="none" stroke="#09090b" strokeOpacity="0.25" strokeWidth="2" strokeDasharray="6 10" />
+          </svg>
+
+          <Rise className="relative lg:col-span-5">
+            <figure>
+              <span className="relative block aspect-[4/5] -rotate-2 overflow-hidden rounded-[28px] shadow-[0_30px_60px_rgba(0,0,0,0.18)]">
+                <Image src={street.photo} alt={street.alt} fill sizes="(min-width: 1024px) 38vw, 90vw" className="object-cover" />
               </span>
-              <div className="p-7">
-                <p className="font-mono text-xs uppercase tracking-[0.08em] text-impulso-yellow">{c.k}</p>
-                <h3 className="mt-2.5 text-[28px] font-black leading-[1.05] tracking-[-0.04em] text-white">{c.t}</h3>
-                <p className="mt-2.5 leading-relaxed text-zinc-400">{c.d}</p>
-              </div>
-            </article>
+              <StationCaption {...street} />
+            </figure>
           </Rise>
-        ))}
-        <Rise delay={0.12}>
-          <article className="h-full overflow-hidden rounded-[28px] bg-impulso-yellow">
-            <span aria-hidden className="grid aspect-[389/300] place-items-center">
-              <span className="w-[82%] overflow-hidden rounded-[18px] bg-zinc-950">
-                <span className="block h-8 bg-zinc-800" />
-                <span className="block px-5 pb-6 pt-7 text-center">
-                  <span className="block text-[34px] font-black leading-none tracking-[-0.05em] text-white">TU NEGOCIO</span>
-                  <span className="mt-2 block font-mono text-[11px] text-zinc-400">Bucaramanga · Abierto hoy</span>
-                  <span className="mt-4 inline-block rounded-full bg-[#25D366] px-4 py-2 text-xs font-bold text-white">Escríbenos por WhatsApp</span>
+
+          <Rise delay={0.08} className="relative lg:col-span-4 lg:mt-48">
+            <figure>
+              <span className="relative block aspect-square rotate-3 overflow-hidden rounded-[28px] border-[6px] border-white shadow-[0_30px_60px_rgba(0,0,0,0.2)]">
+                <Image src={hand.photo} alt={hand.alt} fill sizes="(min-width: 1024px) 30vw, 90vw" className="object-cover" />
+              </span>
+              <StationCaption {...hand} />
+            </figure>
+          </Rise>
+
+          <Rise delay={0.16} className="relative lg:col-span-3 lg:mt-8">
+            <figure className="flex flex-col items-start lg:items-center">
+              <span className="relative block w-[220px] -rotate-3 rounded-[38px] border-2 border-zinc-950/10 bg-zinc-950 p-2 shadow-[0_30px_60px_rgba(0,0,0,0.25)]">
+                <span className="relative block aspect-[390/844] overflow-hidden rounded-[30px]">
+                  <Image src={google.photo} alt={google.alt} fill sizes="220px" className="object-cover object-top" />
                 </span>
               </span>
-            </span>
-            <div className="p-7">
-              <p className="font-mono text-xs uppercase tracking-[0.08em] text-zinc-950">03 · En Google</p>
-              <h3 className="mt-2.5 text-[28px] font-black leading-[1.05] tracking-[-0.04em] text-zinc-950">Tu web cierra la venta</h3>
-              <p className="mt-2.5 leading-relaxed text-zinc-800">Te encuentran, ven lo que haces y te escriben por WhatsApp.</p>
-            </div>
-          </article>
-        </Rise>
+              <StationCaption {...google} />
+            </figure>
+          </Rise>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const PlanCard = ({ plan }: { plan: WebPlan }) => {
   const f = plan.featured;

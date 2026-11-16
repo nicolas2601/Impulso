@@ -3,7 +3,7 @@ export const CONTACT_INFO = {
   displayPhone: '+57 311 244 1684',
   email: 'creaimpulsobga@gmail.com',
   address: 'Bucaramanga, Santander, Colombia',
-  schedule: 'Lunes a Viernes: 8:00 AM - 6:00 PM',
+  schedule: 'Lunes a Sábado: 8:00 AM - 6:00 PM',
   social: {
     facebook: 'https://www.facebook.com/share/1DtV77vD6t/?mibextid=wwXIfr',
   },

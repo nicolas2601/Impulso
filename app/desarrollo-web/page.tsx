@@ -4,6 +4,7 @@ import { SectionGrounds } from '@/components/common/SectionGrounds';
 import { WebHero } from '@/components/web/WebHero';
 import { WebCombo, WebMarquee, WebPlans, WebProof } from '@/components/web/WebOffer';
 import { WebFaq, WebFinalCta, WebIncluded, WebProcess } from '@/components/web/WebDetails';
+import { WebPortfolio } from '@/components/web/WebPortfolio';
 
 const URL = `${SITE_CONFIG.domain}/desarrollo-web`;
 
@@ -50,6 +51,7 @@ export default function DesarrolloWebPage() {
       <WebHero />
       <WebMarquee />
       <WebProof />
+      <WebPortfolio />
       <WebCombo />
       <WebPlans />
       <WebProcess />

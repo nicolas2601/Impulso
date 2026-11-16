@@ -86,3 +86,63 @@ export const WEB_MARQUEE = ['Páginas web', 'Tiendas online', 'SEO local', 'Goog
 
 export const planQuote = (plan: string) => `Hola Impulso, quiero cotizar el plan ${plan} de página web.`;
 export const WEB_QUOTE = 'Hola Impulso, quiero cotizar mi página web.';
+
+export interface PortfolioShot {
+  src: string;
+  alt: string;
+}
+
+export interface PortfolioProject {
+  name: string;
+  kind: string;
+  desc: string;
+  tags: string[];
+  /** Live address; leave empty when the demo is taken down. */
+  url?: string;
+  main: PortfolioShot;
+  details: [PortfolioShot, PortfolioShot];
+  mobile: PortfolioShot;
+}
+
+// Real captures of each site (public/portfolio). Escala lives on a temporary demo server.
+export const WEB_PORTFOLIO: PortfolioProject[] = [
+  {
+    name: 'Impulso Publicidad',
+    kind: 'Sitio de servicios · Bucaramanga',
+    desc: 'Nuestra propia web: catálogo de servicios con fotos reales, SEO local y cotización directa por WhatsApp.',
+    tags: ['Next.js', 'SEO local', 'WhatsApp'],
+    url: 'https://impulsopublicidad.pro',
+    main: { src: '/portfolio/impulso-home.webp', alt: 'Inicio de impulsopublicidad.pro con el titular Impulsamos tu marca' },
+    details: [
+      { src: '/portfolio/impulso-servicios.webp', alt: 'Sección de servicios de Impulso con fotos de trabajos' },
+      { src: '/portfolio/impulso-trabajo.webp', alt: 'Sección Trabajo real de Impulso' },
+    ],
+    mobile: { src: '/portfolio/impulso-mobile.webp', alt: 'Inicio de Impulso en un celular' },
+  },
+  {
+    name: 'VERA',
+    kind: 'Aplicación web con inteligencia artificial',
+    desc: 'Herramienta de investigación para revisar imágenes dermatoscópicas paso a paso. Bilingüe y pensada para usarse desde el celular.',
+    tags: ['App web', 'IA', 'Español / inglés'],
+    url: 'https://vera.tikno.pro',
+    main: { src: '/portfolio/vera-escritorio.webp', alt: 'Escritorio de VERA con el recorrido del examen' },
+    details: [
+      { src: '/portfolio/vera-contexto.webp', alt: 'Paso de contexto del examen en VERA' },
+      { src: '/portfolio/vera-guia.webp', alt: 'Guía de uso de VERA' },
+    ],
+    mobile: { src: '/portfolio/vera-mobile.webp', alt: 'VERA en un celular' },
+  },
+  {
+    name: 'Escala · CDE UNAB',
+    kind: 'Plataforma creada en hackathon',
+    desc: 'Plataforma de acompañamiento empresarial para el Centro de Desarrollo Empresarial de la UNAB: diagnóstico, ruta y seguimiento en un solo lugar.',
+    tags: ['React', 'Laravel', 'Hackathon UNAB'],
+    url: 'https://4-sloop.tikno.pro',
+    main: { src: '/portfolio/escala-home.webp', alt: 'Inicio de Escala: Cada empresa tiene un siguiente paso' },
+    details: [
+      { src: '/portfolio/escala-ruta.webp', alt: 'Ruta de acompañamiento de Escala con sus estaciones' },
+      { src: '/portfolio/escala-producto.webp', alt: 'Vista del producto de Escala con el avance de una empresa' },
+    ],
+    mobile: { src: '/portfolio/escala-mobile.webp', alt: 'Escala en un celular' },
+  },
+];
