@@ -56,11 +56,11 @@ export const Header = () => {
           y: visible ? 0 : -120, 
           opacity: visible ? 1 : 0 
         }}
-        transition={{ type: "spring", stiffness: 260, damping: 20 }}
+        transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
       >
         <motion.div 
-          className={`relative flex items-center justify-between px-6 py-2 rounded-full border border-white/10 transition-[max-width] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] pointer-events-auto bg-black/60 backdrop-blur-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] ${
-            isScrolled ? 'w-full max-w-4xl' : 'w-full max-w-6xl'
+          className={`relative flex w-full max-w-6xl items-center justify-between gap-4 rounded-full border border-white/10 px-4 py-2 pointer-events-auto backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.28)] transition-[background-color] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] lg:px-6 ${
+            isScrolled ? 'bg-zinc-950/90' : 'bg-zinc-950/75'
           }`}
         >
           {/* Logo with interactive hover */}
@@ -84,14 +84,14 @@ export const Header = () => {
           </Link>
 
           {/* Floating Pill Nav Items */}
-          <nav className="hidden lg:flex items-center gap-1 p-1 bg-white/5 rounded-full border border-white/5">
+          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 p-1 bg-white/5 rounded-full border border-white/5">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link 
                   key={link.key || link.href} 
                   href={link.href}
-                  className={`relative px-4 py-2 rounded-full text-[11px] font-black uppercase tracking-wider transition-all duration-300 ${
+                  className={`relative px-2.5 xl:px-4 py-2 rounded-full text-[10px] xl:text-[11px] font-black uppercase tracking-wide xl:tracking-wider transition-colors duration-200 ${
                     isActive ? 'text-black' : 'text-white/70 hover:text-white'
                   }`}
                 >
@@ -109,7 +109,7 @@ export const Header = () => {
           </nav>
 
           {/* Interactive Actions */}
-          <div className="flex items-center gap-3 relative z-[130]">
+          <div className="flex shrink-0 items-center gap-3 relative z-[130]">
             <motion.a
               href={generateWhatsAppLink("Hola Impulso, quiero cotizar...")}
               target="_blank"
@@ -122,9 +122,12 @@ export const Header = () => {
               <span>Cotizar</span>
             </motion.a>
 
-            <button 
+            <button
+              type="button"
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 text-white hover:text-impulso-yellow transition-colors relative"
+              aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
+              aria-expanded={isOpen}
+              className="lg:hidden p-2 text-white hover:text-impulso-yellow transition-colors relative"
             >
               <motion.div
                 animate={isOpen ? { rotate: 90 } : { rotate: 0 }}
@@ -145,7 +148,7 @@ export const Header = () => {
             animate={{ opacity: 1, filter: 'blur(0px)' }}
             exit={{ opacity: 0, filter: 'blur(8px)' }}
             transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
-            className="fixed inset-0 z-[110] bg-black/95 backdrop-blur-3xl md:hidden flex flex-col justify-center items-center p-8"
+            className="fixed inset-0 z-[110] bg-black/95 backdrop-blur-3xl lg:hidden flex flex-col justify-center items-center p-8"
           >
             <nav className="flex flex-col gap-4 w-full text-center">
               {navLinks.map((link, idx) => {

@@ -16,22 +16,26 @@ const CARD_VIEW = { once: true, margin: '0px 0px -15% 0px' };
 // Short, non-uniform stagger (s) per grid cell, in desktop reading order.
 const CARD_DELAYS = [0, 0.06, 0.03, 0.09, 0.14, 0.04, 0.1, 0.15];
 
-const BIG = 'block font-black uppercase leading-[0.84] tracking-[-0.07em] text-[17vw] lg:text-[10.4vw] 2xl:text-[150px]';
+const BIG = 'block font-black uppercase leading-[0.84] tracking-[-0.07em] text-[15vw] lg:text-[10.4vw] 2xl:text-[150px]';
 const SMALL = 'block font-medium leading-[1.25] tracking-[-0.03em] text-zinc-950/55 text-xl lg:text-3xl';
 
-/** One headline line rising from behind its mask. */
+const RISE = { hidden: { y: '105%' }, shown: { y: '0%' } };
+
+/**
+ * One headline line rising from behind its mask. The mask is what gets observed:
+ * the hidden text sits outside its overflow box and would never count as visible.
+ */
 const Line = ({ children, delay, reduced, className = '' }: { children: ReactNode; delay: number; reduced: boolean; className?: string }) => (
-  <span className={`block overflow-hidden pb-[0.04em] ${className}`}>
-    <motion.span
-      className="block"
-      initial={reduced ? false : { y: '105%' }}
-      whileInView={{ y: '0%' }}
-      viewport={HEADLINE_VIEW}
-      transition={{ duration: 1, delay, ease: EASE_EXPO }}
-    >
+  <motion.span
+    className={`block overflow-hidden whitespace-nowrap pb-[0.04em] ${className}`}
+    initial={reduced ? false : 'hidden'}
+    whileInView="shown"
+    viewport={HEADLINE_VIEW}
+  >
+    <motion.span className="block" variants={RISE} transition={{ duration: 1, delay, ease: EASE_EXPO }}>
       {children}
     </motion.span>
-  </span>
+  </motion.span>
 );
 
 /** A grid cell whose card is uncovered from the bottom, once. */
@@ -58,8 +62,8 @@ export const BentoServices = () => {
           <h2 id="servicios-title" className="text-zinc-950">
             <Line delay={0} reduced={reduced} className={SMALL}>todo lo que</Line>{' '}
             <Line delay={0.08} reduced={reduced} className={BIG}>NECESITAS</Line>{' '}
-            <span className="flex items-end gap-3 pl-10 lg:gap-6 lg:pl-[12.5vw] 2xl:pl-[190px]">
-              <Line delay={0.16} reduced={reduced} className={`${SMALL} pb-[0.35em]`}>en un solo</Line>{' '}
+            <span className="flex flex-nowrap items-end gap-3 pl-4 lg:gap-6 lg:pl-[12.5vw] 2xl:pl-[190px]">
+              <Line delay={0.16} reduced={reduced} className={`${SMALL} shrink-0 pb-[0.35em]`}>en un solo</Line>{' '}
               <Line delay={0.22} reduced={reduced} className={BIG}>LUGAR.</Line>
             </span>
           </h2>

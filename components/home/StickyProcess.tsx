@@ -37,7 +37,7 @@ const steps = [
 
 export const StickyProcess = () => {
   return (
-    <section data-ground="#fafafa" className="py-32 bg-zinc-50 relative">
+    <section data-ground="#fafafa" className="py-32 bg-zinc-50 relative overflow-x-clip">
       <div className="container-impulso">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           
@@ -65,11 +65,11 @@ export const StickyProcess = () => {
             {steps.map((step, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="group bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-zinc-100 hover:border-zinc-300 transition-all hover:-translate-y-2"
+                className="group bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-zinc-100 hover:border-zinc-300 transition-[transform,border-color] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-2"
               >
                 <div className="flex justify-between items-start mb-8">
                   <span className="text-6xl font-black text-zinc-100 group-hover:text-zinc-200 transition-colors">

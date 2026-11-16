@@ -1,27 +1,15 @@
 import { render, act } from '@testing-library/react';
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { SectionGrounds } from '../components/common/SectionGrounds';
 
-type Callback = (entries: Array<{ target: Element; isIntersecting: boolean }>) => void;
-
-let observerCallback: Callback;
-let observerOptions: IntersectionObserverInit | undefined;
-const observed: Element[] = [];
-
-class FakeObserver {
-  constructor(cb: Callback, options?: IntersectionObserverInit) {
-    observerCallback = cb;
-    observerOptions = options;
-  }
-  observe(el: Element) { observed.push(el); }
-  unobserve() {}
-  disconnect() { observed.length = 0; }
-}
+// Viewport 1000px tall: the middle line is at 500. Section boxes are set per test.
+const VIEWPORT = 1000;
+const boxes: Record<string, { top: number; bottom: number }> = {};
 
 function Page() {
   return (
     <main data-ground-root>
-      <section id="hero" data-ground="#09090b">hero</section>
+      <section id="hero" data-ground="#000000">hero</section>
       <section id="band">band without ground</section>
       <section id="servicios" data-ground="#ffffff">servicios</section>
       <SectionGrounds />
@@ -30,51 +18,60 @@ function Page() {
 }
 
 const html = document.documentElement;
-const cross = (id: string, isIntersecting: boolean) =>
-  act(() => observerCallback([{ target: document.getElementById(id)!, isIntersecting }]));
+const ground = () => html.style.getPropertyValue('--page-ground');
 
-describe('SectionGrounds', () => {
+/** Place the gap between hero and servicios at `gapMiddle` (px from the top of the screen). */
+function placeGap(gapMiddle: number) {
+  boxes.hero = { top: gapMiddle - 1100, bottom: gapMiddle - 100 };
+  boxes.servicios = { top: gapMiddle + 100, bottom: gapMiddle + 1100 };
+}
+
+function scrollTo(gapMiddle: number) {
+  placeGap(gapMiddle);
+  act(() => { window.dispatchEvent(new Event('scroll')); });
+}
+
+describe('SectionGrounds (scroll-linked)', () => {
   beforeEach(() => {
-    vi.stubGlobal('IntersectionObserver', FakeObserver);
-  });
-  afterEach(() => {
-    vi.unstubAllGlobals();
+    Object.defineProperty(window, 'innerHeight', { value: VIEWPORT, configurable: true });
+    window.requestAnimationFrame = (cb: FrameRequestCallback) => { cb(0); return 0; };
+    window.cancelAnimationFrame = () => {};
+    HTMLElement.prototype.getBoundingClientRect = function (this: HTMLElement) {
+      const b = boxes[this.id] ?? { top: 0, bottom: 0 };
+      return { top: b.top, bottom: b.bottom, left: 0, right: 0, width: 0, height: b.bottom - b.top, x: 0, y: b.top, toJSON: () => ({}) } as DOMRect;
+    };
   });
 
-  it('watches only sections that declare a ground, on the middle line of the screen', () => {
+  it('paints the first ground before switching the mode on', () => {
+    placeGap(900);
     render(<Page />);
-    expect(observed.map((el) => el.id)).toEqual(['hero', 'servicios']);
-    expect(observerOptions?.rootMargin).toBe('-50% 0px -50% 0px');
+    expect(ground()).toBe('rgb(0, 0, 0)');
     expect(html).toHaveAttribute('data-grounds');
   });
 
-  it('paints the page with the ground of the section crossing the middle and marks it active', () => {
+  it('keeps the upper colour while the gap between sections is low on the screen', () => {
     render(<Page />);
-    cross('servicios', true);
-    expect(html.style.getPropertyValue('--page-ground')).toBe('#ffffff');
-    expect(document.getElementById('servicios')).toHaveAttribute('data-ground-active');
-    expect(document.getElementById('hero')).not.toHaveAttribute('data-ground-active');
-
-    cross('servicios', false);
-    cross('hero', true);
-    expect(html.style.getPropertyValue('--page-ground')).toBe('#09090b');
-    expect(document.getElementById('hero')).toHaveAttribute('data-ground-active');
-    expect(document.getElementById('servicios')).not.toHaveAttribute('data-ground-active');
+    scrollTo(700);
+    expect(ground()).toBe('rgb(0, 0, 0)');
   });
 
-  it('keeps the last ground while a band without ground crosses the middle', () => {
+  it('blends the two colours as the gap crosses the middle of the screen', () => {
     render(<Page />);
-    cross('hero', true);
-    cross('hero', false);
-    expect(html.style.getPropertyValue('--page-ground')).toBe('#09090b');
-    expect(document.getElementById('hero')).toHaveAttribute('data-ground-active');
+    scrollTo(500);
+    expect(ground()).toBe('rgb(128, 128, 128)');
+  });
+
+  it('settles on the lower colour once the gap has passed the middle', () => {
+    render(<Page />);
+    scrollTo(300);
+    expect(ground()).toBe('rgb(255, 255, 255)');
   });
 
   it('cleans every mark when it unmounts', () => {
+    placeGap(500);
     const { unmount } = render(<Page />);
-    cross('hero', true);
     unmount();
     expect(html).not.toHaveAttribute('data-grounds');
-    expect(html.style.getPropertyValue('--page-ground')).toBe('');
+    expect(ground()).toBe('');
   });
 });
