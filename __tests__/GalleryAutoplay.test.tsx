@@ -54,17 +54,25 @@ describe('gallery autoplay', () => {
     renderGallery();
     const viewport = screen.getByAltText('Galería de Adhesivos Impulso').closest('[aria-live]') as HTMLElement;
     advance(6000);
-    fireEvent.mouseEnter(viewport);
+    fireEvent.pointerEnter(viewport, { pointerType: 'mouse' });
     advance(30000);
     expect(currentImage()).toBe('/a.jpeg');
-    fireEvent.mouseLeave(viewport);
+    fireEvent.pointerLeave(viewport, { pointerType: 'mouse' });
     advance(2000);
     expect(currentImage()).toBe('/b.jpeg');
   });
 
   it('keeps playing while the pointer rests on the text beside the image', () => {
     renderGallery();
-    fireEvent.mouseEnter(screen.getByRole('region', { name: 'Galería de Adhesivos' }));
+    fireEvent.pointerEnter(screen.getByRole('region', { name: 'Galería de Adhesivos' }), { pointerType: 'mouse' });
+    advance(8000);
+    expect(currentImage()).toBe('/b.jpeg');
+  });
+
+  it('keeps playing after a tap on a touch screen', () => {
+    renderGallery();
+    const viewport = screen.getByAltText('Galería de Adhesivos Impulso').closest('[aria-live]') as HTMLElement;
+    fireEvent.pointerEnter(viewport, { pointerType: 'touch' });
     advance(8000);
     expect(currentImage()).toBe('/b.jpeg');
   });

@@ -1,23 +1,10 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from 'react';
+import { usePrefersReducedMotion } from './usePrefersReducedMotion';
 
 export const AUTOPLAY_INTERVAL_MS = 8000;
-const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
 const serverSnapshot = () => false;
-
-const hasMatchMedia = () => typeof window !== 'undefined' && typeof window.matchMedia === 'function';
-
-function prefersReducedMotion(): boolean {
-  return hasMatchMedia() && window.matchMedia(REDUCED_MOTION_QUERY).matches;
-}
-
-function subscribeReducedMotion(onChange: () => void): () => void {
-  if (!hasMatchMedia()) return () => {};
-  const query = window.matchMedia(REDUCED_MOTION_QUERY);
-  query.addEventListener('change', onChange);
-  return () => query.removeEventListener('change', onChange);
-}
 
 function isFocusVisible(element: Element): boolean {
   try {
@@ -49,8 +36,8 @@ export interface Autoplay {
   togglePaused: () => void;
   /** Spread on the slide viewport: pauses while the pointer is over the image. */
   hoverProps: {
-    onMouseEnter: () => void;
-    onMouseLeave: () => void;
+    onPointerEnter: (event: React.PointerEvent<HTMLElement>) => void;
+    onPointerLeave: () => void;
   };
   /** Spread on the carousel region: pauses while keyboard focus is inside it. */
   focusProps: {
@@ -72,7 +59,7 @@ export function useAutoplay(length: number, intervalMs: number = AUTOPLAY_INTERV
   const [userPaused, setUserPaused] = useState<boolean | null>(null);
   const [hovered, setHovered] = useState(false);
   const [keyboardFocused, setKeyboardFocused] = useState(false);
-  const reducedMotion = useSyncExternalStore(subscribeReducedMotion, prefersReducedMotion, serverSnapshot);
+  const reducedMotion = usePrefersReducedMotion();
   const hidden = useSyncExternalStore(subscribeVisibility, isTabHidden, serverSnapshot);
   const paused = userPaused ?? reducedMotion;
   const remainingRef = useRef(intervalMs);
@@ -113,8 +100,11 @@ export function useAutoplay(length: number, intervalMs: number = AUTOPLAY_INTERV
       setUserPaused(!paused);
     },
     hoverProps: {
-      onMouseEnter: () => setHovered(true),
-      onMouseLeave: () => setHovered(false),
+      // Touch screens emulate hover on tap; only a real mouse holds the slide.
+      onPointerEnter: (event) => {
+        if (event.pointerType === 'mouse') setHovered(true);
+      },
+      onPointerLeave: () => setHovered(false),
     },
     focusProps: {
       onFocus: (event) => {

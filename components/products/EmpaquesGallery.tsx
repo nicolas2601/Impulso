@@ -32,7 +32,6 @@ export const EmpaquesGallery = () => {
   });
 
   const y = useTransform(scrollYProgress, [0, 1], [0, -150]);
-  const opacity = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0, 1, 1, 0]);
 
   return (
     <section
@@ -106,10 +105,9 @@ export const EmpaquesGallery = () => {
             <AnimatePresence mode="wait">
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 1.05 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.5 }}
+                initial={{ opacity: 0, scale: 1.03 }}
+                animate={{ opacity: 1, scale: 1, transition: { duration: 0.35, ease: [0.23, 1, 0.32, 1] } }}
+                exit={{ opacity: 0, transition: { duration: 0.2, ease: [0.23, 1, 0.32, 1] } }}
                 className="relative w-full h-full rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/5"
               >
                 <Image 
@@ -137,7 +135,7 @@ export const EmpaquesGallery = () => {
                 <span className="text-[10px] font-black text-impulso-yellow tracking-widest uppercase">Impulso Lab</span>
                 <span className="text-white text-lg font-bold">Producción Real #0{index + 1}</span>
                 <div className="flex gap-2 mt-2">
-                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                  <div className="w-2 h-2 rounded-full bg-green-500 motion-safe:animate-pulse"></div>
                   <span className="text-[9px] text-zinc-500 uppercase font-bold">Material Disponible</span>
                 </div>
               </div>
