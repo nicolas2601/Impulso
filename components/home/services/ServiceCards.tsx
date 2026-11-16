@@ -61,24 +61,39 @@ export const EtiquetasCard = () => {
   );
 };
 
+const WEB_SHOTS = [
+  { src: '/portfolio/escala-home.webp', pose: 'left-[4%] top-[14%] -rotate-[8deg] group-hover:-translate-x-2 group-hover:-rotate-[11deg]' },
+  { src: '/portfolio/vera-escritorio.webp', pose: 'left-[30%] top-[6%] rotate-[6deg] group-hover:translate-x-2 group-hover:rotate-[9deg]' },
+  { src: '/portfolio/impulso-home.webp', pose: 'left-[16%] top-[24%] -rotate-[1deg] group-hover:-translate-y-1.5' },
+];
+
+/** The new service shows the real sites it has already shipped, fanned like prints on a table. */
 export const WebCard = () => {
   const id = useId();
   return (
-    <Link
-      href="/desarrollo-web"
-      aria-labelledby={`${id}-t`}
-      className={`${CARD} flex flex-col justify-between gap-6 bg-zinc-950 p-5 lg:p-7`}
-    >
-      <span className="w-fit rounded-full bg-impulso-yellow px-2.5 py-1 font-mono text-[11px] font-medium tracking-[0.08em] text-zinc-950">NUEVO</span>
-      <span aria-hidden className="mx-auto hidden w-[86%] rotate-[4deg] overflow-hidden rounded-[14px] border border-white/10 bg-zinc-900 lg:block">
-        <span className="block h-6 bg-zinc-800" />
-        <span className="block px-5 pb-6 pt-5 text-[30px] font-black leading-[0.88] tracking-[-0.05em] text-white">
-          TU NEGOCIO<br /><span className="text-impulso-yellow">EN GOOGLE.</span>
-        </span>
+    <Link href="/desarrollo-web" aria-labelledby={`${id}-t`} className={`${CARD} flex flex-col bg-zinc-950`}>
+      <span aria-hidden className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-impulso-yellow/20 blur-3xl" />
+      <span aria-hidden className="relative block h-[205px] sm:h-[240px] lg:h-[60%]">
+        {WEB_SHOTS.map((shot) => (
+          <span
+            key={shot.src}
+            className={`absolute w-[62%] overflow-hidden rounded-xl border border-white/15 bg-zinc-900 shadow-[0_18px_36px_rgba(0,0,0,0.55)] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${shot.pose}`}
+          >
+            <span className="flex h-4 items-center gap-1 bg-zinc-800 px-2">
+              {[0, 1, 2].map((i) => <span key={i} className="h-1.5 w-1.5 rounded-full bg-zinc-500/60" />)}
+            </span>
+            <span className="relative block aspect-[16/10]">
+              <Image src={shot.src} alt="" fill sizes="(min-width: 1024px) 16vw, 50vw" className="object-cover object-top" />
+            </span>
+          </span>
+        ))}
       </span>
-      <div className="flex flex-col gap-2">
+      <div className="relative mt-auto flex flex-col gap-2 p-5 lg:p-7">
+        <span className="w-fit rounded-full bg-impulso-yellow px-2.5 py-1 font-mono text-[11px] font-medium tracking-[0.08em] text-zinc-950">NUEVO</span>
         <h3 id={`${id}-t`} className="text-[30px] font-black leading-[0.95] tracking-[-0.04em] text-white lg:text-4xl">Desarrollo web</h3>
-        <span className="text-[15px] leading-snug text-zinc-400">Tu página, hecha por los que hacen tu marca.</span>
+        <span className="flex items-center gap-2 text-[14px] font-bold text-impulso-yellow lg:text-[15px]">
+          Mira las webs que ya hicimos <FaArrowRight aria-hidden className="transition-transform duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:translate-x-0.5" />
+        </span>
       </div>
     </Link>
   );
