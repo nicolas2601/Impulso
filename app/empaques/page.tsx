@@ -8,6 +8,8 @@ import { FaLeaf, FaPalette, FaTruck } from 'react-icons/fa';
 import { Button } from '@/components/ui/Button';
 import { generateWhatsAppLink } from '@/utils/whatsapp';
 import { EmpaquesGallery } from '@/components/products/EmpaquesGallery';
+import { RelatedLinks } from '@/components/common/RelatedLinks';
+import { RELATED_LINKS } from '@/data/siteLinks';
 
 export const metadata: Metadata = {
   title: { absolute: 'Empaques Personalizados Comida Rápida | Impulso Bucaramanga' },
@@ -58,6 +60,7 @@ export default function EmpaquesPage() {
           Consultar pedido especial
         </Button>
       </Section>
+      <RelatedLinks title="Empaques que producimos" links={RELATED_LINKS.empaques} />
     </main>
   );
 }

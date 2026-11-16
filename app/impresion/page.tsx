@@ -3,6 +3,8 @@ import { PageHero } from '@/components/common/PageHero';
 import { Section } from '@/components/ui/Section';
 import { ProductGallery } from '@/components/products/ProductGallery';
 import { FaPrint, FaLayerGroup, FaMagic } from 'react-icons/fa';
+import { RelatedLinks } from '@/components/common/RelatedLinks';
+import { RELATED_LINKS } from '@/data/siteLinks';
 
 export const metadata: Metadata = {
   title: { absolute: 'Impresión Litográfica y Digital en Bucaramanga | Impulso' },
@@ -59,6 +61,7 @@ export default function ImpresionPage() {
           ))}
         </div>
       </Section>
+      <RelatedLinks title="Lo que imprimimos" links={RELATED_LINKS.impresion} />
     </main>
   );
 }

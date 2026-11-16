@@ -4,6 +4,8 @@ import { Section } from '@/components/ui/Section';
 import { ProductGallery } from '@/components/products/ProductGallery';
 import { FaShapes, FaFillDrip, FaStore, FaCheckCircle, FaQuestionCircle } from 'react-icons/fa';
 import { generateLocalBusinessSchema, generateBreadcrumbSchema } from '@/utils/schema';
+import { RelatedLinks } from '@/components/common/RelatedLinks';
+import { RELATED_LINKS } from '@/data/siteLinks';
 
 export const metadata: Metadata = {
   title: { absolute: 'Vinilos Adhesivos en Bucaramanga | Decoración y Publicidad | Impulso' },
@@ -222,6 +224,7 @@ export default function AdhesivosPage() {
           </div>
         </div>
       </Section>
+      <RelatedLinks title="También te puede servir" links={RELATED_LINKS.adhesivos} />
     </main>
   );
 }

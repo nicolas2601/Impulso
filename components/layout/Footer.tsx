@@ -1,13 +1,14 @@
 import Link from 'next/link';
 import { FaFacebook, FaWhatsapp, FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
 import { CONTACT_INFO } from '@/constants/info';
+import { FOOTER_SPECIALTIES } from '@/data/siteLinks';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-impulso-gray-dark text-white pt-16 pb-8">
-      <div className="container-impulso grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+      <div className="container-impulso grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
         {/* Brand */}
         <div>
           <span className="text-2xl font-black tracking-tighter mb-6 block uppercase">
@@ -32,6 +33,16 @@ export const Footer = () => {
             <li><Link href="/avisos-profesionales" className="hover:text-white transition-colors">Señalética Profesional</Link></li>
             <li><Link href="/desarrollo-web" className="hover:text-white transition-colors">Desarrollo Web</Link></li>
             <li><Link href="/proyectos" className="hover:text-white transition-colors">Proyectos</Link></li>
+          </ul>
+        </div>
+
+        {/* Specialties */}
+        <div>
+          <h4 className="font-bold text-lg mb-6">Especialidades</h4>
+          <ul className="space-y-3 text-sm text-gray-400">
+            {FOOTER_SPECIALTIES.map((link) => (
+              <li key={link.href}><Link href={link.href} className="hover:text-white transition-colors">{link.title}</Link></li>
+            ))}
           </ul>
         </div>
 
@@ -61,11 +72,7 @@ export const Footer = () => {
         {/* Legal/Schedule */}
         <div>
           <h4 className="font-bold text-lg mb-6">Atención</h4>
-          <p className="text-gray-400 text-sm mb-6">{CONTACT_INFO.schedule}</p>
-          <div className="text-xs text-gray-500">
-            <Link href="/privacidad" className="hover:text-white transition-colors mr-4">Política de Privacidad</Link>
-            <Link href="/terminos" className="hover:text-white transition-colors">Términos de Servicio</Link>
-          </div>
+          <p className="text-gray-400 text-sm">{CONTACT_INFO.schedule}</p>
         </div>
       </div>
 

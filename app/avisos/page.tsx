@@ -3,6 +3,8 @@ import { PageHero } from '@/components/common/PageHero';
 import { Section } from '@/components/ui/Section';
 import { ProductGallery } from '@/components/products/ProductGallery';
 import { FaEye, FaBolt, FaLightbulb } from 'react-icons/fa';
+import { RelatedLinks } from '@/components/common/RelatedLinks';
+import { RELATED_LINKS } from '@/data/siteLinks';
 
 export const metadata: Metadata = {
   title: { absolute: 'Avisos Luminosos y Letreros Bucaramanga | Impulso' },
@@ -70,6 +72,7 @@ export default function AvisosPage() {
            </div>
         </div>
       </Section>
+      <RelatedLinks title="Tipos de avisos que fabricamos" links={RELATED_LINKS.avisos} />
     </main>
   );
 }
