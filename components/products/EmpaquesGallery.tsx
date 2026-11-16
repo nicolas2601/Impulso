@@ -1,10 +1,12 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { FaChevronLeft, FaChevronRight, FaWhatsapp } from 'react-icons/fa';
+import { FaWhatsapp } from 'react-icons/fa';
 import { generateWhatsAppLink } from '@/utils/whatsapp';
+import { useAutoplay } from '@/hooks/useAutoplay';
+import { GalleryDots, GalleryNavButtons } from './GalleryControls';
 
 const images = [
   '/Empaques/Empaques.jpeg',
@@ -20,16 +22,9 @@ const images = [
 ];
 
 export const EmpaquesGallery = () => {
-  const [index, setIndex] = useState(0);
   const containerRef = useRef(null);
-  
-  // Auto-play functionality
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
+  const autoplay = useAutoplay(images.length);
+  const { index } = autoplay;
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -39,11 +34,14 @@ export const EmpaquesGallery = () => {
   const y = useTransform(scrollYProgress, [0, 1], [0, -150]);
   const opacity = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0, 1, 1, 0]);
 
-  const next = () => setIndex((prev) => (prev + 1) % images.length);
-  const prev = () => setIndex((prev) => (prev - 1 + images.length) % images.length);
-
   return (
-    <section ref={containerRef} className="relative py-20 md:py-32 bg-zinc-950 overflow-hidden -mt-1">
+    <section
+      ref={containerRef}
+      aria-roledescription="carrusel"
+      aria-label="Galería de Empaques"
+      {...autoplay.focusProps}
+      className="relative py-20 md:py-32 bg-zinc-950 overflow-hidden -mt-1"
+    >
       {/* Visual connection with Hero - Subtle gradient top */}
       <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black/20 to-transparent pointer-events-none"></div>
 
@@ -93,35 +91,18 @@ export const EmpaquesGallery = () => {
                 <FaWhatsapp className="text-xl md:text-2xl" /> COTIZAR ESTO
               </motion.a>
               
-              <div className="flex items-center gap-4">
-                <button 
-                  onClick={prev}
-                  className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/10 flex items-center justify-center text-white hover:border-impulso-yellow hover:text-impulso-yellow transition-all"
-                >
-                  <FaChevronLeft />
-                </button>
-                <button 
-                  onClick={next}
-                  className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/10 flex items-center justify-center text-white hover:border-impulso-yellow hover:text-impulso-yellow transition-all"
-                >
-                  <FaChevronRight />
-                </button>
-              </div>
+              <GalleryNavButtons autoplay={autoplay} />
             </div>
 
-            <div className="mt-8 md:mt-12 flex gap-3">
-              {images.map((_, i) => (
-                <button 
-                  key={i} 
-                  onClick={() => setIndex(i)}
-                  className={`h-1 rounded-full transition-all duration-500 ${i === index ? 'w-10 md:w-12 bg-impulso-yellow' : 'w-3 md:w-4 bg-white/10 hover:bg-white/30'}`}
-                />
-              ))}
-            </div>
+            <GalleryDots autoplay={autoplay} count={images.length} />
           </motion.div>
 
           {/* Right Side: Immersive Image Display */}
-          <div className="relative w-full aspect-square md:aspect-[4/5] group">
+          <div
+            className="relative w-full aspect-square md:aspect-[4/5] group"
+            aria-live={autoplay.running ? 'off' : 'polite'}
+            {...autoplay.hoverProps}
+          >
             <AnimatePresence mode="wait">
               <motion.div
                 key={index}

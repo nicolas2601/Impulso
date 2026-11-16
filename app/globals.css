@@ -63,3 +63,22 @@ h1, h2, h3, h4, h5, h6 {
 .glass-dark {
   @apply bg-black/20 backdrop-blur-lg border border-white/5;
 }
+
+/* Carousel progress: the current dot fills while its slide is on screen. */
+@keyframes gallery-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.gallery-progress {
+  animation-name: gallery-progress;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-progress {
+    animation: none;
+    transform: scaleX(1);
+  }
+}
