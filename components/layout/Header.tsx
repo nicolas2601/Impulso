@@ -15,6 +15,7 @@ const navLinks = [
   { name: 'Etiquetas', href: '/etiquetas' },
   { name: 'Impresión', href: '/impresion' },
   { name: 'Señalética', href: '/avisos-profesionales', key: 'senaletica' },
+  { name: 'Web', href: '/desarrollo-web' },
   { name: 'Proyectos', href: '/proyectos' },
 ];
 
@@ -78,7 +79,7 @@ export const Header = () => {
                 priority
               />
             </motion.div>
-            <span className="text-lg md:text-xl font-black tracking-tighter uppercase text-white">
+            <span className="text-lg md:text-xl font-black tracking-tighter uppercase text-white lg:hidden xl:inline">
               Impulso<span className="text-impulso-yellow">.</span>
             </span>
           </Link>

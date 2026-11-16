@@ -23,9 +23,9 @@ describe('BentoServices (redesign)', () => {
     expect(screen.getByRole('link', { name: title })).toHaveAttribute('href', href);
   });
 
-  it('sends the new web development card to WhatsApp, since it has no page yet', () => {
+  it('links the new web development card to its landing page', () => {
     render(<BentoServices />);
-    expect(screen.getByRole('link', { name: 'Desarrollo web' }).getAttribute('href')).toMatch(/^https:\/\/(wa\.me|api\.whatsapp\.com)\//);
+    expect(screen.getByRole('link', { name: 'Desarrollo web' })).toHaveAttribute('href', '/desarrollo-web');
   });
 
   it('shows a real photograph of the work on every photo card', () => {
@@ -37,11 +37,9 @@ describe('BentoServices (redesign)', () => {
     }
   });
 
-  it('shows the starting prices already published on the service pages', () => {
-    render(<BentoServices />);
-    for (const price of ['Cajas desde $450 c/u', 'Desde $350.000', 'Packs desde $140.000']) {
-      expect(screen.getByText(price)).toBeInTheDocument();
-    }
+  it('shows no prices on the home cards', () => {
+    const { container } = render(<BentoServices />);
+    expect(container.textContent).not.toMatch(/\$\s*\d/);
   });
 
   it('keeps every title readable on its card', () => {

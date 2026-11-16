@@ -1,5 +1,5 @@
-// Home services bento (Figma: "Rediseño home · Servicios"). Prices are the ones already
-// published on each service page; photos are Impulso's own work from /public.
+// Home services bento (Figma: "Rediseño home · Servicios"). No prices on the home (owner's call);
+// photos are Impulso's own work from /public.
 
 export interface PhotoService {
   title: string;
@@ -7,7 +7,6 @@ export interface PhotoService {
   href: string;
   photo: string;
   alt: string;
-  price?: string;
   /** Tailwind classes for the card's place in the grid (mobile order + desktop span). */
   layout: string;
   sizes: string;
@@ -21,7 +20,6 @@ export const PHOTO_SERVICES: PhotoService[] = [
     href: '/empaques',
     photo: '/projects/empaques.jpeg',
     alt: 'Bolsas de papel con logo impresas por Impulso para una heladería',
-    price: 'Cajas desde $450 c/u',
     layout: 'col-span-2 order-1 h-[380px] lg:order-none lg:h-auto lg:col-span-7',
     sizes: '(min-width: 1024px) 58vw, 100vw',
     big: true,
@@ -32,7 +30,6 @@ export const PHOTO_SERVICES: PhotoService[] = [
     href: '/avisos',
     photo: '/projects/AVISOS.jpeg',
     alt: 'Letrero de neón flex con el logo de una heladería en Bucaramanga',
-    price: 'Desde $350.000',
     layout: 'col-span-2 order-2 h-[300px] lg:order-none lg:h-auto lg:col-span-5',
     sizes: '(min-width: 1024px) 41vw, 100vw',
   },
@@ -60,7 +57,6 @@ export const PHOTO_SERVICES: PhotoService[] = [
     href: '/impresion',
     photo: '/projects/IMPRESION.jpeg',
     alt: 'Tarjetas de regalo impresas en litografía con acabados dorados',
-    price: 'Packs desde $140.000',
     layout: 'col-span-2 order-7 h-[260px] lg:order-none lg:h-auto lg:col-span-5',
     sizes: '(min-width: 1024px) 41vw, 100vw',
   },
@@ -69,4 +65,3 @@ export const PHOTO_SERVICES: PhotoService[] = [
 export const ETIQUETAS_PHOTO = '/Etiquetas/Etiquetas 1.jpeg';
 export const EMPAQUES_PROP_PHOTO = '/Empaques/Empaques.jpeg';
 export const PROJECT_THUMBS = ['/Avisos/Avisos 4.jpeg', '/Adhesivos/Adhesivos 2.jpeg', '/Señalética/Señalética 1.jpeg'];
-export const WEB_QUOTE_MESSAGE = 'Hola Impulso, quiero una página web para mi negocio.';

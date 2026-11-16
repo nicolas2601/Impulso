@@ -14,6 +14,7 @@ const SERVICE_ROUTES = [
   '/etiquetas',
   '/diseno-empaques',
   '/litografia-bucaramanga',
+  '/desarrollo-web',
   '/proyectos',
 ];
 

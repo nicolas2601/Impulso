@@ -4,11 +4,9 @@ import { useId } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
-import { generateWhatsAppLink } from '@/utils/whatsapp';
 import {
   ETIQUETAS_PHOTO,
   PROJECT_THUMBS,
-  WEB_QUOTE_MESSAGE,
   type PhotoService,
 } from '@/data/homeServices';
 
@@ -35,9 +33,6 @@ export const PhotoCard = ({ service }: { service: PhotoService }) => {
       <span aria-hidden className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-zinc-950/90 via-zinc-950/50 to-transparent" />
       <span className="absolute right-5 top-5 lg:right-6 lg:top-6"><Arrow /></span>
       <div className="absolute bottom-0 left-0 flex flex-col items-start gap-2.5 p-6 lg:p-8">
-        {service.price && (
-          <span className="rounded-full bg-impulso-yellow px-3 py-1.5 text-[13px] font-bold text-zinc-950">{service.price}</span>
-        )}
         <h3
           id={`${id}-t`}
           className={`font-black leading-[0.95] tracking-[-0.04em] text-white ${service.big ? 'text-[38px] lg:text-[64px]' : 'text-[38px] lg:text-[44px]'}`}
@@ -69,10 +64,8 @@ export const EtiquetasCard = () => {
 export const WebCard = () => {
   const id = useId();
   return (
-    <a
-      href={generateWhatsAppLink(WEB_QUOTE_MESSAGE)}
-      target="_blank"
-      rel="noopener noreferrer"
+    <Link
+      href="/desarrollo-web"
       aria-labelledby={`${id}-t`}
       className={`${CARD} flex flex-col justify-between gap-6 bg-zinc-950 p-5 lg:p-7`}
     >
@@ -87,7 +80,7 @@ export const WebCard = () => {
         <h3 id={`${id}-t`} className="text-[30px] font-black leading-[0.95] tracking-[-0.04em] text-white lg:text-4xl">Desarrollo web</h3>
         <span className="text-[15px] leading-snug text-zinc-400">Tu página, hecha por los que hacen tu marca.</span>
       </div>
-    </a>
+    </Link>
   );
 };
 

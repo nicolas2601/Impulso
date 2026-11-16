@@ -88,3 +88,8 @@ h1, h2, h3, h4, h5, h6 {
    Without JavaScript every section keeps its own background. */
 html[data-grounds] [data-ground-root] { background-color: var(--page-ground, #fafafa); }
 html[data-grounds] [data-ground] { background-color: transparent; }
+
+/* Desarrollo web: the band of services slides on, unless the visitor asks for less motion. */
+@keyframes web-marquee { to { transform: translateX(-50%); } }
+.web-marquee { animation: web-marquee 40s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .web-marquee { animation: none; } }
