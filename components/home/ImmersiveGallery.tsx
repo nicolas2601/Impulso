@@ -66,10 +66,10 @@ const projects = [
 const ProjectRow = ({ project, index }: { project: any, index: number }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+      transition={{ duration: 0.45, delay: index * 0.06, ease: [0.23, 1, 0.32, 1] }}
       className="group relative border-t border-white/10 py-10 md:py-14 transition-colors hover:bg-white/5 cursor-pointer"
     >
       <Link href={project.href} className="container-impulso flex flex-col md:flex-row md:items-center justify-between gap-6 md:gap-8">
@@ -109,7 +109,7 @@ const ProjectRow = ({ project, index }: { project: any, index: number }) => {
            )}
            
            <div className="absolute inset-0 flex items-center justify-center">
-             <span className="text-white/40 font-black text-xl md:text-2xl uppercase mix-blend-overlay group-hover:scale-110 transition-transform duration-700 tracking-tighter">Explorar</span>
+             <span className="text-white/40 font-black text-xl md:text-2xl uppercase mix-blend-overlay group-hover:scale-110 transition-transform duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] tracking-tighter">Explorar</span>
            </div>
         </div>
         
@@ -140,7 +140,7 @@ export const ImmersiveGallery = () => {
         
         <Link 
           href="/proyectos"
-          className="hidden md:inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white font-bold hover:bg-white hover:text-black transition-all"
+          className="hidden md:inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white font-bold hover:bg-white hover:text-black transition-colors duration-200"
         >
           VER TODO EL PORTAFOLIO <FaArrowRight />
         </Link>

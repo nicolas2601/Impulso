@@ -13,9 +13,10 @@ export const MassiveFooter = () => {
 
       <div className="container-impulso relative z-10 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
         >
           <span className="font-bold text-lg md:text-xl uppercase tracking-widest mb-4 block">
             ¿Listo para empezar?
@@ -30,9 +31,9 @@ export const MassiveFooter = () => {
             href={generateWhatsAppLink("Hola Impulso, estoy listo para iniciar...")}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative px-12 py-6 bg-black text-white rounded-full font-black text-xl md:text-2xl overflow-hidden transition-all hover:scale-105 hover:shadow-2xl"
+            className="group relative px-12 py-6 bg-black text-white rounded-full font-black text-xl md:text-2xl overflow-hidden transition-shadow duration-300 hover:shadow-2xl"
             whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileTap={{ scale: 0.97 }}
           >
             <span className="relative z-10 flex items-center gap-3">
               <FaWhatsapp /> INICIAR PROYECTO

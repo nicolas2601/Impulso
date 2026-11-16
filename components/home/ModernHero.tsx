@@ -4,8 +4,10 @@ import { motion } from 'framer-motion';
 import { generateWhatsAppLink } from '@/utils/whatsapp';
 import { FaArrowRight } from 'react-icons/fa';
 import Link from 'next/link';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 export const ModernHero = () => {
+  const reducedMotion = usePrefersReducedMotion();
   return (
     <section data-ground="#09090b" className="relative min-h-[92vh] flex flex-col justify-center items-center bg-zinc-950 overflow-hidden pt-20">
       
@@ -15,7 +17,7 @@ export const ModernHero = () => {
       <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-zinc-950 to-transparent z-10"></div>
 
       {/* Radiant Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-impulso-yellow/10 rounded-full blur-[120px] z-0 animate-pulse"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-impulso-yellow/10 rounded-full blur-[120px] z-0 motion-safe:animate-pulse"></div>
 
       <div className="container-impulso relative z-20 text-center flex flex-col items-center">
         
@@ -27,7 +29,7 @@ export const ModernHero = () => {
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs md:text-sm font-medium text-gray-300 mb-8 backdrop-blur-sm"
         >
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-impulso-yellow opacity-75"></span>
+            <span className="motion-safe:animate-ping absolute inline-flex h-full w-full rounded-full bg-impulso-yellow opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-impulso-yellow"></span>
           </span>
           Disponible para proyectos en Colombia
@@ -52,14 +54,14 @@ export const ModernHero = () => {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
+          transition={{ delay: 0.35, duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
           className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
         >
           <a
             href={generateWhatsAppLink("Hola Impulso, quiero que mi marca destaque...")}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative px-8 py-4 bg-impulso-yellow text-black font-black text-lg rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(247,211,51,0.5)]"
+            className="group relative px-8 py-4 bg-impulso-yellow text-black font-black text-lg rounded-full overflow-hidden transition-[transform,box-shadow] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-105 active:scale-[0.97] hover:shadow-[0_0_40px_rgba(247,211,51,0.5)]"
           >
             <span className="relative z-10 flex items-center justify-center gap-2">
               COTIZAR PROYECTO <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
@@ -78,7 +80,7 @@ export const ModernHero = () => {
       <div className="absolute bottom-0 w-full overflow-hidden py-4 border-t border-white/5 bg-black/50 backdrop-blur-sm">
         <motion.div 
           className="flex gap-12 whitespace-nowrap text-white/20 font-black text-4xl uppercase"
-          animate={{ x: [0, -1000] }}
+          animate={reducedMotion ? undefined : { x: [0, -1000] }}
           transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
         >
           {[...Array(10)].map((_, i) => (

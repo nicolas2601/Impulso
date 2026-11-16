@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 const words = [
   "ENTREGA RÁPIDA", "•", "CALIDAD PREMIUM", "•", "BUCARAMANGA", "•", 
@@ -10,13 +11,14 @@ const words = [
 ];
 
 export const TrustMarquee = () => {
+  const reducedMotion = usePrefersReducedMotion();
   return (
     <section className="py-12 bg-impulso-yellow border-y border-black overflow-hidden relative z-20">
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20 mix-blend-multiply"></div>
       
       <motion.div 
         className="flex whitespace-nowrap"
-        animate={{ x: [0, -1000] }}
+        animate={reducedMotion ? undefined : { x: [0, -1000] }}
         transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
       >
         <div className="flex gap-8 items-center">

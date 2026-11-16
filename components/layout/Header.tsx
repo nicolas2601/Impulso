@@ -59,7 +59,7 @@ export const Header = () => {
         transition={{ type: "spring", stiffness: 260, damping: 20 }}
       >
         <motion.div 
-          className={`relative flex items-center justify-between px-6 py-2 rounded-full border border-white/10 transition-all duration-500 pointer-events-auto bg-black/60 backdrop-blur-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] ${
+          className={`relative flex items-center justify-between px-6 py-2 rounded-full border border-white/10 transition-[max-width] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] pointer-events-auto bg-black/60 backdrop-blur-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] ${
             isScrolled ? 'w-full max-w-4xl' : 'w-full max-w-6xl'
           }`}
         >
@@ -67,8 +67,8 @@ export const Header = () => {
           <Link href="/" className="flex items-center gap-3 group shrink-0 relative z-[130]">
             <motion.div 
               className="relative w-8 h-8 md:w-9 md:h-9"
-              whileHover={{ rotate: 360, scale: 1.1 }}
-              transition={{ duration: 0.8, ease: "anticipate" }}
+              whileHover={{ scale: 1.04 }}
+              transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
             >
               <Image
                 src="/logo.png"
@@ -141,10 +141,10 @@ export const Header = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, scale: 1.1, filter: 'blur(20px)' }}
-            animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-            exit={{ opacity: 0, scale: 1.1, filter: 'blur(20px)' }}
-            transition={{ duration: 0.5, ease: "circOut" }}
+            initial={{ opacity: 0, filter: 'blur(8px)' }}
+            animate={{ opacity: 1, filter: 'blur(0px)' }}
+            exit={{ opacity: 0, filter: 'blur(8px)' }}
+            transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
             className="fixed inset-0 z-[110] bg-black/95 backdrop-blur-3xl md:hidden flex flex-col justify-center items-center p-8"
           >
             <nav className="flex flex-col gap-4 w-full text-center">
