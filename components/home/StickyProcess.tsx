@@ -37,7 +37,7 @@ const steps = [
 
 export const StickyProcess = () => {
   return (
-    <section className="py-32 bg-zinc-50 relative">
+    <section data-ground="#fafafa" className="py-32 bg-zinc-50 relative">
       <div className="container-impulso">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           

@@ -123,7 +123,7 @@ const ProjectRow = ({ project, index }: { project: any, index: number }) => {
 
 export const ImmersiveGallery = () => {
   return (
-    <section className="bg-zinc-950 py-32 relative overflow-hidden">
+    <section data-ground="#09090b" className="bg-zinc-950 py-32 relative overflow-hidden">
       {/* Background Glow */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
 

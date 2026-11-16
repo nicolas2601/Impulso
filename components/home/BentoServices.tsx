@@ -43,7 +43,7 @@ const BentoCard = ({ title, desc, icon: Icon, href, className, delay }: any) => 
 
 export const BentoServices = () => {
   return (
-    <section className="py-24 bg-white">
+    <section data-ground="#ffffff" className="py-24 bg-white">
       <div className="container-impulso">
         <div className="mb-16 md:text-center max-w-3xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-black text-zinc-900 mb-6 tracking-tight">

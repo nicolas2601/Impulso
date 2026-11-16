@@ -82,3 +82,18 @@ h1, h2, h3, h4, h5, h6 {
     transform: scaleX(1);
   }
 }
+
+/* Section grounds (components/common/SectionGrounds.tsx): the page's ground follows the
+   section in the middle of the screen; the other grounded sections wait, dimmed, so no
+   word sits on the wrong colour while it changes. Without JavaScript nothing here applies. */
+html[data-grounds] [data-ground-root] { background-color: var(--page-ground, #fafafa); }
+html[data-grounds] [data-ground] { background-color: transparent; }
+html[data-grounds] [data-ground]:not([data-ground-active]) > * { opacity: 0.12; }
+html[data-grounds-ready] [data-ground-root] { transition: background-color 900ms cubic-bezier(0.16, 1, 0.3, 1); }
+html[data-grounds-ready] [data-ground] > * { transition: opacity 600ms cubic-bezier(0.23, 1, 0.32, 1); }
+
+@media (prefers-reduced-motion: reduce) {
+  /* A colour change is not movement: keep it, shorter. */
+  html[data-grounds-ready] [data-ground-root] { transition-duration: 300ms; }
+  html[data-grounds-ready] [data-ground] > * { transition-duration: 200ms; }
+}

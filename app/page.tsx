@@ -7,6 +7,7 @@ import { StickyProcess } from '@/components/home/StickyProcess';
 import { MassiveFooter } from '@/components/home/MassiveFooter';
 import { WhatsAppButton } from '@/components/common/WhatsAppButton';
 import { NoiseOverlay } from '@/components/common/NoiseOverlay';
+import { SectionGrounds } from '@/components/common/SectionGrounds';
 import { SITE_CONFIG, CONTACT_INFO } from '@/constants/info';
 
 export const metadata: Metadata = {
@@ -55,7 +56,8 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-zinc-50 relative selection:bg-impulso-yellow selection:text-black">
+    <main data-ground-root className="min-h-screen bg-zinc-50 relative selection:bg-impulso-yellow selection:text-black">
+      <SectionGrounds />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export const ModernHero = () => {
   return (
-    <section className="relative min-h-[92vh] flex flex-col justify-center items-center bg-zinc-950 overflow-hidden pt-20">
+    <section data-ground="#09090b" className="relative min-h-[92vh] flex flex-col justify-center items-center bg-zinc-950 overflow-hidden pt-20">
       
       {/* Background Abstract Grid */}
       <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
