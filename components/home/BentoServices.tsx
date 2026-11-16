@@ -1,155 +1,101 @@
 'use client';
 
-import Link from 'next/link';
+import type { ReactNode } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { 
-  FaBox, 
-  FaLightbulb, 
-  FaPrint, 
-  FaArrowRight, 
-  FaFillDrip, 
-  FaTags, 
-  FaDirections, 
-  FaBriefcase 
-} from 'react-icons/fa';
-import type { IconType } from 'react-icons';
+import { FaWhatsapp } from 'react-icons/fa';
+import { generateWhatsAppLink } from '@/utils/whatsapp';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
+import { EMPAQUES_PROP_PHOTO, PHOTO_SERVICES } from '@/data/homeServices';
+import { EtiquetasCard, PhotoCard, ProjectsCard, WebCard } from './services/ServiceCards';
 
-type Tone = 'light' | 'dark' | 'accent';
+const EASE_EXPO = [0.16, 1, 0.3, 1] as const;
+// Words wait for the section's ground: they rise as the headline reaches the middle of the screen.
+const HEADLINE_VIEW = { once: true, margin: '0px 0px -45% 0px' };
+const CARD_VIEW = { once: true, margin: '0px 0px -15% 0px' };
+// Short, non-uniform stagger (s) per grid cell, in desktop reading order.
+const CARD_DELAYS = [0, 0.06, 0.03, 0.09, 0.14, 0.04, 0.1, 0.15];
 
-interface BentoCardProps {
-  title: string;
-  desc: string;
-  icon: IconType;
-  href: string;
-  className: string;
-  index: number;
-  tone?: Tone;
-}
+const BIG = 'block font-black uppercase leading-[0.84] tracking-[-0.07em] text-[17vw] lg:text-[10.4vw] 2xl:text-[150px]';
+const SMALL = 'block font-medium leading-[1.25] tracking-[-0.03em] text-zinc-950/55 text-xl lg:text-3xl';
 
-const TONES: Record<Tone, { card: string; title: string; desc: string; link: string }> = {
-  light: { card: 'bg-zinc-50 border-zinc-100 hover:border-zinc-300', title: 'text-zinc-900', desc: 'text-zinc-500', link: 'text-zinc-900 hover:text-zinc-500' },
-  dark: { card: 'bg-zinc-900 border-zinc-800 hover:border-zinc-600', title: 'text-white', desc: 'text-zinc-400', link: 'text-white hover:text-impulso-yellow' },
-  accent: { card: 'bg-impulso-yellow border-impulso-yellow hover:border-zinc-900', title: 'text-zinc-900', desc: 'text-zinc-800', link: 'text-zinc-900 hover:text-zinc-600' },
-};
-
-const BentoCard = ({ title, desc, icon: Icon, href, className, index, tone = 'light' }: BentoCardProps) => {
-  const t = TONES[tone];
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.96 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true, amount: 0.1 }}
-      transition={{ delay: index * 0.06, duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-      className={`group relative overflow-hidden rounded-3xl border p-8 flex flex-col justify-between transition-[border-color,box-shadow] duration-300 hover:shadow-xl ${t.card} ${className}`}
+/** One headline line rising from behind its mask. */
+const Line = ({ children, delay, reduced, className = '' }: { children: ReactNode; delay: number; reduced: boolean; className?: string }) => (
+  <span className={`block overflow-hidden pb-[0.04em] ${className}`}>
+    <motion.span
+      className="block"
+      initial={reduced ? false : { y: '105%' }}
+      whileInView={{ y: '0%' }}
+      viewport={HEADLINE_VIEW}
+      transition={{ duration: 1, delay, ease: EASE_EXPO }}
     >
-      <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-110">
-        <Icon size={120} />
-      </div>
+      {children}
+    </motion.span>
+  </span>
+);
 
-      <div className="relative z-10">
-        <div className="w-12 h-12 rounded-xl bg-impulso-yellow text-black flex items-center justify-center mb-6 text-xl">
-          <Icon />
-        </div>
-        <h3 className={`text-2xl font-bold mb-2 ${t.title}`}>{title}</h3>
-        <p className={`font-medium leading-relaxed max-w-sm ${t.desc}`}>{desc}</p>
-      </div>
-
-      <div className="relative z-10 mt-8">
-        <Link href={href} className={`inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide transition-colors duration-200 ${t.link}`}>
-          Explorar <FaArrowRight />
-        </Link>
-      </div>
-    </motion.div>
-  );
-};
+/** A grid cell whose card is uncovered from the bottom, once. */
+const Cell = ({ children, index, className, reduced }: { children: ReactNode; index: number; className: string; reduced: boolean }) => (
+  <motion.div
+    className={className}
+    initial={reduced ? false : { clipPath: 'inset(100% 0% 0% 0%)' }}
+    whileInView={{ clipPath: 'inset(0% 0% 0% 0%)' }}
+    viewport={CARD_VIEW}
+    transition={{ duration: 0.9, delay: CARD_DELAYS[index] ?? 0, ease: EASE_EXPO }}
+  >
+    {children}
+  </motion.div>
+);
 
 export const BentoServices = () => {
+  const reduced = usePrefersReducedMotion();
+  const [empaques, avisos, adhesivos, senaletica, impresion] = PHOTO_SERVICES;
+
   return (
-    <section data-ground="#ffffff" className="py-24 bg-white">
+    <section data-ground="#f4f4f5" aria-labelledby="servicios-title" className="bg-zinc-100 py-24 lg:py-36">
       <div className="container-impulso">
-        <div className="mb-16 md:text-center max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black text-zinc-900 mb-6 tracking-tight">
-            TODO LO QUE NECESITAS. <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-impulso-yellow to-yellow-600">EN UN SOLO LUGAR.</span>
+        <div className="mb-14 flex flex-col gap-10 lg:mb-20 lg:flex-row lg:items-end lg:justify-between">
+          <h2 id="servicios-title" className="text-zinc-950">
+            <Line delay={0} reduced={reduced} className={SMALL}>todo lo que</Line>{' '}
+            <Line delay={0.08} reduced={reduced} className={BIG}>NECESITAS</Line>{' '}
+            <span className="flex items-end gap-3 pl-10 lg:gap-6 lg:pl-[12.5vw] 2xl:pl-[190px]">
+              <Line delay={0.16} reduced={reduced} className={`${SMALL} pb-[0.35em]`}>en un solo</Line>{' '}
+              <Line delay={0.22} reduced={reduced} className={BIG}>LUGAR.</Line>
+            </span>
           </h2>
-          <p className="text-xl text-zinc-500 px-4 md:px-0">
-            Simplificamos la producción visual de tu negocio. Calidad industrial, diseño boutique para cada necesidad.
-          </p>
+          <div className="flex max-w-[340px] flex-col items-start gap-6">
+            <p className="text-lg leading-relaxed text-zinc-800">
+              Diseñamos, imprimimos y fabricamos todo lo visual de tu negocio. Mismo equipo, mismo taller en
+              Bucaramanga, sin intermediarios.
+            </p>
+            <a
+              href={generateWhatsAppLink('Hola Impulso, quiero cotizar para mi negocio.')}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-11 items-center gap-2.5 rounded-full bg-zinc-950 px-6 py-3.5 text-[15px] font-bold text-white transition-transform duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-950"
+            >
+              <FaWhatsapp aria-hidden className="text-impulso-yellow" /> Cotizar por WhatsApp
+            </a>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px] md:auto-rows-[350px]">
-          {/* Empaques */}
-          <BentoCard 
-            title="Empaques"
-            desc="Cajas y bolsas personalizadas que elevan la experiencia de unboxing de tu marca."
-            icon={FaBox}
-            href="/empaques"
-            className="md:col-span-2"
-            tone="dark"
-            index={0}
-          />
-          
-          {/* Avisos */}
-          <BentoCard 
-            title="Avisos"
-            desc="Letreros luminosos y neón flex para que tu negocio destaque día y noche."
-            icon={FaLightbulb}
-            href="/avisos"
-            className="md:col-span-1"
-            index={1}
-          />
+        <div className="relative grid grid-cols-2 gap-3 lg:grid-cols-12 lg:grid-rows-[520px_400px_400px] lg:gap-4">
+          <Cell index={0} reduced={reduced} className={empaques.layout}><PhotoCard service={empaques} /></Cell>
+          <Cell index={1} reduced={reduced} className={avisos.layout}><PhotoCard service={avisos} /></Cell>
+          <Cell index={2} reduced={reduced} className={adhesivos.layout}><PhotoCard service={adhesivos} /></Cell>
+          <Cell index={3} reduced={reduced} className="order-3 h-[170px] lg:order-none lg:col-span-4 lg:h-auto"><EtiquetasCard /></Cell>
+          <Cell index={4} reduced={reduced} className={senaletica.layout}><PhotoCard service={senaletica} /></Cell>
+          <Cell index={5} reduced={reduced} className={impresion.layout}><PhotoCard service={impresion} /></Cell>
+          <Cell index={6} reduced={reduced} className="col-span-2 order-8 lg:order-none lg:col-span-4"><WebCard /></Cell>
+          <Cell index={7} reduced={reduced} className="order-4 h-[170px] lg:order-none lg:col-span-3 lg:h-auto"><ProjectsCard /></Cell>
 
-          {/* Adhesivos */}
-          <BentoCard 
-            title="Adhesivos"
-            desc="Vinilos decorativos y microperforados para transformar tus paredes y vidrios."
-            icon={FaFillDrip}
-            href="/adhesivos"
-            className="md:col-span-1"
-            index={2}
-          />
-
-          {/* Etiquetas */}
-          <BentoCard 
-            title="Etiquetas"
-            desc="Stickers y etiquetas adhesivas de alta resistencia para todos tus productos."
-            icon={FaTags}
-            href="/etiquetas"
-            className="md:col-span-1"
-            tone="accent"
-            index={3}
-          />
-
-          {/* Señalética */}
-          <BentoCard 
-            title="Señalética"
-            desc="Sistemas de señalización profesional para interiores y exteriores de empresas."
-            icon={FaDirections}
-            href="/avisos-profesionales"
-            className="md:col-span-1"
-            index={4}
-          />
-
-          {/* Impresión */}
-          <BentoCard 
-            title="Impresión"
-            desc="Gran formato, papelería comercial y servicios de litografía de alta precisión."
-            icon={FaPrint}
-            href="/impresion"
-            className="md:col-span-2"
-            index={5}
-          />
-
-          {/* Proyectos */}
-          <BentoCard 
-            title="Proyectos"
-            desc="Explora nuestro portafolio de trabajos realizados para clientes satisfechos."
-            icon={FaBriefcase}
-            href="/proyectos"
-            className="md:col-span-1"
-            tone="dark"
-            index={6}
-          />
+          {/* A second real product tilts over the edge of the empaques card. */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -top-16 left-[33%] z-10 hidden aspect-square w-[180px] rotate-[8deg] overflow-hidden rounded-2xl border-[6px] border-zinc-100 shadow-[0_20px_40px_rgba(0,0,0,0.3)] lg:block"
+          >
+            <Image src={EMPAQUES_PROP_PHOTO} alt="" fill sizes="180px" className="object-cover" />
+          </div>
         </div>
       </div>
     </section>

@@ -20,7 +20,7 @@ describe('Home Page', () => {
   it('renders call to action buttons', () => {
     render(<Home />);
     expect(screen.getByText(/COTIZAR PROYECTO/i)).toBeInTheDocument();
-    expect(screen.getByText(/Ver Portafolio/i)).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Ver Portafolio/i })).toHaveAttribute('href', '/proyectos');
   });
 
   it('contains structured data script', () => {
