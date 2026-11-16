@@ -1,46 +1,76 @@
-import { render, screen } from '@testing-library/react';
-import ProjectDetailPage from '../app/proyectos/[slug]/page';
+import { render, screen, within } from '@testing-library/react';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import nextConfig from '../next.config';
 import { projects } from '../data/projects';
-import { describe, it, expect, vi } from 'vitest';
+import { WORK_PHOTOS, WORK_VIDEOS } from '../data/realWork';
+import ProyectosPage from '../app/proyectos/page';
+import ProjectDetailPage from '../app/proyectos/[slug]/page';
 
-// Mocks
-vi.mock('next/navigation', () => ({
-  notFound: vi.fn(),
-  usePathname: () => '/proyectos/test-project',
-}));
+const RETIRED_SLUGS = [
+  'burger-stack-rebranding-empaques',
+  'neon-bar-la-terraza',
+  'branding-tienda-ropa',
+  'senaletica-clinica-dental',
+  'etiquetas-cerveza-artesanal',
+  'caja-pizza-negra',
+  'menu-restaurante-italiano',
+  'aviso-luminoso-farmacia',
+];
 
-vi.mock('next/image', () => ({
-  default: (props: any) => <img {...props} />,
-}));
+beforeEach(() => {
+  vi.stubGlobal(
+    'IntersectionObserver',
+    class {
+      observe() {}
+      disconnect() {}
+      unobserve() {}
+    },
+  );
+});
 
-// Components Mocks
-vi.mock('../components/common/PageHero', () => ({
-  PageHero: ({ title }: any) => <h1>{title}</h1>,
-}));
-
-describe('Project Detail Page', () => {
-  it('renders project title and challenge', async () => {
-    // Test with first project
-    const project = projects[0];
-    const params = Promise.resolve({ slug: project.slug });
-    
-    // As it is an async server component, we await render
-    const JSX = await ProjectDetailPage({ params });
-    render(JSX);
-
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(project.title);
-    expect(screen.getByText(/El Desafío/i)).toBeInTheDocument();
-    expect(screen.getByText(project.challenge)).toBeInTheDocument();
+describe('case studies', () => {
+  it('are built only from real, local work photos and clips', () => {
+    const photoSrcs = new Set(WORK_PHOTOS.map((p) => p.src));
+    const clipSrcs = new Set(WORK_VIDEOS.map((v) => v.src));
+    for (const project of projects) {
+      expect(project.photos.length, project.slug).toBeGreaterThan(0);
+      expect(project.photos.every((p) => photoSrcs.has(p.src)), project.slug).toBe(true);
+      expect(project.videos.every((v) => clipSrcs.has(v.src)), project.slug).toBe(true);
+    }
   });
 
-  it('renders schema markup script', async () => {
+  it('never quote a testimonial nobody gave', () => {
+    for (const project of projects) expect(project).not.toHaveProperty('testimonial');
+  });
+
+  it('are all linked from the portfolio page', () => {
+    render(<ProyectosPage />);
+    const cases = screen.getByRole('region', { name: /casos/i });
+    const hrefs = within(cases).getAllByRole('link').map((a) => a.getAttribute('href'));
+    expect(hrefs).toEqual(expect.arrayContaining(projects.map((p) => `/proyectos/${p.slug}`)));
+  });
+
+  it('render their photos and clips on the detail page', async () => {
+    const project = projects.find((p) => p.videos.length > 0)!;
+    const { container } = render(await ProjectDetailPage({ params: Promise.resolve({ slug: project.slug }) }));
+    expect(screen.getByRole('heading', { level: 1, name: project.title })).toBeInTheDocument();
+    for (const photo of project.photos) expect(screen.getByRole('img', { name: photo.alt })).toBeInTheDocument();
+    expect(container.querySelectorAll('video')).toHaveLength(project.videos.length);
+  });
+
+  it('describe each case as a CreativeWork with an absolute image', async () => {
     const project = projects[0];
-    const params = Promise.resolve({ slug: project.slug });
-    const JSX = await ProjectDetailPage({ params });
-    const { container } = render(JSX);
-    
+    const { container } = render(await ProjectDetailPage({ params: Promise.resolve({ slug: project.slug }) }));
     const script = container.querySelector('script[type="application/ld+json"]');
-    expect(script).toBeInTheDocument();
-    expect(script).toHaveTextContent('CreativeWork');
+    const data = JSON.parse(script?.textContent ?? '{}');
+    expect(data['@type']).toBe('CreativeWork');
+    expect(data.image).toMatch(/^https:\/\/impulsopublicidad\.pro\/trabajos\//);
+  });
+
+  it.each(RETIRED_SLUGS)('send the retired /proyectos/%s permanently to the portfolio', async (slug) => {
+    const redirects = (await nextConfig.redirects?.()) ?? [];
+    const rule = redirects.find((r) => r.destination === '/proyectos' && new RegExp(r.source.replace(/:slug\((.*)\)/, '($1)')).test(`/proyectos/${slug}`));
+    expect(rule?.permanent).toBe(true);
+    expect(projects.some((p) => p.slug === slug)).toBe(false);
   });
 });

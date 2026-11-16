@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { PageHero } from '@/components/common/PageHero';
 import { Section } from '@/components/ui/Section';
 import { ProductGallery } from '@/components/products/ProductGallery';
+import { photosOf } from '@/data/realWork';
 import { FaExclamationTriangle, FaDoorOpen, FaShieldAlt } from 'react-icons/fa';
 
 export const metadata: Metadata = {
@@ -13,13 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default function SenaleticaPage() {
-  const images = [
-    '/Señalética/Señalética 1.webp',
-    '/Señalética/Señalética 2.webp',
-    '/Señalética/Señalética 3.webp',
-    '/Señalética/Señalética 4.webp',
-    '/Señalética/Señalética 5.webp',
-  ];
+  const images = photosOf('Señalética');
 
   const categories = [
     { icon: <FaShieldAlt size={28} />, title: 'Corporativa', desc: 'Directorios, placas de escritorio y señalización de oficinas con acabados premium.' },
@@ -42,7 +37,7 @@ export default function SenaleticaPage() {
         accentTitle="SEGURIDAD."
         description="Soluciones integrales de señalización en materiales como Acrílico, PVC, Poliestireno y Aluminio. Visibilidad clara y duradera para interiores y exteriores."
         images={images}
-        category="SEÑALÉTICA"
+        category="Señalética"
       />
 
       <Section bg="dark">

@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { PageHero } from '@/components/common/PageHero';
 import { Section } from '@/components/ui/Section';
 import { ProductGallery } from '@/components/products/ProductGallery';
+import { photosOf } from '@/data/realWork';
 import { FaTag, FaCheckCircle, FaBoxOpen } from 'react-icons/fa';
 
 export const metadata: Metadata = {
@@ -13,12 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default function EtiquetasPage() {
-  const images = [
-    '/Etiquetas/Etiquetas 1.webp',
-    '/Etiquetas/Etiquetas 2.webp',
-    '/Etiquetas/Etiquetas 3.webp',
-    '/Etiquetas/Etiquetas 4.webp',
-  ];
+  const images = photosOf('Etiquetas');
 
   const highlights = [
     { icon: <FaTag size={28} />, title: 'Troquelado Especial', desc: 'Damos la forma que quieras a tus etiquetas: círculos, cuadrados o formas personalizadas.' },
@@ -41,7 +37,7 @@ export default function EtiquetasPage() {
         accentTitle="CADA PRODUCTO."
         description="Imprimimos etiquetas en vinilo adhesivo y cartón con la mejor resolución del mercado. Perfectas para emprendimientos y grandes marcas que buscan destacar."
         images={images}
-        category="ETIQUETAS"
+        category="Etiquetas"
       />
 
       <Section bg="yellow">

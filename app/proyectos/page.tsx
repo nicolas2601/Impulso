@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { PageHero } from '@/components/common/PageHero';
 import { ProjectsCollage } from '@/components/projects/ProjectsCollage';
+import { CaseStudies } from '@/components/projects/CaseStudies';
 
 export const metadata: Metadata = {
   title: { absolute: 'Portafolio de Proyectos - Impulso Bucaramanga' },
@@ -21,6 +22,7 @@ export default function ProyectosPage() {
         align="center"
       />
       
+      <CaseStudies />
       <ProjectsCollage />
     </main>
   );

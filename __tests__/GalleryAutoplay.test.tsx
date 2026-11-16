@@ -3,7 +3,13 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { ProductGallery } from '../components/products/ProductGallery';
 import { EmpaquesGallery } from '../components/products/EmpaquesGallery';
 
-const IMAGES = ['/a.jpeg', '/b.jpeg', '/c.jpeg'];
+const IMAGES = ['/a.webp', '/b.webp', '/c.webp'].map((src, i) => ({
+  src,
+  alt: `Trabajo de prueba ${i + 1}`,
+  category: 'Adhesivos' as const,
+  width: 1200,
+  height: 1600,
+}));
 
 function renderGallery() {
   return render(
@@ -11,7 +17,7 @@ function renderGallery() {
   );
 }
 
-const currentImage = () => screen.getByAltText('Galería de Adhesivos Impulso').getAttribute('src');
+const currentImage = () => screen.getByAltText(/Trabajo de prueba/).getAttribute('src');
 const advance = (ms: number) => act(() => { vi.advanceTimersByTime(ms); });
 
 function mockReducedMotion(matches: boolean) {
@@ -35,64 +41,64 @@ describe('gallery autoplay', () => {
   it('keeps each image on screen for 8 seconds', () => {
     renderGallery();
     advance(5000);
-    expect(currentImage()).toBe('/a.jpeg');
+    expect(currentImage()).toBe('/a.webp');
     advance(3000);
-    expect(currentImage()).toBe('/b.jpeg');
+    expect(currentImage()).toBe('/b.webp');
   });
 
   it('stops with the pause button and resumes with play', () => {
     renderGallery();
     fireEvent.click(screen.getByRole('button', { name: 'Pausar carrusel' }));
     advance(30000);
-    expect(currentImage()).toBe('/a.jpeg');
+    expect(currentImage()).toBe('/a.webp');
     fireEvent.click(screen.getByRole('button', { name: 'Reanudar carrusel' }));
     advance(8000);
-    expect(currentImage()).toBe('/b.jpeg');
+    expect(currentImage()).toBe('/b.webp');
   });
 
   it('pauses while the pointer is over the image and keeps the elapsed time', () => {
     renderGallery();
-    const viewport = screen.getByAltText('Galería de Adhesivos Impulso').closest('[aria-live]') as HTMLElement;
+    const viewport = screen.getByAltText(/Trabajo de prueba/).closest('[aria-live]') as HTMLElement;
     advance(6000);
     fireEvent.pointerEnter(viewport, { pointerType: 'mouse' });
     advance(30000);
-    expect(currentImage()).toBe('/a.jpeg');
+    expect(currentImage()).toBe('/a.webp');
     fireEvent.pointerLeave(viewport, { pointerType: 'mouse' });
     advance(2000);
-    expect(currentImage()).toBe('/b.jpeg');
+    expect(currentImage()).toBe('/b.webp');
   });
 
   it('keeps playing while the pointer rests on the text beside the image', () => {
     renderGallery();
     fireEvent.pointerEnter(screen.getByRole('region', { name: 'Galería de Adhesivos' }), { pointerType: 'mouse' });
     advance(8000);
-    expect(currentImage()).toBe('/b.jpeg');
+    expect(currentImage()).toBe('/b.webp');
   });
 
   it('keeps playing after a tap on a touch screen', () => {
     renderGallery();
-    const viewport = screen.getByAltText('Galería de Adhesivos Impulso').closest('[aria-live]') as HTMLElement;
+    const viewport = screen.getByAltText(/Trabajo de prueba/).closest('[aria-live]') as HTMLElement;
     fireEvent.pointerEnter(viewport, { pointerType: 'touch' });
     advance(8000);
-    expect(currentImage()).toBe('/b.jpeg');
+    expect(currentImage()).toBe('/b.webp');
   });
 
   it('restarts the timer after manual navigation', () => {
     renderGallery();
     advance(6000);
     fireEvent.click(screen.getByRole('button', { name: 'Siguiente imagen' }));
-    expect(currentImage()).toBe('/b.jpeg');
+    expect(currentImage()).toBe('/b.webp');
     advance(6000);
-    expect(currentImage()).toBe('/b.jpeg');
+    expect(currentImage()).toBe('/b.webp');
     advance(2000);
-    expect(currentImage()).toBe('/c.jpeg');
+    expect(currentImage()).toBe('/c.webp');
   });
 
   it('starts paused when the visitor prefers reduced motion', () => {
     mockReducedMotion(true);
     renderGallery();
     advance(30000);
-    expect(currentImage()).toBe('/a.jpeg');
+    expect(currentImage()).toBe('/a.webp');
     expect(screen.getByRole('button', { name: 'Reanudar carrusel' })).toBeInTheDocument();
   });
 

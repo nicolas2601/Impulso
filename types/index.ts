@@ -36,14 +36,6 @@ export interface Testimonial {
   image?: string;
 }
 
-export interface Project {
-  id: string;
-  title: string;
-  client: string;
-  imageUrl: string;
-  category: string;
-}
-
 export interface SEOMetadata {
   title: string;
   description: string;

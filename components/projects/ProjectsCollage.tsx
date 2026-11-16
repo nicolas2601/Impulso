@@ -1,59 +1,68 @@
 'use client';
 
-import { useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
 import Image from 'next/image';
+import { VideoClip } from '@/components/common/VideoClip';
+import { WORK_CATEGORIES, WORK_PHOTOS, WORK_VIDEOS, type WorkCategory, type WorkPhoto, type WorkVideo } from '@/data/realWork';
 
-const allPhotos = [
-  // Empaques
-  { src: '/Empaques/Empaques.webp', category: 'Empaques', size: 'large' },
-  { src: '/Empaques/Empaques 2.webp', category: 'Empaques', size: 'small' },
-  { src: '/Empaques/Empaques 3.webp', category: 'Empaques', size: 'medium' },
-  { src: '/Empaques/Empaques 4.webp', category: 'Empaques', size: 'small' },
-  { src: '/Empaques/Empaques 5.webp', category: 'Empaques', size: 'large' },
-  // Avisos
-  { src: '/Avisos/Avisos 1.webp', category: 'Avisos', size: 'medium' },
-  { src: '/Avisos/Avisos 2.webp', category: 'Avisos', size: 'large' },
-  { src: '/Avisos/Avisos 3.webp', category: 'Avisos', size: 'small' },
-  { src: '/Avisos/Avisos 4.webp', category: 'Avisos', size: 'medium' },
-  // Impresión
-  { src: '/Impresion/Impresion 1.webp', category: 'Impresión', size: 'small' },
-  { src: '/Impresion/Impresion 2.webp', category: 'Impresión', size: 'medium' },
-  { src: '/Impresion/Impresion 3.webp', category: 'Impresión', size: 'large' },
-  { src: '/Impresion/Impresion 4.webp', category: 'Impresión', size: 'small' },
-  // Adhesivos
-  { src: '/Adhesivos/Adhesivos 1.webp', category: 'Adhesivos', size: 'large' },
-  { src: '/Adhesivos/Adhesivos 2.webp', category: 'Adhesivos', size: 'small' },
-  { src: '/Adhesivos/Adhesivos 3.webp', category: 'Adhesivos', size: 'medium' },
-  // Etiquetas
-  { src: '/Etiquetas/Etiquetas 1.webp', category: 'Etiquetas', size: 'medium' },
-  { src: '/Etiquetas/Etiquetas 2.webp', category: 'Etiquetas', size: 'large' },
-  // Señalética
-  { src: '/Señalética/Señalética 1.webp', category: 'Señalética', size: 'small' },
-  { src: '/Señalética/Señalética 2.webp', category: 'Señalética', size: 'medium' },
-];
+type Filter = WorkCategory | 'Todos';
+type Tile = { kind: 'photo'; photo: WorkPhoto } | { kind: 'video'; video: WorkVideo };
+
+const FILTERS: Filter[] = ['Todos', ...WORK_CATEGORIES];
+/** A clip after every few photos keeps the wall moving without stacking videos together. */
+const PHOTOS_PER_CLIP = 5;
+const COLUMN_SIZES = '(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw';
+
+function tilesFor(filter: Filter): Tile[] {
+  const match = <T extends { category: WorkCategory }>(item: T) => filter === 'Todos' || item.category === filter;
+  const clips = WORK_VIDEOS.filter(match);
+  return WORK_PHOTOS.filter(match).flatMap((photo, i): Tile[] => {
+    const tile: Tile = { kind: 'photo', photo };
+    const clip = (i + 1) % PHOTOS_PER_CLIP === 0 ? clips.shift() : undefined;
+    return clip ? [tile, { kind: 'video', video: clip }] : [tile];
+  }).concat(clips.map((video): Tile => ({ kind: 'video', video })));
+}
+
+const PhotoTile = ({ photo }: { photo: WorkPhoto }) => (
+  <figure className="group relative overflow-hidden rounded-[1.5rem] bg-zinc-200 md:rounded-[2rem]">
+    <Image
+      src={photo.src}
+      alt={photo.alt}
+      width={photo.width}
+      height={photo.height}
+      sizes={COLUMN_SIZES}
+      className="h-auto w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] md:group-hover:scale-105"
+    />
+    <figcaption className="pointer-events-none absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/75 via-black/20 to-transparent p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+      <span className="text-[10px] font-black uppercase tracking-[0.3em] text-impulso-yellow">{photo.category}</span>
+      <span className="mt-1 text-sm font-semibold leading-snug text-white">{photo.alt}</span>
+    </figcaption>
+  </figure>
+);
+
+const VideoTile = ({ video }: { video: WorkVideo }) => (
+  <figure>
+    <VideoClip video={video} className="rounded-[1.5rem] md:rounded-[2rem]" />
+    <figcaption className="mt-2 px-1 text-sm leading-snug text-zinc-600">{video.title}</figcaption>
+  </figure>
+);
 
 export const ProjectsCollage = () => {
-  const [filter, setFilter] = useState('Todos');
-  const categories = ['Todos', 'Empaques', 'Avisos', 'Impresión', 'Adhesivos', 'Etiquetas', 'Señalética'];
-
-  const filteredPhotos = filter === 'Todos' 
-    ? allPhotos 
-    : allPhotos.filter(p => p.category === filter);
+  const [filter, setFilter] = useState<Filter>('Todos');
+  const tiles = tilesFor(filter);
 
   return (
-    <section className="py-24 bg-zinc-50">
+    <section aria-label="Trabajos realizados" className="bg-zinc-50 py-24">
       <div className="container-impulso">
-        {/* Editorial Filter */}
-        <div className="flex flex-wrap gap-4 mb-16 justify-center">
-          {categories.map((cat) => (
+        <div className="mb-16 flex flex-wrap justify-center gap-3 md:gap-4">
+          {FILTERS.map((cat) => (
             <button
               key={cat}
+              type="button"
+              aria-pressed={filter === cat}
               onClick={() => setFilter(cat)}
-              className={`px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${
-                filter === cat 
-                  ? 'bg-black text-white shadow-xl scale-105' 
-                  : 'bg-white text-zinc-400 hover:text-black hover:bg-zinc-100 border border-zinc-200'
+              className={`min-h-11 rounded-full px-7 py-3 text-[10px] font-black uppercase tracking-widest transition-colors duration-200 ${
+                filter === cat ? 'bg-black text-white' : 'border border-zinc-200 bg-white text-zinc-500 hover:bg-zinc-100 hover:text-black'
               }`}
             >
               {cat}
@@ -61,52 +70,13 @@ export const ProjectsCollage = () => {
           ))}
         </div>
 
-        {/* Masonry-style Collage */}
-        <motion.div 
-          className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 md:gap-6 space-y-4 md:space-y-6"
-        >
-          <AnimatePresence mode="popLayout">
-            {filteredPhotos.map((photo, idx) => (
-              <motion.div
-                key={photo.src}
-                layout
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4 }}
-                className="relative group cursor-zoom-in overflow-hidden rounded-[1.5rem] md:rounded-[2rem] bg-zinc-200 break-inside-avoid"
-              >
-                <div className="relative w-full aspect-[4/5] sm:aspect-auto">
-                   <Image
-                    src={photo.src}
-                    alt={`Proyecto Impulso ${photo.category}`}
-                    width={800}
-                    height={1000}
-                    className="w-full h-auto object-cover transition-transform duration-700 md:group-hover:scale-110"
-                    loading="lazy"
-                  />
-                </div>
-                
-                {/* Overlay Info */}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-                  <motion.span 
-                    initial={{ y: 20, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    className="text-impulso-yellow font-black text-[10px] tracking-[0.3em] uppercase mb-2"
-                  >
-                    {photo.category}
-                  </motion.span>
-                  <h3 className="text-white font-black text-2xl tracking-tighter uppercase italic leading-none">
-                    TRABAJO REAL
-                  </h3>
-                </div>
-
-                {/* Decorative Corner */}
-                <div className="absolute top-6 right-6 w-10 h-10 border-t-2 border-r-2 border-white/20 rounded-tr-xl group-hover:border-impulso-yellow transition-colors duration-500"></div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+        <ul className="columns-1 gap-4 sm:columns-2 md:gap-6 lg:columns-3 xl:columns-4">
+          {tiles.map((tile) => (
+            <li key={tile.kind === 'photo' ? tile.photo.src : tile.video.src} className="mb-4 break-inside-avoid md:mb-6">
+              {tile.kind === 'photo' ? <PhotoTile photo={tile.photo} /> : <VideoTile video={tile.video} />}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

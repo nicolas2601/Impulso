@@ -1,124 +1,123 @@
-import { Project } from '../types';
+import { WORK_VIDEOS, photoBySrc, type WorkCategory, type WorkPhoto, type WorkVideo } from './realWork';
 
-export interface ProjectData extends Project {
+/** A real job told through its own photos and clips. No invented quotes or numbers. */
+export interface ProjectData {
+  id: string;
   slug: string;
-  description: string;
-  challenge: string;
-  solution: string;
-  images: string[];
-  relatedServices: string[];
-  testimonial?: {
-    author: string;
-    business: string;
-    text: string;
-  };
+  title: string;
+  client: string;
+  category: WorkCategory;
+  summary: string;
+  pieces: string[];
+  photos: WorkPhoto[];
+  videos: WorkVideo[];
+  relatedServices: Array<{ href: string; title: string }>;
 }
+
+const photos = (...files: string[]) => files.map((file) => photoBySrc(`/trabajos/${file}.webp`));
+
+const clips = (...files: string[]) =>
+  files.map((file) => {
+    const clip = WORK_VIDEOS.find((v) => v.src === `/trabajos/videos/${file}.mp4`);
+    if (!clip) throw new Error(`Unknown work clip: ${file}`);
+    return clip;
+  });
 
 export const projects: ProjectData[] = [
   {
-    id: '1',
-    title: 'Burger Stack Rebranding',
-    slug: 'burger-stack-rebranding-empaques',
-    client: 'Burger Stack',
-    category: 'Empaques',
-    imageUrl: 'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?q=80&w=800&auto=format&fit=crop',
-    description: 'Diseño y producción de línea completa de empaques para cadena de hamburguesas.',
-    challenge: 'Necesitaban un empaque que mantuviera la temperatura y reflejara su nueva imagen urbana.',
-    solution: 'Desarrollamos cajas automontables en cartón micro-corrugado con impresión a 2 tintas y bolsas kraft a juego.',
-    images: ['https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5', 'https://images.unsplash.com/photo-1586190848861-99c8a3fb7ea5'],
-    relatedServices: ['/empaques/cajas-hamburguesas-bucaramanga', '/empaques/bolsas-papel-logo'],
-    testimonial: { author: 'Carlos Ruiz', business: 'Burger Stack', text: 'Las ventas a domicilio subieron porque la comida llega caliente y se ve increíble.' }
-  },
-  {
-    id: '2',
-    title: 'Neon Bar La Terraza',
-    slug: 'neon-bar-la-terraza',
-    client: 'La Terraza Rooftop',
+    id: 'maxident',
+    slug: 'avisos-clinica-maxident',
+    title: 'Avisos para la clínica Maxident',
+    client: 'Maxident Clínica Odontológica',
     category: 'Avisos',
-    imageUrl: 'https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=800&auto=format&fit=crop',
-    description: 'Aviso neón flex gigante para zona de fotos "Instagrameable".',
-    challenge: 'Crear un punto focal que motivara a los clientes a tomar fotos y compartirlas.',
-    solution: 'Instalación de neón flex fucsia y cyan sobre pared vegetal artificial.',
-    images: ['https://images.unsplash.com/photo-1563245372-f21724e3856d'],
-    relatedServices: ['/avisos/neon-flex'],
+    summary: 'Aviso iluminado para la fachada de la clínica y aviso de marca para su recepción. Fabricamos las piezas y las instalamos en sitio.',
+    pieces: ['Aviso de fachada iluminado', 'Aviso de recepción', 'Instalación en altura'],
+    photos: photos('avisos/maxident-fachada', 'avisos/maxident-instalacion', 'avisos/maxident-recepcion', 'avisos/maxident-aviso'),
+    videos: clips('maxident-fachada-iluminada'),
+    relatedServices: [{ href: '/avisos/avisos-luminosos-bucaramanga', title: 'Avisos luminosos' }, { href: '/avisos/avisos-acrilico-precios', title: 'Avisos en acrílico' }],
   },
   {
-    id: '3',
-    title: 'Branding e Identidad Corporativa',
-    slug: 'branding-tienda-ropa',
-    client: 'Velvet Store',
-    category: 'Impresión',
-    imageUrl: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=800&auto=format&fit=crop',
-    description: 'Paquete completo de identidad visual para boutique de ropa femenina.',
-    challenge: 'Lograr una imagen coherente desde las etiquetas hasta el aviso principal.',
-    solution: 'Desarrollo de logotipo, tarjetas premium, etiquetas de ropa, bolsas y aviso acrílico.',
-    images: ['https://images.unsplash.com/photo-1556740738-b6a63e27c4df'],
-    relatedServices: ['/impresion', '/papeleria-comercial'],
-  },
-  {
-    id: '4',
-    title: 'Señalética Clínica',
-    slug: 'senaletica-clinica-dental',
-    client: 'Dentix',
+    id: 'reggio-amelia',
+    slug: 'aviso-fachada-colegio-reggio-amelia',
+    title: 'Aviso de fachada para el Colegio Reggio Amelia',
+    client: 'Colegio Reggio Amelia',
     category: 'Avisos',
-    imageUrl: 'https://images.unsplash.com/photo-1587316831580-b08855663675?q=80&w=800&auto=format&fit=crop',
-    description: 'Sistema completo de señalización interior en acrílico.',
-    challenge: 'Guiar a los pacientes de forma clara pero elegante.',
-    solution: 'Avisos en acrílico cristal con distanciadores y vinilo esmerilado.',
-    images: [],
-    relatedServices: ['/avisos/avisos-acrilico-precios'],
+    summary: 'Aviso de gran formato para la fachada del colegio, instalado con andamio sobre la estructura del edificio.',
+    pieces: ['Aviso de fachada de gran formato', 'Instalación con andamio'],
+    photos: photos('avisos/colegio-reggio-amelia-fachada', 'avisos/colegio-reggio-amelia-fachada-2'),
+    videos: clips('colegio-reggio-amelia-fachada', 'colegio-reggio-amelia-instalacion'),
+    relatedServices: [{ href: '/avisos', title: 'Avisos' }, { href: '/avisos/avisos-luminosos-bucaramanga', title: 'Avisos luminosos' }],
   },
   {
-    id: '5',
-    title: 'Etiquetas Cerveza Artesanal',
-    slug: 'etiquetas-cerveza-artesanal',
-    client: 'Cervecería del Valle',
-    category: 'Impresión',
-    imageUrl: 'https://images.unsplash.com/photo-1605218427360-69643445d045?q=80&w=800&auto=format&fit=crop',
-    description: 'Stickers metalizados resistentes a la humedad para botellas.',
-    challenge: 'Las etiquetas normales se despegaban con el frío.',
-    solution: 'Vinilo adhesivo premium con laminado mate resistente al agua.',
-    images: [],
-    relatedServices: ['/impresion/stickers-bucaramanga'],
-  },
-  {
-    id: '6',
-    title: 'Caja Pizza Premium',
-    slug: 'caja-pizza-negra',
-    client: 'Pizza & Co',
-    category: 'Empaques',
-    imageUrl: 'https://images.unsplash.com/photo-1593560708920-638928075060?q=80&w=800&auto=format&fit=crop',
-    description: 'Caja negra elegante para pizzas gourmet.',
-    challenge: 'Diferenciarse de las pizzerías tradicionales.',
-    solution: 'Impresión litográfica sobre cartón negro con tinta metalizada.',
-    images: [],
-    relatedServices: ['/empaques'],
-  },
-  // Adding placeholders to reach typical volume visually
-  {
-    id: '7',
-    title: 'Menú Restaurante',
-    slug: 'menu-restaurante-italiano',
-    client: 'Trattoria',
-    category: 'Papelería',
-    imageUrl: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=800&auto=format&fit=crop',
-    description: 'Diseño e impresión de cartas menú plastificadas.',
-    challenge: 'Menús duraderos y lavables.',
-    solution: 'Papel propalcote 300g con laminado rígido mate.',
-    images: [],
-    relatedServices: ['/papeleria-comercial'],
-  },
-  {
-    id: '8',
-    title: 'Aviso Luminoso Farmacia',
-    slug: 'aviso-luminoso-farmacia',
-    client: 'FarmaExpress',
+    id: 'niko',
+    slug: 'neon-flex-niko',
+    title: 'Neón flex para Niko',
+    client: 'Niko',
     category: 'Avisos',
-    imageUrl: 'https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=800&auto=format&fit=crop', // Reusing placeholder style
-    description: 'Caja de luz LED de alto brillo para fachada.',
-    challenge: 'Visibilidad nocturna en calle oscura.',
-    solution: 'Caja backlit con módulos LED de alta potencia.',
-    images: [],
-    relatedServices: ['/avisos/avisos-luminosos-bucaramanga'],
-  }
+    summary: 'Aviso en neón flex rosado con el logo de la marca, acompañado de sus etiquetas impresas.',
+    pieces: ['Aviso en neón flex', 'Etiquetas impresas'],
+    photos: photos('avisos/niko-neon-flex', 'etiquetas/niko-etiqueta'),
+    videos: clips('niko-neon-flex'),
+    relatedServices: [{ href: '/avisos/neon-flex', title: 'Neón flex' }, { href: '/etiquetas', title: 'Etiquetas' }],
+  },
+  {
+    id: 'syh',
+    slug: 'aviso-iluminado-y-placa-syh',
+    title: 'Aviso iluminado y placa de dirección para SYH',
+    client: 'SYH',
+    category: 'Avisos',
+    summary: 'Letras iluminadas para la fachada y placa de dirección para la entrada. La instalación se hizo de noche.',
+    pieces: ['Letras iluminadas de fachada', 'Placa de dirección', 'Instalación nocturna'],
+    photos: photos('avisos/syh-letras-iluminadas', 'avisos/syh-fachada-nocturna', 'senaletica/syh-placa-direccion'),
+    videos: clips('syh-instalacion-nocturna'),
+    relatedServices: [{ href: '/avisos/avisos-luminosos-bucaramanga', title: 'Avisos luminosos' }, { href: '/avisos-profesionales', title: 'Señalética' }],
+  },
+  {
+    id: 'kakaw-anay',
+    slug: 'logo-iluminado-y-exhibidor-kakaw-anay',
+    title: 'Logo iluminado y exhibidor para Kakaw Anay',
+    client: 'Kakaw Anay',
+    category: 'Avisos',
+    summary: 'Logo iluminado para la pared del punto de venta y exhibidor de mesa en acrílico para sus productos.',
+    pieces: ['Logo iluminado de pared', 'Exhibidor de mesa en acrílico'],
+    photos: photos('avisos/kakaw-anay-logo-iluminado', 'senaletica/kakaw-anay-exhibidor-acrilico'),
+    videos: [],
+    relatedServices: [{ href: '/avisos', title: 'Avisos' }, { href: '/avisos-profesionales', title: 'Señalética' }],
+  },
+  {
+    id: 'carolina-triana',
+    slug: 'aviso-acrilico-carolina-triana-fisioterapia',
+    title: 'Aviso en acrílico para Carolina Triana Fisioterapia',
+    client: 'Carolina Triana Fisioterapia',
+    category: 'Avisos',
+    summary: 'Aviso circular en acrílico con iluminación posterior para el consultorio.',
+    pieces: ['Aviso en acrílico retroiluminado'],
+    photos: photos('avisos/fisioterapia-acrilico'),
+    videos: clips('fisioterapia-aviso-acrilico'),
+    relatedServices: [{ href: '/avisos/avisos-acrilico-precios', title: 'Avisos en acrílico' }],
+  },
+  {
+    id: 'adriza',
+    slug: 'etiquetas-y-tarjetas-adriza',
+    title: 'Etiquetas y tarjetas para Adriza',
+    client: 'Adriza',
+    category: 'Etiquetas',
+    summary: 'Pliegos de etiquetas, stickers redondos y tarjetas de agradecimiento con la identidad de la marca.',
+    pieces: ['Etiquetas en pliego', 'Stickers redondos', 'Tarjetas de agradecimiento'],
+    photos: photos('etiquetas/adriza-etiquetas', 'etiquetas/adriza-stickers-redondos', 'impresion/adriza-tarjetas'),
+    videos: [],
+    relatedServices: [{ href: '/etiquetas', title: 'Etiquetas' }, { href: '/impresion/stickers-bucaramanga', title: 'Stickers' }, { href: '/papeleria-comercial', title: 'Papelería comercial' }],
+  },
+];
+
+/** Slugs of the old placeholder cases, kept so their URLs can redirect to the portfolio. */
+export const RETIRED_PROJECT_SLUGS = [
+  'burger-stack-rebranding-empaques',
+  'neon-bar-la-terraza',
+  'branding-tienda-ropa',
+  'senaletica-clinica-dental',
+  'etiquetas-cerveza-artesanal',
+  'caja-pizza-negra',
+  'menu-restaurante-italiano',
+  'aviso-luminoso-farmacia',
 ];

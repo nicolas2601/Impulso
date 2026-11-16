@@ -47,3 +47,18 @@ vi.mock('next/navigation', () => ({
     prefetch: vi.fn(),
   }),
 }));
+
+// jsdom has no IntersectionObserver; tests that need to drive it stub their own.
+if (typeof globalThis.IntersectionObserver === 'undefined') {
+  globalThis.IntersectionObserver = class {
+    readonly root = null;
+    readonly rootMargin = '';
+    readonly thresholds = [];
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+    takeRecords() {
+      return [];
+    }
+  } as unknown as typeof IntersectionObserver;
+}

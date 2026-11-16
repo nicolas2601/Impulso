@@ -1,130 +1,137 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { FaArrowRight, FaCheck } from 'react-icons/fa';
 import { projects } from '@/data/projects';
+import { SITE_CONFIG } from '@/constants/info';
 import { PageHero } from '@/components/common/PageHero';
 import { Section } from '@/components/ui/Section';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
 import { Button } from '@/components/ui/Button';
+import { VideoClip } from '@/components/common/VideoClip';
 import { generateWhatsAppLink } from '@/utils/whatsapp';
-import { FaQuoteLeft } from 'react-icons/fa';
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+const findProject = async ({ params }: Props) => {
   const { slug } = await params;
-  const project = projects.find(p => p.slug === slug);
-  
-  if (!project) {
-    return { title: 'Proyecto no encontrado' };
-  }
+  return projects.find((p) => p.slug === slug);
+};
 
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  const project = await findProject(props);
+  if (!project) return { title: 'Proyecto no encontrado' };
   return {
-    title: `${project.title} - Caso de Éxito`,
-    description: project.description,
-    openGraph: {
-      images: [project.imageUrl],
-    },
+    title: `${project.title} - Trabajo real`,
+    description: project.summary,
+    alternates: { canonical: `${SITE_CONFIG.domain}/proyectos/${project.slug}` },
+    openGraph: { images: [project.photos[0].src] },
   };
 }
 
 export async function generateStaticParams() {
-  return projects.map((project) => ({
-    slug: project.slug,
-  }));
+  return projects.map((project) => ({ slug: project.slug }));
 }
 
-export default async function ProjectDetailPage({ params }: Props) {
-  const { slug } = await params;
-  const project = projects.find(p => p.slug === slug);
+export default async function ProjectDetailPage(props: Props) {
+  const project = await findProject(props);
+  if (!project) notFound();
 
-  if (!project) {
-    notFound();
-  }
+  const cover = project.photos[0];
+  const quote = generateWhatsAppLink(`Hola, vi el trabajo "${project.title}" y quiero cotizar algo similar.`);
 
   return (
     <main>
-      <PageHero 
+      <PageHero
         title={project.title}
-        subtitle={`Categoría: ${project.category} | Cliente: ${project.client}`}
-        bgImage={project.imageUrl}
+        subtitle={`${project.category} · ${project.client} · Bucaramanga`}
+        bgImage={cover.src}
         ctaText="Quiero algo así"
-        ctaMessage={`Hola, vi el proyecto ${project.title} y me gustaría cotizar algo similar...`}
+        ctaMessage={`Hola, vi el trabajo "${project.title}" y me gustaría cotizar algo similar.`}
       />
-      
+
       <Breadcrumbs />
 
       <Section>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Main Content */}
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
           <div className="lg:col-span-2">
-            <h2 className="text-3xl font-bold mb-6 text-impulso-gray-dark">El Desafío</h2>
-            <p className="text-gray-600 mb-8 text-lg leading-relaxed">{project.challenge}</p>
+            <h2 className="mb-4 text-3xl font-bold text-impulso-gray-dark">Qué hicimos</h2>
+            <p className="mb-8 text-lg leading-relaxed text-gray-600">{project.summary}</p>
+            <ul className="mb-12 space-y-3">
+              {project.pieces.map((piece) => (
+                <li key={piece} className="flex items-center gap-3 font-medium text-zinc-800">
+                  <FaCheck aria-hidden className="text-impulso-yellow" /> {piece}
+                </li>
+              ))}
+            </ul>
 
-            <h2 className="text-3xl font-bold mb-6 text-impulso-gray-dark">La Solución Impulso</h2>
-            <p className="text-gray-600 mb-8 text-lg leading-relaxed">{project.solution}</p>
-
-            {/* Gallery */}
-            <div className="space-y-6 mt-12">
-              <h3 className="font-bold text-xl">Galería del Proyecto</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                 {project.images.map((img, idx) => (
-                   <div key={idx} className="relative h-64 rounded-xl overflow-hidden bg-gray-100">
-                     <Image 
-                       src={img} 
-                       alt={`${project.title} detalle ${idx + 1}`} 
-                       fill 
-                       className="object-cover hover:scale-105 transition-transform duration-500"
-                     />
-                   </div>
-                 ))}
-              </div>
+            <h3 className="mb-6 text-xl font-bold">Fotos del trabajo</h3>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {project.photos.map((photo) => (
+                <Image
+                  key={photo.src}
+                  src={photo.src}
+                  alt={photo.alt}
+                  width={photo.width}
+                  height={photo.height}
+                  sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw"
+                  className="h-auto w-full rounded-2xl bg-zinc-100"
+                />
+              ))}
             </div>
+
+            {project.videos.length > 0 && (
+              <>
+                <h3 className="mb-6 mt-12 text-xl font-bold">En video</h3>
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  {project.videos.map((video) => (
+                    <figure key={video.src} className={video.orientation === 'landscape' ? 'sm:col-span-2' : ''}>
+                      <VideoClip video={video} />
+                      <figcaption className="mt-2 text-sm text-zinc-500">{video.title}</figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
 
-          {/* Sidebar */}
-          <div className="space-y-8">
-            <div className="bg-gray-50 p-8 rounded-xl border border-gray-100 sticky top-24">
-               <h3 className="font-bold text-xl mb-6">Detalles del Proyecto</h3>
-               <ul className="space-y-4 mb-8">
-                 <li className="flex flex-col">
-                   <span className="text-xs font-bold text-gray-400 uppercase">Cliente</span>
-                   <span className="font-medium">{project.client}</span>
-                 </li>
-                 <li className="flex flex-col">
-                   <span className="text-xs font-bold text-gray-400 uppercase">Servicio</span>
-                   <span className="font-medium">{project.category}</span>
-                 </li>
-                 <li className="flex flex-col">
-                   <span className="text-xs font-bold text-gray-400 uppercase">Ubicación</span>
-                   <span className="font-medium">Bucaramanga, CO</span>
-                 </li>
-               </ul>
-
-               {project.testimonial && (
-                 <div className="mb-8 relative">
-                   <FaQuoteLeft className="text-impulso-yellow/30 text-4xl absolute -top-4 -left-2" />
-                   <blockquote className="relative z-10 italic text-gray-600 mb-4 pl-4">
-                     "{project.testimonial.text}"
-                   </blockquote>
-                   <div className="pl-4">
-                     <p className="font-bold text-sm">{project.testimonial.author}</p>
-                     <p className="text-xs text-gray-400">{project.testimonial.business}</p>
-                   </div>
-                 </div>
-               )}
-
-               <Button fullWidth href={generateWhatsAppLink(`Me interesa un proyecto como ${project.title}`)}>
-                 Cotizar Proyecto Similar
-               </Button>
+          <aside className="space-y-8">
+            <div className="sticky top-24 rounded-xl border border-gray-100 bg-gray-50 p-8">
+              <h3 className="mb-6 text-xl font-bold">Detalles del proyecto</h3>
+              <dl className="mb-8 space-y-4">
+                {[
+                  ['Cliente', project.client],
+                  ['Servicio', project.category],
+                  ['Ubicación', 'Bucaramanga, CO'],
+                ].map(([term, value]) => (
+                  <div key={term} className="flex flex-col">
+                    <dt className="text-xs font-bold uppercase text-gray-500">{term}</dt>
+                    <dd className="font-medium">{value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <Button fullWidth href={quote}>
+                Cotizar proyecto similar
+              </Button>
+              <nav aria-label="Servicios relacionados" className="mt-8">
+                <ul className="space-y-2">
+                  {project.relatedServices.map((service) => (
+                    <li key={service.href}>
+                      <Link href={service.href} className="inline-flex min-h-11 items-center gap-2 font-semibold text-zinc-900 underline-offset-4 hover:underline">
+                        {service.title} <FaArrowRight aria-hidden className="text-xs" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
             </div>
-          </div>
+          </aside>
         </div>
       </Section>
-      
-      {/* Schema Markup for CreativeWork */}
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -132,13 +139,11 @@ export default async function ProjectDetailPage({ params }: Props) {
             '@context': 'https://schema.org',
             '@type': 'CreativeWork',
             name: project.title,
-            creator: {
-              '@type': 'Organization',
-              name: 'Impulso'
-            },
-            description: project.description,
-            image: project.imageUrl
-          })
+            creator: { '@type': 'Organization', name: SITE_CONFIG.name },
+            description: project.summary,
+            image: `${SITE_CONFIG.domain}${cover.src}`,
+            locationCreated: { '@type': 'Place', name: 'Bucaramanga, Colombia' },
+          }),
         }}
       />
     </main>

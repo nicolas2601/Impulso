@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { RETIRED_PROJECT_SLUGS } from "./data/projects";
 
 const nextConfig: NextConfig = {
   images: {
@@ -19,6 +20,12 @@ const nextConfig: NextConfig = {
       {
         source: '/avisos-profesionales/:slug',
         destination: '/avisos/:slug',
+        permanent: true,
+      },
+      // Placeholder case studies replaced by real jobs.
+      {
+        source: `/proyectos/:slug(${RETIRED_PROJECT_SLUGS.join('|')})`,
+        destination: '/proyectos',
         permanent: true,
       },
     ];

@@ -35,7 +35,7 @@ export const GalleryNavButtons = ({ autoplay }: Pick<GalleryControlsProps, 'auto
 
 /** Slide dots; the current one fills up while the slide is on screen. */
 export const GalleryDots = ({ autoplay, count }: GalleryControlsProps) => (
-  <div className="mt-8 md:mt-12 flex gap-3">
+  <div className="mt-8 md:mt-12 flex flex-wrap gap-x-3 gap-y-5">
     {Array.from({ length: count }, (_, i) => {
       const current = i === autoplay.index;
       return (

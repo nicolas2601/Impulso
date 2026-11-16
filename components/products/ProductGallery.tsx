@@ -6,13 +6,14 @@ import Image from 'next/image';
 import { FaWhatsapp } from 'react-icons/fa';
 import { generateWhatsAppLink } from '@/utils/whatsapp';
 import { useAutoplay } from '@/hooks/useAutoplay';
+import type { WorkPhoto } from '@/data/realWork';
 import { GalleryDots, GalleryNavButtons } from './GalleryControls';
 
 interface ProductGalleryProps {
   title: string;
   accentTitle: string;
   description: string;
-  images: string[];
+  images: WorkPhoto[];
   category: string;
 }
 
@@ -107,12 +108,12 @@ export const ProductGallery = ({
                 exit={{ opacity: 0, transition: { duration: 0.2, ease: [0.23, 1, 0.32, 1] } }}
                 className="relative w-full h-full rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/5"
               >
-                <Image 
-                  src={images[index]} 
-                  alt={`Galería de ${category} Impulso`} 
-                  fill 
+                <Image
+                  src={images[index].src}
+                  alt={images[index].alt}
+                  fill
+                  sizes="(min-width: 1024px) 45vw, 100vw"
                   className="object-cover bg-zinc-900"
-                  priority
                 />
                 <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_100px_rgba(0,0,0,0.8)]"></div>
               </motion.div>

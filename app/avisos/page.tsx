@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import { PageHero } from '@/components/common/PageHero';
 import { Section } from '@/components/ui/Section';
 import { ProductGallery } from '@/components/products/ProductGallery';
+import { photosOf, videosOf } from '@/data/realWork';
+import { VideoReel } from '@/components/common/VideoReel';
 import { FaEye, FaBolt, FaLightbulb } from 'react-icons/fa';
 import { RelatedLinks } from '@/components/common/RelatedLinks';
 import { RELATED_LINKS } from '@/data/siteLinks';
@@ -15,13 +17,7 @@ export const metadata: Metadata = {
 };
 
 export default function AvisosPage() {
-  const images = [
-    '/Avisos/Avisos 1.webp',
-    '/Avisos/Avisos 2.webp',
-    '/Avisos/Avisos 3.webp',
-    '/Avisos/Avisos 4.webp',
-    '/Avisos/Avisos 5.webp',
-  ];
+  const images = photosOf('Avisos');
 
   const benefits = [
     { icon: <FaEye size={28} />, title: 'Visibilidad 24/7', desc: 'Tu negocio vendiendo incluso cuando está cerrado.' },
@@ -44,7 +40,13 @@ export default function AvisosPage() {
         accentTitle="MARCA."
         description="Cada aviso es una pieza de ingeniería visual. Utilizamos materiales premium para garantizar que tu inversión destaque por años."
         images={images}
-        category="AVISOS"
+        category="Avisos"
+      />
+
+      <VideoReel
+        kicker="Instalaciones reales"
+        title="Míralos en video."
+        videos={videosOf('Avisos').filter((v) => v.orientation === 'portrait')}
       />
 
       <Section bg="dark">

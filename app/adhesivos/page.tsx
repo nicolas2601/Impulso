@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { PageHero } from '@/components/common/PageHero';
 import { Section } from '@/components/ui/Section';
 import { ProductGallery } from '@/components/products/ProductGallery';
+import { photosOf } from '@/data/realWork';
 import { FaShapes, FaFillDrip, FaStore, FaCheckCircle, FaQuestionCircle } from 'react-icons/fa';
 import { generateLocalBusinessSchema, generateBreadcrumbSchema } from '@/utils/schema';
 import { RelatedLinks } from '@/components/common/RelatedLinks';
@@ -32,16 +33,7 @@ export const metadata: Metadata = {
 };
 
 export default function AdhesivosPage() {
-  const images = [
-    '/Adhesivos/Adhesivos 1.webp',
-    '/Adhesivos/Adhesivos 2.webp',
-    '/Adhesivos/Adhesivos 3.webp',
-    '/Adhesivos/Adhesivos 4.webp',
-    '/Adhesivos/Adhesivos 5.webp',
-    '/Adhesivos/Adhesivos 6.webp',
-    '/Adhesivos/Adhesivos 7.webp',
-    '/Adhesivos/Adhesivos 8.webp',
-  ];
+  const images = photosOf('Adhesivos');
 
   const services = [
     { 
@@ -147,7 +139,7 @@ export default function AdhesivosPage() {
         accentTitle="PAREDES Y VIDRIOS."
         description="Somos especialistas en branding ambiental. Desde stickers pequeños hasta fachadas completas con microperforado en Bucaramanga."
         images={images}
-        category="ADHESIVOS"
+        category="Adhesivos"
       />
 
       <Section bg="dark">

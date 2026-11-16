@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { PageHero } from '@/components/common/PageHero';
 import { Section } from '@/components/ui/Section';
 import { ProductGallery } from '@/components/products/ProductGallery';
+import { photosOf } from '@/data/realWork';
 import { FaPrint, FaLayerGroup, FaMagic } from 'react-icons/fa';
 import { RelatedLinks } from '@/components/common/RelatedLinks';
 import { RELATED_LINKS } from '@/data/siteLinks';
@@ -15,16 +16,7 @@ export const metadata: Metadata = {
 };
 
 export default function ImpresionPage() {
-  const images = [
-    '/Impresion/Impresion 1.webp',
-    '/Impresion/Impresion 2.webp',
-    '/Impresion/Impresion 3.webp',
-    '/Impresion/Impresion 4.webp',
-    '/Impresion/Impresion 5.webp',
-    '/Impresion/Impresion 6.webp',
-    '/Impresion/Impresion 7.webp',
-    '/Impresion/Impresion 8.webp',
-  ];
+  const images = photosOf('Impresión');
 
   const features = [
     { icon: <FaPrint size={28} />, title: 'Calidad Litográfica', desc: 'Colores precisos y textos nítidos en cada impresión.' },
@@ -47,7 +39,7 @@ export default function ImpresionPage() {
         accentTitle="LÍMITES."
         description="Transformamos tus diseños en piezas físicas de alto impacto. Desde tarjetas de presentación hasta brochures corporativos, cada detalle cuenta."
         images={images}
-        category="IMPRESIÓN"
+        category="Impresión"
       />
 
       <Section bg="gray">
