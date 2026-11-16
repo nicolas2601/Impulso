@@ -17,7 +17,7 @@ export default function ProyectosPage() {
         title="Portafolio de Proyectos"
         subtitle="Hablamos con resultados. Explora una selección de proyectos realizados para marcas locales que confían en nuestra calidad."
         ctaText="Iniciar mi proyecto"
-        bgImage="/projects/AVISOS.jpeg"
+        bgImage="/projects/AVISOS.webp"
         align="center"
       />
       

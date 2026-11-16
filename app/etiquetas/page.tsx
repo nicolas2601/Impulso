@@ -14,10 +14,10 @@ export const metadata: Metadata = {
 
 export default function EtiquetasPage() {
   const images = [
-    '/Etiquetas/Etiquetas 1.jpeg',
-    '/Etiquetas/Etiquetas 2.jpeg',
-    '/Etiquetas/Etiquetas 3.jpeg',
-    '/Etiquetas/Etiquetas 4.jpeg',
+    '/Etiquetas/Etiquetas 1.webp',
+    '/Etiquetas/Etiquetas 2.webp',
+    '/Etiquetas/Etiquetas 3.webp',
+    '/Etiquetas/Etiquetas 4.webp',
   ];
 
   const highlights = [
@@ -32,7 +32,7 @@ export default function EtiquetasPage() {
         title="Etiquetas que Venden por Ti"
         subtitle="El detalle final que marca la diferencia. Stickers y etiquetas de alta calidad para empaques, botellas, ropa y más."
         ctaMessage="Hola, quiero cotizar etiquetas personalizadas..."
-        bgImage="/projects/ETIQUETAS.jpeg"
+        bgImage="/projects/ETIQUETAS.webp"
         ctaText="Cotizar Etiquetas"
       />
 

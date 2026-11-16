@@ -6,31 +6,31 @@ import Image from 'next/image';
 
 const allPhotos = [
   // Empaques
-  { src: '/Empaques/Empaques.jpeg', category: 'Empaques', size: 'large' },
-  { src: '/Empaques/Empaques 2.jpeg', category: 'Empaques', size: 'small' },
-  { src: '/Empaques/Empaques 3.jpeg', category: 'Empaques', size: 'medium' },
-  { src: '/Empaques/Empaques 4.jpeg', category: 'Empaques', size: 'small' },
-  { src: '/Empaques/Empaques 5.jpeg', category: 'Empaques', size: 'large' },
+  { src: '/Empaques/Empaques.webp', category: 'Empaques', size: 'large' },
+  { src: '/Empaques/Empaques 2.webp', category: 'Empaques', size: 'small' },
+  { src: '/Empaques/Empaques 3.webp', category: 'Empaques', size: 'medium' },
+  { src: '/Empaques/Empaques 4.webp', category: 'Empaques', size: 'small' },
+  { src: '/Empaques/Empaques 5.webp', category: 'Empaques', size: 'large' },
   // Avisos
-  { src: '/Avisos/Avisos 1.jpeg', category: 'Avisos', size: 'medium' },
-  { src: '/Avisos/Avisos 2.jpeg', category: 'Avisos', size: 'large' },
-  { src: '/Avisos/Avisos 3.jpeg', category: 'Avisos', size: 'small' },
-  { src: '/Avisos/Avisos 4.jpeg', category: 'Avisos', size: 'medium' },
+  { src: '/Avisos/Avisos 1.webp', category: 'Avisos', size: 'medium' },
+  { src: '/Avisos/Avisos 2.webp', category: 'Avisos', size: 'large' },
+  { src: '/Avisos/Avisos 3.webp', category: 'Avisos', size: 'small' },
+  { src: '/Avisos/Avisos 4.webp', category: 'Avisos', size: 'medium' },
   // Impresión
-  { src: '/Impresion/Impresion 1.jpeg', category: 'Impresión', size: 'small' },
-  { src: '/Impresion/Impresion 2.jpeg', category: 'Impresión', size: 'medium' },
-  { src: '/Impresion/Impresion 3.jpeg', category: 'Impresión', size: 'large' },
-  { src: '/Impresion/Impresion 4.jpeg', category: 'Impresión', size: 'small' },
+  { src: '/Impresion/Impresion 1.webp', category: 'Impresión', size: 'small' },
+  { src: '/Impresion/Impresion 2.webp', category: 'Impresión', size: 'medium' },
+  { src: '/Impresion/Impresion 3.webp', category: 'Impresión', size: 'large' },
+  { src: '/Impresion/Impresion 4.webp', category: 'Impresión', size: 'small' },
   // Adhesivos
-  { src: '/Adhesivos/Adhesivos 1.jpeg', category: 'Adhesivos', size: 'large' },
-  { src: '/Adhesivos/Adhesivos 2.jpeg', category: 'Adhesivos', size: 'small' },
-  { src: '/Adhesivos/Adhesivos 3.jpeg', category: 'Adhesivos', size: 'medium' },
+  { src: '/Adhesivos/Adhesivos 1.webp', category: 'Adhesivos', size: 'large' },
+  { src: '/Adhesivos/Adhesivos 2.webp', category: 'Adhesivos', size: 'small' },
+  { src: '/Adhesivos/Adhesivos 3.webp', category: 'Adhesivos', size: 'medium' },
   // Etiquetas
-  { src: '/Etiquetas/Etiquetas 1.jpeg', category: 'Etiquetas', size: 'medium' },
-  { src: '/Etiquetas/Etiquetas 2.jpeg', category: 'Etiquetas', size: 'large' },
+  { src: '/Etiquetas/Etiquetas 1.webp', category: 'Etiquetas', size: 'medium' },
+  { src: '/Etiquetas/Etiquetas 2.webp', category: 'Etiquetas', size: 'large' },
   // Señalética
-  { src: '/Señalética/Señalética 1.jpeg', category: 'Señalética', size: 'small' },
-  { src: '/Señalética/Señalética 2.jpeg', category: 'Señalética', size: 'medium' },
+  { src: '/Señalética/Señalética 1.webp', category: 'Señalética', size: 'small' },
+  { src: '/Señalética/Señalética 2.webp', category: 'Señalética', size: 'medium' },
 ];
 
 export const ProjectsCollage = () => {

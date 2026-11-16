@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     siteName: 'Impulso Publicidad',
     images: [
       {
-        url: 'https://impulsopublicidad.pro/projects/VINILOS.jpeg',
+        url: 'https://impulsopublicidad.pro/projects/VINILOS.webp',
         width: 1200,
         height: 630,
         alt: 'Vinilos Adhesivos Impulso Bucaramanga',
@@ -33,14 +33,14 @@ export const metadata: Metadata = {
 
 export default function AdhesivosPage() {
   const images = [
-    '/Adhesivos/Adhesivos 1.jpeg',
-    '/Adhesivos/Adhesivos 2.jpeg',
-    '/Adhesivos/Adhesivos 3.jpeg',
-    '/Adhesivos/Adhesivos 4.jpeg',
-    '/Adhesivos/Adhesivos 5.jpeg',
-    '/Adhesivos/Adhesivos 6.jpeg',
-    '/Adhesivos/Adhesivos 7.jpeg',
-    '/Adhesivos/Adhesivos 8.jpeg',
+    '/Adhesivos/Adhesivos 1.webp',
+    '/Adhesivos/Adhesivos 2.webp',
+    '/Adhesivos/Adhesivos 3.webp',
+    '/Adhesivos/Adhesivos 4.webp',
+    '/Adhesivos/Adhesivos 5.webp',
+    '/Adhesivos/Adhesivos 6.webp',
+    '/Adhesivos/Adhesivos 7.webp',
+    '/Adhesivos/Adhesivos 8.webp',
   ];
 
   const services = [
@@ -138,7 +138,7 @@ export default function AdhesivosPage() {
         title="Vinilos Adhesivos Bucaramanga: Calidad que se Nota"
         subtitle="Transformamos cualquier superficie en una herramienta de ventas. Vinilos duraderos, colores reales e instalación garantizada en todo Santander."
         ctaMessage="Hola Impulso, quiero cotizar vinilos adhesivos para mi negocio..."
-        bgImage="/projects/VINILOS.jpeg"
+        bgImage="/projects/VINILOS.webp"
         ctaText="Cotizar Adhesivos"
       />
 

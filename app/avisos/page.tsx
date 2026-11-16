@@ -16,11 +16,11 @@ export const metadata: Metadata = {
 
 export default function AvisosPage() {
   const images = [
-    '/Avisos/Avisos 1.jpeg',
-    '/Avisos/Avisos 2.jpeg',
-    '/Avisos/Avisos 3.jpeg',
-    '/Avisos/Avisos 4.jpeg',
-    '/Avisos/Avisos 5.jpeg',
+    '/Avisos/Avisos 1.webp',
+    '/Avisos/Avisos 2.webp',
+    '/Avisos/Avisos 3.webp',
+    '/Avisos/Avisos 4.webp',
+    '/Avisos/Avisos 5.webp',
   ];
 
   const benefits = [
@@ -35,7 +35,7 @@ export default function AvisosPage() {
         title="Avisos Luminosos que Impactan"
         subtitle="Hacemos que tu marca brille día y noche. Avisos en acrílico, neón flex y estructuras metálicas con acabados industriales."
         ctaMessage="Hola, quiero cotizar un aviso luminoso..."
-        bgImage="/projects/AVISOS.jpeg"
+        bgImage="/projects/AVISOS.webp"
         ctaText="Cotizar Aviso"
       />
 

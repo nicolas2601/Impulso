@@ -9,16 +9,16 @@ import { useAutoplay } from '@/hooks/useAutoplay';
 import { GalleryDots, GalleryNavButtons } from './GalleryControls';
 
 const images = [
-  '/Empaques/Empaques.jpeg',
-  '/Empaques/Empaques 2.jpeg',
-  '/Empaques/Empaques 3.jpeg',
-  '/Empaques/Empaques 4.jpeg',
-  '/Empaques/Empaques 5.jpeg',
-  '/Empaques/Empaques 6.jpeg',
-  '/Empaques/Empaques 7.jpeg',
-  '/Empaques/Empaques 8.jpeg',
-  '/Empaques/Empaques 9.jpeg',
-  '/Empaques/Empaques 10.jpeg',
+  '/Empaques/Empaques.webp',
+  '/Empaques/Empaques 2.webp',
+  '/Empaques/Empaques 3.webp',
+  '/Empaques/Empaques 4.webp',
+  '/Empaques/Empaques 5.webp',
+  '/Empaques/Empaques 6.webp',
+  '/Empaques/Empaques 7.webp',
+  '/Empaques/Empaques 8.webp',
+  '/Empaques/Empaques 9.webp',
+  '/Empaques/Empaques 10.webp',
 ];
 
 export const EmpaquesGallery = () => {

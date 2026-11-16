@@ -16,14 +16,14 @@ export const metadata: Metadata = {
 
 export default function ImpresionPage() {
   const images = [
-    '/Impresion/Impresion 1.jpeg',
-    '/Impresion/Impresion 2.jpeg',
-    '/Impresion/Impresion 3.jpeg',
-    '/Impresion/Impresion 4.jpeg',
-    '/Impresion/Impresion 5.jpeg',
-    '/Impresion/Impresion 6.jpeg',
-    '/Impresion/Impresion 7.jpeg',
-    '/Impresion/Impresion 8.jpeg',
+    '/Impresion/Impresion 1.webp',
+    '/Impresion/Impresion 2.webp',
+    '/Impresion/Impresion 3.webp',
+    '/Impresion/Impresion 4.webp',
+    '/Impresion/Impresion 5.webp',
+    '/Impresion/Impresion 6.webp',
+    '/Impresion/Impresion 7.webp',
+    '/Impresion/Impresion 8.webp',
   ];
 
   const features = [
@@ -38,7 +38,7 @@ export default function ImpresionPage() {
         title="Impresión Litográfica Profesional"
         subtitle="Tu marca merece la mejor calidad de impresión. Soluciones rápidas para papelería corporativa y material publicitario."
         ctaMessage="Hola, quiero cotizar servicios de impresión..."
-        bgImage="/projects/IMPRESION.jpeg"
+        bgImage="/projects/IMPRESION.webp"
         ctaText="Cotizar Impresión"
       />
 

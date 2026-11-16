@@ -18,7 +18,7 @@ export const PHOTO_SERVICES: PhotoService[] = [
     title: 'Empaques',
     desc: 'Cajas, bolsas y empaques con tu marca para comida y retail.',
     href: '/empaques',
-    photo: '/projects/empaques.jpeg',
+    photo: '/projects/empaques.webp',
     alt: 'Bolsas de papel con logo impresas por Impulso para una heladería',
     layout: 'col-span-2 order-1 h-[380px] lg:order-none lg:h-auto lg:col-span-7',
     sizes: '(min-width: 1024px) 58vw, 100vw',
@@ -28,7 +28,7 @@ export const PHOTO_SERVICES: PhotoService[] = [
     title: 'Avisos',
     desc: 'Letreros luminosos y neón flex que se ven de día y de noche.',
     href: '/avisos',
-    photo: '/projects/AVISOS.jpeg',
+    photo: '/projects/AVISOS.webp',
     alt: 'Letrero de neón flex con el logo de una heladería en Bucaramanga',
     layout: 'col-span-2 order-2 h-[300px] lg:order-none lg:h-auto lg:col-span-5',
     sizes: '(min-width: 1024px) 41vw, 100vw',
@@ -37,7 +37,7 @@ export const PHOTO_SERVICES: PhotoService[] = [
     title: 'Adhesivos',
     desc: 'Vinilos para vitrinas, paredes y vidrios.',
     href: '/adhesivos',
-    photo: '/projects/VINILOS.jpeg',
+    photo: '/projects/VINILOS.webp',
     alt: 'Vitrina de una droguería decorada con vinilos adhesivos',
     layout: 'col-span-2 order-5 h-[240px] lg:order-none lg:h-auto lg:col-span-4',
     sizes: '(min-width: 1024px) 33vw, 100vw',
@@ -46,7 +46,7 @@ export const PHOTO_SERVICES: PhotoService[] = [
     title: 'Señalética',
     desc: 'Señalización para oficinas, clínicas y edificios.',
     href: '/avisos-profesionales',
-    photo: '/projects/SEÑALÉTICA.jpeg',
+    photo: '/projects/SEÑALÉTICA.webp',
     alt: 'Señalización numerada de pisos instalada en un edificio',
     layout: 'col-span-2 order-6 h-[240px] lg:order-none lg:h-auto lg:col-span-4',
     sizes: '(min-width: 1024px) 33vw, 100vw',
@@ -55,13 +55,13 @@ export const PHOTO_SERVICES: PhotoService[] = [
     title: 'Impresión',
     desc: 'Litografía, papelería comercial y gran formato.',
     href: '/impresion',
-    photo: '/projects/IMPRESION.jpeg',
+    photo: '/projects/IMPRESION.webp',
     alt: 'Tarjetas de regalo impresas en litografía con acabados dorados',
     layout: 'col-span-2 order-7 h-[260px] lg:order-none lg:h-auto lg:col-span-5',
     sizes: '(min-width: 1024px) 41vw, 100vw',
   },
 ];
 
-export const ETIQUETAS_PHOTO = '/Etiquetas/Etiquetas 1.jpeg';
-export const EMPAQUES_PROP_PHOTO = '/Empaques/Empaques.jpeg';
-export const PROJECT_THUMBS = ['/Avisos/Avisos 4.jpeg', '/Adhesivos/Adhesivos 2.jpeg', '/Señalética/Señalética 1.jpeg'];
+export const ETIQUETAS_PHOTO = '/Etiquetas/Etiquetas 1.webp';
+export const EMPAQUES_PROP_PHOTO = '/Empaques/Empaques.webp';
+export const PROJECT_THUMBS = ['/Avisos/Avisos 4.webp', '/Adhesivos/Adhesivos 2.webp', '/Señalética/Señalética 1.webp'];

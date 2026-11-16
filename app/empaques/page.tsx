@@ -34,7 +34,7 @@ export default function EmpaquesPage() {
         title="Empaques Personalizados para tu Negocio de Comida"
         subtitle="Eleva la presentación de tus productos con cajas y bolsas que venden. Biodegradables, resistentes y a precios que te convienen."
         ctaMessage="Hola, quiero cotizar empaques personalizados..."
-        bgImage="/projects/empaques.jpeg"
+        bgImage="/projects/empaques.webp"
       />
 
       <EmpaquesGallery />

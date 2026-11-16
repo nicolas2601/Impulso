@@ -86,8 +86,8 @@ export const WebProof = () => (
 );
 
 const STATIONS = [
-  { n: '01', place: 'En la calle', line: 'Tu aviso hace que te vean.', photo: '/projects/AVISOS.jpeg', alt: 'Letrero de neón de una heladería hecho por Impulso' },
-  { n: '02', place: 'En la mano', line: 'Tu empaque lleva un QR a tu web.', photo: '/Empaques/Empaques.jpeg', alt: 'Caja navideña impresa por Impulso' },
+  { n: '01', place: 'En la calle', line: 'Tu aviso hace que te vean.', photo: '/projects/AVISOS.webp', alt: 'Letrero de neón de una heladería hecho por Impulso' },
+  { n: '02', place: 'En la mano', line: 'Tu empaque lleva un QR a tu web.', photo: '/Empaques/Empaques.webp', alt: 'Caja navideña impresa por Impulso' },
   { n: '03', place: 'En Google', line: 'Tu web cierra la venta por WhatsApp.', photo: '/portfolio/impulso-mobile.webp', alt: 'La web de Impulso abierta en un celular' },
 ];
 

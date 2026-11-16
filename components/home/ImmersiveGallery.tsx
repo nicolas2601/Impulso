@@ -13,7 +13,7 @@ const projects = [
     category: 'EMPAQUES', 
     desc: 'Rediseño de experiencia unboxing para marcas de food delivery. Empaques sostenibles.',
     color: 'from-orange-600 to-red-900',
-    image: '/projects/empaques.jpeg',
+    image: '/projects/empaques.webp',
     href: '/empaques'
   },
   { 
@@ -22,7 +22,7 @@ const projects = [
     category: 'SEÑALÉTICA', 
     desc: 'Ofrecemos señalización interna y externa en acrílico, PVC, aluminio y materiales resistentes, garantizando visibilidad, organización y cumplimiento normativo.',
     color: 'from-blue-600 to-indigo-900',
-    image: '/projects/SEÑALÉTICA.jpeg',
+    image: '/projects/SEÑALÉTICA.webp',
     href: '/avisos-profesionales'
   },
   { 
@@ -31,7 +31,7 @@ const projects = [
     category: 'AVISOS', 
     desc: 'Realizamos avisos luminosos, letras corpóreas, avisos en acrílico, aluminio y estructuras metálicas para exteriores e interiores. Soluciones resistentes y personalizadas para destacar tu marca.',
     color: 'from-fuchsia-600 to-purple-900',
-    image: '/projects/AVISOS.jpeg',
+    image: '/projects/AVISOS.webp',
     href: '/avisos'
   },
   { 
@@ -40,7 +40,7 @@ const projects = [
     category: 'IMPRESIÓN LITOGRÁFICA', 
     desc: 'Imprimimos tarjetas de presentación, brochures, volantes, catálogos y papelería corporativa con acabados precisos y colores vibrantes. Servicio rápido y personalizado..',
     color: 'from-emerald-600 to-teal-900',
-    image: '/projects/IMPRESION.jpeg',
+    image: '/projects/IMPRESION.webp',
     href: '/impresion'
   },
   { 
@@ -49,7 +49,7 @@ const projects = [
     category: 'ADHESIVOS', 
     desc: 'Diseñamos e instalamos vinilo adhesivo para paredes, vitrinas, fachadas y señalización interna, con acabados profesionales y materiales de alta durabilidad..',
     color: 'from-amber-500 to-orange-800',
-    image: '/projects/VINILOS.jpeg',
+    image: '/projects/VINILOS.webp',
     href: '/adhesivos'
   },
   { 
@@ -58,7 +58,7 @@ const projects = [
     category: 'ETIQUETAS', 
     desc: 'Fabricamos etiquetas para productos adhesivas y en cartón, ideales para alimentos, cosméticos, ropa, empaques y todo tipo de marcas. Ofrecemos impresión de alta calidad, acabados profesionales y materiales resistentes que realzan la presentación de tu producto.',
     color: 'from-zinc-700 to-black',
-    image: '/projects/ETIQUETAS.jpeg',
+    image: '/projects/ETIQUETAS.webp',
     href: '/etiquetas'
   },
 ];
