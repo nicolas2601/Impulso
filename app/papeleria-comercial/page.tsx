@@ -4,7 +4,8 @@ import { Section } from '@/components/ui/Section';
 import { ProductCard } from '@/components/ui/Card';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
 import { productsData } from '@/data/products';
-import { FaFileContract, FaRegIdCard, FaFolderOpen } from 'react-icons/fa';
+import { FaWhatsapp } from 'react-icons/fa';
+import { generateWhatsAppLink } from '@/utils/whatsapp';
 
 export const metadata: Metadata = {
   title: 'Papelería Comercial Bucaramanga | Tarjetas y Factureros',
@@ -13,6 +14,12 @@ export const metadata: Metadata = {
     canonical: 'https://impulsopublicidad.pro/papeleria-comercial',
   },
 };
+
+const PACKS = [
+  { title: 'Pack Inicio', items: ['1000 Tarjetas', '1000 Volantes'] },
+  { title: 'Pack Administrativo', items: ['10 Talonarios Factura', '2 Sellos', '1000 Tarjetas'] },
+  { title: 'Pack Feria', items: ['1000 Volantes', '100 Carpetas', '1 Rollup Banner'] },
+];
 
 export default function PapeleriaPage() {
   const products = productsData.papeleria;
@@ -36,8 +43,6 @@ export default function PapeleriaPage() {
               title={product.name}
               description={product.description}
               href="#"
-              priceFrom={product.priceRange?.min}
-              badge={product.isPopular ? 'Oferta' : undefined}
             />
           ))}
         </div>
@@ -46,25 +51,25 @@ export default function PapeleriaPage() {
       <Section bg="gray">
         <h2 className="text-3xl font-bold mb-12 text-center text-impulso-gray-dark">Combos Corporativos</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-           {[
-             { title: "Pack Inicio", items: ["1000 Tarjetas", "1000 Volantes"], price: "$140.000", save: "Ahorras $10k" },
-             { title: "Pack Administrativo", items: ["10 Talonarios Factura", "2 Sellos", "1000 Tarjetas"], price: "$450.000", save: "Ahorras $40k" },
-             { title: "Pack Feria", items: ["1000 Volantes", "100 Carpetas", "1 Rollup Banner"], price: "$800.000", save: "Ahorras $80k" },
-           ].map((pack, i) => (
-             <div key={i} className="bg-white p-8 rounded-xl shadow-lg border-t-4 border-impulso-blue relative overflow-hidden">
-               <div className="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-bl-lg">
-                 {pack.save}
-               </div>
+           {PACKS.map((pack) => (
+             <article key={pack.title} className="bg-white p-8 rounded-xl shadow-lg border-t-4 border-impulso-blue flex flex-col">
                <h3 className="font-bold text-xl mb-4">{pack.title}</h3>
-               <ul className="space-y-2 mb-6 text-gray-600">
-                 {pack.items.map((item, idx) => (
-                   <li key={idx} className="flex items-center gap-2">
-                     <span className="text-impulso-blue text-sm">✓</span> {item}
+               <ul className="space-y-2 mb-8 text-gray-600">
+                 {pack.items.map((item) => (
+                   <li key={item} className="flex items-center gap-2">
+                     <span aria-hidden className="text-impulso-blue text-sm">✓</span> {item}
                    </li>
                  ))}
                </ul>
-               <p className="text-2xl font-bold text-impulso-gray-dark mb-4">{pack.price}</p>
-             </div>
+               <a
+                 href={generateWhatsAppLink(`Hola, quiero cotizar el ${pack.title}: ${pack.items.join(', ')}.`)}
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="mt-auto inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-impulso-gray-dark px-6 py-3 font-bold text-white transition-transform duration-150 active:scale-[0.97]"
+               >
+                 <FaWhatsapp aria-hidden /> Cotizar este pack
+               </a>
+             </article>
            ))}
         </div>
       </Section>
