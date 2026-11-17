@@ -116,7 +116,7 @@ export const EmpaquesGallery = () => {
             {/* Background decorative elements */}
             <motion.div 
               style={{ y }}
-              className="absolute -top-12 -right-12 w-64 h-64 bg-impulso-yellow/10 rounded-full blur-[80px] pointer-events-none -z-10"
+              className="absolute -top-12 -right-12 w-96 h-96 bg-[radial-gradient(closest-side,rgba(230,255,0,0.10),transparent)] pointer-events-none -z-10"
             />
             
             {/* Project info tag */}

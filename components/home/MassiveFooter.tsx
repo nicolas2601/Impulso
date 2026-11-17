@@ -9,7 +9,6 @@ export const MassiveFooter = () => {
   return (
     <section className="relative bg-impulso-yellow pt-32 pb-20 overflow-hidden text-zinc-900">
       {/* Background Noise */}
-      <div className="absolute inset-0 z-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] mix-blend-multiply"></div>
 
       <div className="container-impulso relative z-10 text-center">
         <motion.div

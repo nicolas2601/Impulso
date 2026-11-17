@@ -20,7 +20,7 @@ export default function LitografiaPage() {
         title="Litografía e Imprenta Offset"
         subtitle="Soluciones industriales para grandes volúmenes. La mejor relación costo-beneficio para tirajes superiores a 1.000 unidades."
         ctaText="Cotizar producción masiva"
-        bgImage="https://images.unsplash.com/photo-1560241029-4d6932454b52?q=80&w=2000&auto=format&fit=crop"
+        bgImage="/trabajos/impresion/adriza-tarjetas.webp"
       />
       
       <Breadcrumbs />

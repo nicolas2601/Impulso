@@ -60,8 +60,8 @@ export const Header = () => {
         transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
       >
         <motion.div 
-          className={`relative flex w-full max-w-6xl items-center justify-between gap-4 rounded-full border border-white/10 px-4 py-2 pointer-events-auto backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.28)] transition-[background-color] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] lg:px-6 ${
-            isScrolled ? 'bg-zinc-950/90' : 'bg-zinc-950/75'
+          className={`relative flex w-full max-w-6xl items-center justify-between gap-4 rounded-full border border-white/10 px-4 py-2 pointer-events-auto shadow-[0_8px_32px_0_rgba(0,0,0,0.28)] transition-[background-color] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] lg:px-6 ${
+            isScrolled ? 'bg-zinc-950/95' : 'bg-zinc-950/85'
           }`}
         >
           {/* Logo with interactive hover */}
@@ -75,8 +75,9 @@ export const Header = () => {
                 src="/logo.png"
                 alt="Impulso Logo"
                 fill
+                sizes="36px"
                 className="object-contain"
-                priority
+                loading="eager"
               />
             </motion.div>
             <span className="text-lg md:text-xl font-black tracking-tighter uppercase text-white lg:hidden xl:inline">
@@ -150,11 +151,11 @@ export const Header = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, filter: 'blur(8px)' }}
-            animate={{ opacity: 1, filter: 'blur(0px)' }}
-            exit={{ opacity: 0, filter: 'blur(8px)' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
-            className="fixed inset-0 z-[110] bg-black/95 backdrop-blur-3xl lg:hidden flex flex-col justify-center items-center p-8"
+            className="fixed inset-0 z-[110] bg-zinc-950 lg:hidden flex flex-col justify-center items-center p-8"
           >
             <nav className="flex flex-col gap-4 w-full text-center">
               {navLinks.map((link, idx) => {

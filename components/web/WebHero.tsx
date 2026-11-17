@@ -1,5 +1,6 @@
 'use client';
 
+import type { CSSProperties } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FaArrowRight, FaCheck, FaLock, FaSearch, FaWhatsapp } from 'react-icons/fa';
@@ -9,6 +10,7 @@ import { WEB_QUOTE } from '@/data/webLanding';
 
 const EASE_EXPO = [0.16, 1, 0.3, 1] as const;
 const TRUST = ['Dominio + hosting', 'SEO local', 'WhatsApp integrado'];
+const rise = (seconds: number) => ({ '--delay': `${seconds}s` }) as CSSProperties;
 
 function useEnter(reduced: boolean) {
   return (delay: number, from: Record<string, number | string> = { opacity: 0, y: 24 }) => ({
@@ -69,23 +71,23 @@ export const WebHero = () => {
   return (
     <section data-ground="#09090b" aria-labelledby="web-hero-title" className="relative overflow-hidden bg-zinc-950 pb-20 pt-32 lg:min-h-[880px] lg:pb-24 lg:pt-40">
       <div aria-hidden className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:48px_48px]" />
-      <div aria-hidden className="absolute -right-40 top-20 h-[760px] w-[760px] rounded-full bg-impulso-yellow/15 blur-[200px]" />
+      <div aria-hidden className="absolute -right-80 -top-20 h-[1100px] w-[1100px] bg-[radial-gradient(closest-side,rgba(230,255,0,0.14),transparent)]" />
 
       <div className="container-impulso relative grid items-center gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-8">
         <div className="flex flex-col items-start">
-          <motion.span {...enter(0)} className="inline-flex items-center gap-2.5 rounded-full border border-impulso-yellow/40 bg-impulso-yellow/10 px-4 py-2 font-mono text-[11px] tracking-[0.08em] text-impulso-yellow sm:text-xs">
+          <span className="hero-rise inline-flex items-center gap-2.5 rounded-full border border-impulso-yellow/40 bg-impulso-yellow/10 px-4 py-2 font-mono text-[11px] tracking-[0.08em] text-impulso-yellow sm:text-xs">
             <span className="h-2 w-2 rounded-full bg-impulso-yellow" /> NUEVO SERVICIO · IMPULSO DIGITAL
-          </motion.span>
+          </span>
           <h1 id="web-hero-title" className="mt-7 text-[clamp(3.25rem,13vw,5.5rem)] font-black uppercase leading-[0.88] tracking-[-0.06em] text-white">
-            <motion.span {...enter(0.08)} className="block">Tu negocio</motion.span>{' '}
-            <motion.span {...enter(0.16)} className="block">también en</motion.span>{' '}
-            <motion.span {...enter(0.24)} className="block text-impulso-yellow">Google.</motion.span>
+            <span style={rise(0.08)} className="hero-rise block">Tu negocio</span>{' '}
+            <span style={rise(0.16)} className="hero-rise block">también en</span>{' '}
+            <span style={rise(0.24)} className="hero-rise block text-impulso-yellow">Google.</span>
           </h1>
-          <motion.p {...enter(0.34)} className="mt-7 max-w-[500px] text-lg leading-relaxed text-zinc-400 lg:text-[19px]">
+          <p style={rise(0.34)} className="hero-rise mt-7 max-w-[500px] text-lg leading-relaxed text-zinc-400 lg:text-[19px]">
             Diseñamos y programamos páginas web rápidas que aparecen en Google y convierten visitas en mensajes de
             WhatsApp. Hechas en Bucaramanga, por el mismo equipo que imprime tu marca.
-          </motion.p>
-          <motion.div {...enter(0.42)} className="mt-9 flex flex-wrap gap-3.5">
+          </p>
+          <div style={rise(0.42)} className="hero-rise mt-9 flex flex-wrap gap-3.5">
             <a
               href={generateWhatsAppLink(WEB_QUOTE)}
               target="_blank"
@@ -100,14 +102,14 @@ export const WebHero = () => {
             >
               Ver planes <FaArrowRight aria-hidden className="text-sm" />
             </a>
-          </motion.div>
-          <motion.ul {...enter(0.5)} className="mt-9 flex flex-wrap gap-x-7 gap-y-3">
+          </div>
+          <ul style={rise(0.5)} className="hero-rise mt-9 flex flex-wrap gap-x-7 gap-y-3">
             {TRUST.map((t) => (
               <li key={t} className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.06em] text-zinc-400">
                 <FaCheck aria-hidden className="text-impulso-yellow" /> {t}
               </li>
             ))}
-          </motion.ul>
+          </ul>
         </div>
 
         {/* Composition: Impulso's own site, a phone, the Google result and the message it brings. */}
@@ -115,13 +117,13 @@ export const WebHero = () => {
           <motion.div {...enter(0.22, { opacity: 0, y: 40 })} className="absolute right-0 top-0 hidden w-[440px] rotate-[7deg] opacity-80 lg:block">
             <BrowserMock src="/portfolio/escala-home.webp" url="4-sloop.tikno.pro" />
           </motion.div>
-          <motion.div {...enter(0.3, { opacity: 0, y: 40 })} className="relative lg:absolute lg:left-0 lg:top-16 lg:w-[540px] lg:rotate-3">
+          <motion.div {...enter(0.3, { y: 40 })} className="relative lg:absolute lg:left-0 lg:top-16 lg:w-[540px] lg:rotate-3">
             <BrowserMock src="/portfolio/impulso-home.webp" url="impulsopublicidad.pro" />
           </motion.div>
           <motion.div {...enter(0.5, { opacity: 0, y: 40 })} className="absolute -right-2 top-[58%] hidden -rotate-6 sm:block lg:right-[-30px] lg:top-[210px]">
             <PhoneMock />
           </motion.div>
-          <motion.div {...enter(0.62, { opacity: 0, y: 30 })} className="relative z-10 -mt-10 ml-auto mr-2 w-fit -rotate-2 lg:absolute lg:bottom-[-10px] lg:left-[-40px] lg:m-0">
+          <motion.div {...enter(0.62, { y: 30 })} className="relative z-10 -mt-10 ml-auto mr-2 w-fit -rotate-2 lg:absolute lg:bottom-[-10px] lg:left-[-40px] lg:m-0">
             <SearchCard />
           </motion.div>
           <motion.div {...enter(0.74, { opacity: 0, y: -16 })} className="absolute -top-8 right-0 hidden md:block lg:-top-4 lg:right-10">

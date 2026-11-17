@@ -19,7 +19,7 @@ export default function NeonFlexPage() {
       <PageHero 
         title="Letreros Neón Flex Personalizados"
         subtitle="Dale vida y color a tus espacios con la tecnología Neón Flex. Más brillante, más seguro y más económico que el neón tradicional."
-        bgImage="https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=2000&auto=format&fit=crop"
+        bgImage="/trabajos/avisos/niko-neon-flex.webp"
         ctaText="Diseñar mi Neón"
       />
       <Breadcrumbs />

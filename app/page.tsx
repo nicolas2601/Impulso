@@ -5,8 +5,6 @@ import { TrustMarquee } from '@/components/home/TrustMarquee';
 import { ImmersiveGallery } from '@/components/home/ImmersiveGallery';
 import { StickyProcess } from '@/components/home/StickyProcess';
 import { MassiveFooter } from '@/components/home/MassiveFooter';
-import { WhatsAppButton } from '@/components/common/WhatsAppButton';
-import { NoiseOverlay } from '@/components/common/NoiseOverlay';
 import { SectionGrounds } from '@/components/common/SectionGrounds';
 import { SITE_CONFIG, CONTACT_INFO } from '@/constants/info';
 
@@ -34,7 +32,7 @@ export default function Home() {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: SITE_CONFIG.name,
-    image: `${SITE_CONFIG.domain}/og-image.jpg`,
+    image: `${SITE_CONFIG.domain}/trabajos/avisos/maxident-fachada.webp`,
     '@id': SITE_CONFIG.domain,
     url: SITE_CONFIG.domain,
     telephone: CONTACT_INFO.displayPhone,
@@ -63,7 +61,6 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       
-      <NoiseOverlay />
       
       <ModernHero />
       <TrustMarquee />
@@ -72,7 +69,6 @@ export default function Home() {
       <StickyProcess />
       <MassiveFooter />
       
-      <WhatsAppButton variant="floating" />
     </main>
   );
 }

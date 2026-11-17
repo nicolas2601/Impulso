@@ -21,7 +21,7 @@ export default function StickersPage() {
         title="Impresión de Stickers y Etiquetas"
         subtitle="Identifica tus productos, cierra tus empaques o promociona tu marca. Vinilo adhesivo resistente al agua y sol."
         ctaText="Cotizar mis stickers"
-        bgImage="https://images.unsplash.com/photo-1616406432452-9226f785b46c?q=80&w=2000&auto=format&fit=crop"
+        bgImage="/trabajos/etiquetas/adriza-stickers-redondos.webp"
       />
       
       <Breadcrumbs />

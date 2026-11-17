@@ -4,12 +4,8 @@ import { RETIRED_PROJECT_SLUGS } from "./data/projects";
 const nextConfig: NextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-    ],
+    // Optimised variants are content-addressed by Next, so browsers may keep them for a month.
+    minimumCacheTTL: 2678400,
   },
   experimental: {
     optimizeCss: true,

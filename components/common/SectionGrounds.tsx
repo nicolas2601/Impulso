@@ -33,6 +33,8 @@ export function SectionGrounds() {
     if (sections.length === 0) return;
     const colours = sections.map((s) => parseHex(s.dataset.ground ?? '#000000'));
 
+    // Most frames sit inside one section: skip the style write (and the page-wide restyle) when nothing changed.
+    let painted = '';
     const paint = () => {
       const middle = window.innerHeight / 2;
       const zone = window.innerHeight * BLEND_ZONE;
@@ -43,7 +45,10 @@ export function SectionGrounds() {
         if (t === 0) break;
         colour = mix(colours[i], colours[i + 1], t);
       }
-      root.style.setProperty(GROUND_VAR, `rgb(${colour.join(', ')})`);
+      const next = `rgb(${colour.join(', ')})`;
+      if (next === painted) return;
+      painted = next;
+      root.style.setProperty(GROUND_VAR, next);
     };
 
     let frame = 0;

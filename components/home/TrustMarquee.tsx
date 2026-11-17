@@ -14,7 +14,6 @@ export const TrustMarquee = () => {
   const reducedMotion = usePrefersReducedMotion();
   return (
     <section className="py-12 bg-impulso-yellow border-y border-black overflow-hidden relative z-20">
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20 mix-blend-multiply"></div>
       
       <motion.div 
         className="flex whitespace-nowrap"

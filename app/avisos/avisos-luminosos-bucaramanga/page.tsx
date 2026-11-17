@@ -20,7 +20,7 @@ export default function AvisosLuminososPage() {
       <PageHero 
         title="Avisos Luminosos en Bucaramanga"
         subtitle="Cajas de luz, letras corpóreas y avisos LED programables. La mejor inversión para atraer clientes a tu local físico."
-        bgImage="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop"
+        bgImage="/trabajos/avisos/syh-letras-iluminadas.webp"
         ctaText="Cotizar mi aviso"
       />
       <Breadcrumbs />

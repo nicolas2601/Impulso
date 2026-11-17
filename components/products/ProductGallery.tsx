@@ -121,7 +121,7 @@ export const ProductGallery = ({
             
             <motion.div 
               style={{ y }}
-              className="absolute -top-12 -right-12 w-64 h-64 bg-impulso-yellow/10 rounded-full blur-[80px] pointer-events-none -z-10"
+              className="absolute -top-12 -right-12 w-96 h-96 bg-[radial-gradient(closest-side,rgba(230,255,0,0.10),transparent)] pointer-events-none -z-10"
             />
             
             <div className="absolute -bottom-6 -right-6 bg-zinc-900 border border-white/10 p-6 rounded-2xl shadow-2xl z-20 hidden lg:block backdrop-blur-md">

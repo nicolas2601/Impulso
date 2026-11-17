@@ -19,7 +19,7 @@ export default function DisenoPage() {
         title="Diseño Profesional de Empaques"
         subtitle="El empaque es el único vendedor que acompaña a tu producto hasta la casa del cliente. Haz que valga la pena."
         ctaText="Hablar con un diseñador"
-        bgImage="https://images.unsplash.com/photo-1633535926529-65a837e3d17a?q=80&w=2000&auto=format&fit=crop"
+        bgImage="/projects/empaques.webp"
       />
       
       <Breadcrumbs />

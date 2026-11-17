@@ -21,7 +21,7 @@ export default function CajasHamburguesaPage() {
       <PageHero 
         title="Cajas para Hamburguesas en Bucaramanga"
         subtitle="Protege el sabor y destaca tu marca. Cajas automontables, antigrasa y 100% personalizadas con tu logo."
-        bgImage="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?q=80&w=2000&auto=format&fit=crop"
+        bgImage="/trabajos/empaques/cajas-impresas.webp"
         ctaText="Cotizar Cajas Ahora"
         ctaMessage="Hola, quiero cotizar cajas para hamburguesa..."
       />
