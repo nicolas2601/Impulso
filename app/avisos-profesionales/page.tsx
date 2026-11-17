@@ -28,7 +28,7 @@ export default function SenaleticaPage() {
         title="Señalética Profesional y Corporativa"
         subtitle="Organiza y protege tus espacios con señalización de alta durabilidad. Diseñamos bajo norma y con la estética de tu marca."
         ctaMessage="Hola, quiero cotizar señalética profesional..."
-        bgImage="/projects/SEÑALÉTICA.webp"
+        bgImage="/projects/SENALETICA.webp"
         ctaText="Cotizar Señalética"
       />
 

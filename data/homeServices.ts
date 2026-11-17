@@ -46,7 +46,7 @@ export const PHOTO_SERVICES: PhotoService[] = [
     title: 'Señalética',
     desc: 'Señalización para oficinas, clínicas y edificios.',
     href: '/avisos-profesionales',
-    photo: '/projects/SEÑALÉTICA.webp',
+    photo: '/projects/SENALETICA.webp',
     alt: 'Señalización numerada de pisos instalada en un edificio',
     layout: 'col-span-2 order-6 h-[240px] lg:order-none lg:h-auto lg:col-span-4',
     sizes: '(min-width: 1024px) 33vw, 100vw',
@@ -64,4 +64,4 @@ export const PHOTO_SERVICES: PhotoService[] = [
 
 export const ETIQUETAS_PHOTO = '/Etiquetas/Etiquetas 1.webp';
 export const EMPAQUES_PROP_PHOTO = '/Empaques/Empaques.webp';
-export const PROJECT_THUMBS = ['/Avisos/Avisos 4.webp', '/Adhesivos/Adhesivos 2.webp', '/Señalética/Señalética 1.webp'];
+export const PROJECT_THUMBS = ['/Avisos/Avisos 4.webp', '/Adhesivos/Adhesivos 2.webp', '/Senaletica/Senaletica 1.webp'];

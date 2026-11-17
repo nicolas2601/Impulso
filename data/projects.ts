@@ -50,9 +50,9 @@ export const projects: ProjectData[] = [
   },
   {
     id: 'niko',
-    slug: 'neon-flex-niko',
-    title: 'Neón flex para Niko',
-    client: 'Niko',
+    slug: 'neon-flex-niko-granizados',
+    title: 'Neón flex para Niko Granizados',
+    client: 'Niko Granizados',
     category: 'Avisos',
     summary: 'Aviso en neón flex rosado con el logo de la marca, acompañado de sus etiquetas impresas.',
     pieces: ['Aviso en neón flex', 'Etiquetas impresas'],

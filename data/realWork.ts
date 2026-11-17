@@ -39,7 +39,7 @@ const archive = (category: WorkCategory, src: string, width: number, height: num
 });
 
 const RECENT: WorkPhoto[] = [
-  recent('Avisos', 'avisos/niko-neon-flex', 'Aviso en neón flex rosado para Niko'),
+  recent('Avisos', 'avisos/niko-neon-flex', 'Aviso en neón flex rosado para Niko Granizados'),
   recent('Avisos', 'avisos/maxident-fachada', 'Aviso iluminado en la fachada de la clínica odontológica Maxident'),
   recent('Avisos', 'avisos/colegio-reggio-amelia-fachada', 'Aviso de fachada del Colegio Reggio Amelia'),
   recent('Avisos', 'avisos/syh-letras-iluminadas', 'Letras iluminadas de SYH en fachada, de noche'),
@@ -60,7 +60,7 @@ const RECENT: WorkPhoto[] = [
   recent('Adhesivos', 'adhesivos/heladeria-cecilia-menus', 'Menús impresos en vinilo para la heladería Cecilia'),
   recent('Etiquetas', 'etiquetas/adriza-etiquetas', 'Pliego de etiquetas impresas para Adriza'),
   recent('Etiquetas', 'etiquetas/adriza-stickers-redondos', 'Stickers redondos troquelados para Adriza'),
-  recent('Etiquetas', 'etiquetas/niko-etiqueta', 'Etiqueta impresa de Niko'),
+  recent('Etiquetas', 'etiquetas/niko-etiqueta', 'Etiqueta impresa de Niko Granizados'),
   recent('Impresión', 'impresion/adriza-tarjetas', 'Tarjetas impresas de agradecimiento para Adriza'),
   recent('Impresión', 'impresion/reposteria-pieza-redonda', 'Pieza circular impresa para una repostería, con sus tarjetas'),
   recent('Empaques', 'empaques/cajas-impresas', 'Cajas impresas con logo, apiladas para entrega'),
@@ -72,11 +72,11 @@ const ARCHIVE: WorkPhoto[] = [
   archive('Avisos', '/Avisos/Avisos 3.webp', 1200, 1600),
   archive('Avisos', '/Avisos/Avisos 4.webp', 913, 1600),
   archive('Avisos', '/Avisos/Avisos 5.webp', 1080, 1080),
-  archive('Señalética', '/Señalética/Señalética 1.webp', 1200, 1600),
-  archive('Señalética', '/Señalética/Señalética 2.webp', 955, 1299),
-  archive('Señalética', '/Señalética/Señalética 3.webp', 1170, 969),
-  archive('Señalética', '/Señalética/Señalética 4.webp', 1170, 891),
-  archive('Señalética', '/Señalética/Señalética 5.webp', 784, 1434),
+  archive('Señalética', '/Senaletica/Senaletica 1.webp', 1200, 1600),
+  archive('Señalética', '/Senaletica/Senaletica 2.webp', 955, 1299),
+  archive('Señalética', '/Senaletica/Senaletica 3.webp', 1170, 969),
+  archive('Señalética', '/Senaletica/Senaletica 4.webp', 1170, 891),
+  archive('Señalética', '/Senaletica/Senaletica 5.webp', 784, 1434),
   archive('Adhesivos', '/Adhesivos/Adhesivos 1.webp', 1200, 1600),
   archive('Adhesivos', '/Adhesivos/Adhesivos 2.webp', 1200, 1600),
   archive('Adhesivos', '/Adhesivos/Adhesivos 3.webp', 1200, 1600),
@@ -122,7 +122,7 @@ const clip = (file: string, title: string, hasAudio: boolean, orientation: WorkV
 });
 
 export const WORK_VIDEOS: WorkVideo[] = [
-  clip('niko-neon-flex', 'Neón flex encendido para Niko', true),
+  clip('niko-neon-flex', 'Neón flex encendido para Niko Granizados', true),
   clip('maxident-fachada-iluminada', 'Fachada iluminada de Maxident', true),
   clip('syh-instalacion-nocturna', 'Instalación nocturna del aviso de SYH', true),
   clip('fisioterapia-aviso-acrilico', 'Aviso en acrílico para Carolina Triana Fisioterapia', true),

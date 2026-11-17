@@ -22,7 +22,7 @@ const projects = [
     category: 'SEÑALÉTICA', 
     desc: 'Ofrecemos señalización interna y externa en acrílico, PVC, aluminio y materiales resistentes, garantizando visibilidad, organización y cumplimiento normativo.',
     color: 'from-blue-600 to-indigo-900',
-    image: '/projects/SEÑALÉTICA.webp',
+    image: '/projects/SENALETICA.webp',
     href: '/avisos-profesionales'
   },
   { 
@@ -125,7 +125,7 @@ export const ImmersiveGallery = () => {
   return (
     <section data-ground="#09090b" className="bg-zinc-950 py-32 relative overflow-hidden">
       {/* Background Glow */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[radial-gradient(closest-side,rgba(37,99,235,0.10),transparent)] pointer-events-none"></div>
 
       <div className="container-impulso mb-20 flex flex-col md:flex-row items-end justify-between gap-8">
         <div>
