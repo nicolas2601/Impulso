@@ -2,7 +2,8 @@ import { Metadata } from 'next';
 import { PageHero } from '@/components/common/PageHero';
 import { Section } from '@/components/ui/Section';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
-import { PriceRange } from '@/components/ui/PriceRange';
+import Image from 'next/image';
+import { photoBySrc } from '@/data/realWork';
 import { Button } from '@/components/ui/Button';
 import { FaCheck } from 'react-icons/fa';
 import { generateWhatsAppLink } from '@/utils/whatsapp';
@@ -14,6 +15,12 @@ export const metadata: Metadata = {
     canonical: 'https://impulsopublicidad.pro/empaques/cajas-hamburguesas-bucaramanga',
   },
 };
+
+const BOXES = [
+  photoBySrc('/trabajos/empaques/cajas-impresas.webp'),
+  photoBySrc('/Empaques/Empaques 3.webp'),
+  photoBySrc('/Empaques/Empaques 6.webp'),
+];
 
 export default function CajasHamburguesaPage() {
   return (
@@ -52,19 +59,20 @@ export default function CajasHamburguesaPage() {
                 </li>
               ))}
             </ul>
-
-            <PriceRange min={450} max={900} label="Precio por unidad (aprox)" />
           </div>
           
-          <div className="grid grid-cols-1 gap-6">
-             {/* Visual Placeholder for Gallery */}
-             <div className="bg-gray-100 rounded-xl h-64 flex items-center justify-center border-2 border-dashed border-gray-300">
-               <span className="text-gray-400 font-bold">Galería Cajas Hamburguesa</span>
-             </div>
-             <div className="grid grid-cols-2 gap-4">
-                <div className="bg-gray-100 rounded-xl h-32"></div>
-                <div className="bg-gray-100 rounded-xl h-32"></div>
-             </div>
+          <div className="grid grid-cols-2 gap-4 [&>*:first-child]:col-span-2">
+             {BOXES.map((photo, i) => (
+               <Image
+                 key={photo.src}
+                 src={photo.src}
+                 alt={photo.alt}
+                 width={photo.width}
+                 height={photo.height}
+                 sizes={i === 0 ? '(min-width: 768px) 45vw, 100vw' : '(min-width: 768px) 22vw, 50vw'}
+                 className={`w-full rounded-xl bg-gray-100 object-cover ${i === 0 ? 'h-80' : 'h-40'}`}
+               />
+             ))}
           </div>
         </div>
       </Section>
@@ -73,14 +81,13 @@ export default function CajasHamburguesaPage() {
         <h2 className="text-3xl font-bold mb-10 text-center text-impulso-gray-dark">Opciones Disponibles</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
-            { title: "Línea Económica", desc: "Cartón Kraft 280g, 1 tinta, sin plastificar. Ideal para iniciar.", price: "Desde $450" },
-            { title: "Línea Standard", desc: "Cartón Maule reverso blanco, full color, barniz protector.", price: "Desde $650" },
-            { title: "Línea Premium", desc: "Cartón rígido, plastificado mate, reserva UV sectorizada.", price: "Desde $900" }
+            { title: "Línea Económica", desc: "Cartón Kraft 280g, 1 tinta, sin plastificar. Ideal para iniciar." },
+            { title: "Línea Standard", desc: "Cartón Maule reverso blanco, full color, barniz protector." },
+            { title: "Línea Premium", desc: "Cartón rígido, plastificado mate, reserva UV sectorizada." }
           ].map((opt, idx) => (
             <div key={idx} className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
               <h3 className="font-bold text-xl mb-2">{opt.title}</h3>
-              <p className="text-gray-600 text-sm mb-4">{opt.desc}</p>
-              <p className="text-impulso-blue font-bold text-lg mb-6">{opt.price}</p>
+              <p className="text-gray-600 text-sm mb-6">{opt.desc}</p>
               <Button variant="outline" fullWidth href={generateWhatsAppLink(`Me interesa la ${opt.title} de cajas...`)}>
                 Cotizar esta
               </Button>
@@ -97,14 +104,7 @@ export default function CajasHamburguesaPage() {
             '@type': 'Product',
             name: 'Cajas para Hamburguesas Personalizadas',
             description: 'Cajas de cartón para hamburguesas con impresión personalizada en Bucaramanga.',
-            brand: { '@type': 'Brand', name: 'Impulso' },
-            offers: {
-              '@type': 'AggregateOffer',
-              priceCurrency: 'COP',
-              lowPrice: 450,
-              highPrice: 900,
-              offerCount: 3
-            }
+            brand: { '@type': 'Brand', name: 'Impulso' }
           })
         }}
       />

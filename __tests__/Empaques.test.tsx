@@ -12,15 +12,17 @@ describe('Empaques Silo', () => {
     expect(screen.getByText(/CALIDAD QUE/i)).toBeInTheDocument();
   });
 
-  it('renders Cajas Subpage with Pricing', () => {
+  it('renders Cajas Subpage with real boxes and quote buttons', () => {
     render(<CajasPage />);
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/Cajas para Hamburguesas/i);
-    expect(screen.getByText(/Precio por unidad/i)).toBeInTheDocument();
+    expect(screen.getByRole('img', { name: /cajas impresas con logo/i })).toBeInTheDocument();
+    expect(screen.getAllByRole('link', { name: /cotizar esta/i })).toHaveLength(3);
   });
 
   it('renders Bolsas Subpage with CTA', () => {
     render(<BolsasPage />);
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/Bolsas de Papel/i);
-    expect(screen.getByText(/Ver precios bolsas/i)).toBeInTheDocument();
+    expect(screen.getByText(/Cotizar bolsas/i)).toBeInTheDocument();
+    expect(screen.getByRole('img', { name: /bolsas de papel con logo/i })).toBeInTheDocument();
   });
 });

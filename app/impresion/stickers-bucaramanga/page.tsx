@@ -2,17 +2,18 @@ import { Metadata } from 'next';
 import { PageHero } from '@/components/common/PageHero';
 import { Section } from '@/components/ui/Section';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
-import { PriceRange } from '@/components/ui/PriceRange';
 import { Button } from '@/components/ui/Button';
 import { generateWhatsAppLink } from '@/utils/whatsapp';
 
 export const metadata: Metadata = {
   title: 'Stickers en Bucaramanga | Impresión de Etiquetas Adhesivas',
-  description: 'Impresión de stickers personalizados y etiquetas adhesivas en vinilo o papel. Troquelado digital cualquier forma. Precios por cantidad.',
+  description: 'Impresión de stickers personalizados y etiquetas adhesivas en vinilo o papel. Troquelado digital en cualquier forma. Cotiza por cantidad en WhatsApp.',
   alternates: {
     canonical: 'https://impulsopublicidad.pro/impresion/stickers-bucaramanga',
   },
 };
+
+const QUANTITIES = ['100 unds', '500 unds', '1000 unds'];
 
 export default function StickersPage() {
   return (
@@ -52,28 +53,25 @@ export default function StickersPage() {
           </div>
 
           <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
-            <h3 className="font-bold text-xl mb-6 text-center">Tabla de Precios (Vinilo Estándar)</h3>
-            <p className="text-xs text-gray-500 text-center mb-6">Precios aproximados para stickers de 5x5cm</p>
-            
-            <div className="space-y-4">
-              {[
-                { qty: "100 unds", price: "$45.000", unit: "$450 c/u" },
-                { qty: "500 unds", price: "$120.000", unit: "$240 c/u", best: true },
-                { qty: "1000 unds", price: "$180.000", unit: "$180 c/u" },
-              ].map((tier, i) => (
-                <div key={i} className={`flex justify-between items-center p-4 rounded-lg ${tier.best ? 'bg-impulso-yellow/10 border border-impulso-yellow' : 'bg-gray-50'}`}>
-                  <span className="font-bold">{tier.qty}</span>
-                  <div className="text-right">
-                    <span className="block font-bold text-lg">{tier.price}</span>
-                    <span className="text-xs text-gray-500">{tier.unit}</span>
-                  </div>
-                </div>
+            <h3 className="font-bold text-xl mb-2 text-center">Cotiza por cantidad</h3>
+            <p className="text-sm text-gray-500 text-center mb-6">Elige cuántos necesitas y te respondemos por WhatsApp con el valor según tamaño y material.</p>
+            <ul className="space-y-3">
+              {QUANTITIES.map((qty) => (
+                <li key={qty}>
+                  <a
+                    href={generateWhatsAppLink(`Hola, quiero cotizar ${qty} de stickers.`)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex min-h-12 items-center justify-between rounded-lg bg-gray-50 p-4 font-bold transition-colors hover:bg-impulso-yellow/20"
+                  >
+                    {qty} <span className="text-sm font-semibold text-impulso-blue">Cotizar &rarr;</span>
+                  </a>
+                </li>
               ))}
-            </div>
-            
+            </ul>
             <div className="mt-8">
-              <Button fullWidth href={generateWhatsAppLink("Quiero cotizar stickers...")}>
-                Pedir esta promo
+              <Button fullWidth href={generateWhatsAppLink('Hola, quiero cotizar stickers con una medida especial.')}>
+                Otra cantidad o medida
               </Button>
             </div>
           </div>

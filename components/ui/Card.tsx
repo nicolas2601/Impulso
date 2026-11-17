@@ -3,18 +3,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { formatPrice } from '@/utils/formatPrice';
 
 interface ProductCardProps {
   title: string;
   description: string;
   imageSrc?: string;
-  priceFrom?: number;
   badge?: string;
   href: string;
 }
 
-export const ProductCard = ({ title, description, imageSrc, priceFrom, badge, href }: ProductCardProps) => {
+export const ProductCard = ({ title, description, imageSrc, badge, href }: ProductCardProps) => {
   return (
     <Link href={href} className="group block h-full">
       <motion.article 
@@ -53,13 +51,7 @@ export const ProductCard = ({ title, description, imageSrc, priceFrom, badge, hr
             {description}
           </p>
           
-          <div className="pt-4 border-t border-gray-100 flex items-center justify-between mt-auto">
-            {priceFrom && (
-              <div className="flex flex-col">
-                <span className="text-xs text-gray-500 uppercase font-semibold">Desde</span>
-                <span className="text-lg font-bold text-impulso-gray-dark">{formatPrice(priceFrom)}</span>
-              </div>
-            )}
+          <div className="pt-4 border-t border-gray-100 flex items-center justify-end mt-auto">
             <span className="text-impulso-blue font-bold text-sm group-hover:translate-x-1 transition-transform">
               Ver detalles &rarr;
             </span>

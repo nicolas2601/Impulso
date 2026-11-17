@@ -1,10 +1,10 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import { PageHero } from '@/components/common/PageHero';
 import { Section } from '@/components/ui/Section';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
-import { PriceRange } from '@/components/ui/PriceRange';
 import { Button } from '@/components/ui/Button';
-import { FaRecycle, FaShoppingBag } from 'react-icons/fa';
+import { FaRecycle } from 'react-icons/fa';
 import { generateWhatsAppLink } from '@/utils/whatsapp';
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export default function BolsasPapelPage() {
       <PageHero 
         title="Bolsas de Papel con Logo"
         subtitle="Deja de usar plástico. Pásate a bolsas biodegradables que tus clientes amarán reutilizar. Publicidad móvil para tu marca."
-        ctaText="Ver precios bolsas"
+        ctaText="Cotizar bolsas"
         ctaMessage="Hola, quiero cotizar bolsas de papel..."
       />
       
@@ -30,9 +30,14 @@ export default function BolsasPapelPage() {
       <Section>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           <div className="order-2 md:order-1">
-             <div className="bg-impulso-yellow/10 rounded-2xl p-8 h-full flex items-center justify-center border-2 border-impulso-yellow/20">
-               <FaShoppingBag size={120} className="text-impulso-yellow" />
-             </div>
+             <Image
+               src="/Empaques/Empaques 7.webp"
+               alt="Bolsas de papel con logo impresas para Helados Japi"
+               width={1081}
+               height={1081}
+               sizes="(min-width: 768px) 45vw, 100vw"
+               className="h-full w-full rounded-2xl object-cover"
+             />
           </div>
           
           <div className="order-1 md:order-2">
@@ -54,8 +59,6 @@ export default function BolsasPapelPage() {
               </div>
             </div>
 
-            <PriceRange min={300} max={1200} label="Desde por unidad" />
-            
             <div className="mt-8">
               <Button href={generateWhatsAppLink("Me interesan las bolsas de papel...")}>
                 Solicitar catálogo de medidas

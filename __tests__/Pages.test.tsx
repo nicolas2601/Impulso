@@ -21,9 +21,9 @@ vi.mock('next/image', () => ({
 }));
 
 describe('Nuevas Paginas', () => {
-  it('Stickers renderiza tabla de precios', () => {
+  it('Stickers cotiza cada cantidad por WhatsApp', () => {
     render(<StickersPage />);
-    expect(screen.getByText(/Tabla de Precios/i)).toBeInTheDocument();
-    expect(screen.getByText(/100 unds/i)).toBeInTheDocument();
+    const link = screen.getByRole('link', { name: /100 unds/i });
+    expect(decodeURIComponent(link.getAttribute('href') ?? '')).toContain('100 unds');
   });
 });
