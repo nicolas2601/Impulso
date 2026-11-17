@@ -96,3 +96,20 @@ describe('redirects', () => {
     expect(fs.existsSync(path.join(APP_DIR, 'avisos', slug, 'page.tsx'))).toBe(true);
   });
 });
+
+describe('retired pages', () => {
+  it('sends /papeleria-comercial permanently to /impresion and links it from nowhere', async () => {
+    const redirects = (await nextConfig.redirects?.()) ?? [];
+    expect(redirects.find((r) => r.source === '/papeleria-comercial')).toMatchObject({ destination: '/impresion', permanent: true });
+    expect(fs.existsSync(path.join(APP_DIR, 'papeleria-comercial'))).toBe(false);
+    expect(sitemapPaths()).not.toContain('/papeleria-comercial');
+    const sources = ['data', 'components', 'app'].flatMap((d) =>
+      fs.readdirSync(path.resolve(__dirname, '..', d), { recursive: true, encoding: 'utf8' })
+        .filter((f) => /\.tsx?$/.test(f))
+        .map((f) => path.resolve(__dirname, '..', d, f)),
+    );
+    const linking = sources.filter((f) => !f.endsWith('sitemap.ts') && fs.readFileSync(f, 'utf8').includes("'/papeleria-comercial'"));
+    expect(linking).toEqual([]);
+  });
+});
+

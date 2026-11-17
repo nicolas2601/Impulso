@@ -9,7 +9,6 @@ const SERVICE_ROUTES = [
   '/empaques',
   '/avisos',
   '/avisos-profesionales',
-  '/papeleria-comercial',
   '/impresion',
   '/etiquetas',
   '/diseno-empaques',

@@ -21,7 +21,7 @@ export const RELATED_LINKS: Record<'avisos' | 'empaques' | 'impresion' | 'adhesi
   impresion: [
     { href: '/impresion/stickers-bucaramanga', title: 'Stickers', desc: 'Stickers y etiquetas adhesivas troqueladas.' },
     { href: '/litografia-bucaramanga', title: 'Litografía', desc: 'Impresión offset por volumen para negocios y mayoristas.' },
-    { href: '/papeleria-comercial', title: 'Papelería comercial', desc: 'Tarjetas, volantes, factureros y carpetas.' },
+    { href: '/etiquetas', title: 'Etiquetas', desc: 'Etiquetas para productos, resistentes al agua y al frío.' },
   ],
   adhesivos: [
     { href: '/etiquetas', title: 'Etiquetas', desc: 'Etiquetas para productos, resistentes al agua y al frío.' },
@@ -41,6 +41,5 @@ export const FOOTER_SPECIALTIES: Array<Pick<SiteLink, 'href' | 'title'>> = [
   { href: '/etiquetas', title: 'Etiquetas' },
   { href: '/adhesivos', title: 'Vinilos adhesivos' },
   { href: '/litografia-bucaramanga', title: 'Litografía' },
-  { href: '/papeleria-comercial', title: 'Papelería comercial' },
   { href: '/diseno-empaques', title: 'Diseño de empaques' },
 ];

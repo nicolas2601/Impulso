@@ -18,6 +18,12 @@ const nextConfig: NextConfig = {
         destination: '/avisos/:slug',
         permanent: true,
       },
+      // Retired page: it published prices that do not match the business.
+      {
+        source: '/papeleria-comercial',
+        destination: '/impresion',
+        permanent: true,
+      },
       // Placeholder case studies replaced by real jobs.
       {
         source: `/proyectos/:slug(${RETIRED_PROJECT_SLUGS.join('|')})`,

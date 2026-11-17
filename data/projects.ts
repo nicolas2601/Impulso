@@ -106,7 +106,7 @@ export const projects: ProjectData[] = [
     pieces: ['Etiquetas en pliego', 'Stickers redondos', 'Tarjetas de agradecimiento'],
     photos: photos('etiquetas/adriza-etiquetas', 'etiquetas/adriza-stickers-redondos', 'impresion/adriza-tarjetas'),
     videos: [],
-    relatedServices: [{ href: '/etiquetas', title: 'Etiquetas' }, { href: '/impresion/stickers-bucaramanga', title: 'Stickers' }, { href: '/papeleria-comercial', title: 'Papelería comercial' }],
+    relatedServices: [{ href: '/etiquetas', title: 'Etiquetas' }, { href: '/impresion/stickers-bucaramanga', title: 'Stickers' }],
   },
 ];
 

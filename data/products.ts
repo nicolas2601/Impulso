@@ -71,52 +71,6 @@ export const productsData: Record<string, Product[]> = {
       isPopular: true
     }
   ],
-  papeleria: [
-    {
-      id: 'tarjetas',
-      name: 'Tarjetas de Presentación',
-      slug: 'tarjetas',
-      description: 'Tu carta de presentación. Propalcote 300g, laminado mate/brillante, puntas redondas.',
-      priceRange: { min: 60000, max: 120000 },
-      category: 'Papelería',
-      images: [],
-      features: ['Desde 1000 unidades', 'Acabados premium'],
-      isPopular: true
-    },
-    {
-      id: 'volantes',
-      name: 'Volantes y Flyers',
-      slug: 'volantes',
-      description: 'Promociona eventos y ofertas. Impresión full color media carta o cuarto de carta.',
-      priceRange: { min: 90000, max: 180000 },
-      category: 'Papelería',
-      images: [],
-      features: ['Distribución masiva', 'Diseño impactante'],
-      isPopular: false
-    },
-    {
-      id: 'factureros',
-      name: 'Factureros y Talonarios',
-      slug: 'factureros',
-      description: 'Talonarios autocoiantes para cuentas de cobro, comandas o facturas.',
-      priceRange: { min: 35000, max: 80000 },
-      category: 'Papelería',
-      images: [],
-      features: ['Numerados', 'Copia química'],
-      isPopular: false
-    },
-    {
-      id: 'carpetas',
-      name: 'Carpetas Corporativas',
-      slug: 'carpetas',
-      description: 'Presenta tus propuestas con profesionalismo. Carpeta con bolsillo y ranura para tarjeta.',
-      priceRange: { min: 1200000, max: 2500000 }, // Precio por millar o ciento alto
-      category: 'Papelería',
-      images: [],
-      features: ['Bolsillo troquelado', 'Plastificado'],
-      isPopular: false
-    }
-  ],
   impresion: [
     {
       id: 'gran-formato',

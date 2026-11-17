@@ -25,7 +25,7 @@ describe('internal links (no orphan pages)', () => {
   it.each([
     ['avisos', AvisosPage, ['/avisos/avisos-luminosos-bucaramanga', '/avisos/neon-flex', '/avisos/avisos-acrilico-precios']],
     ['empaques', EmpaquesPage, ['/empaques/cajas-hamburguesas-bucaramanga', '/empaques/bolsas-papel-logo', '/diseno-empaques']],
-    ['impresion', ImpresionPage, ['/impresion/stickers-bucaramanga', '/litografia-bucaramanga', '/papeleria-comercial']],
+    ['impresion', ImpresionPage, ['/impresion/stickers-bucaramanga', '/litografia-bucaramanga', '/etiquetas']],
   ])('the %s hub links to its specialties', (_hub, Page, hrefs) => {
     render(<Page />);
     const block = screen.getByRole('navigation', { name: /especialidades/i });
