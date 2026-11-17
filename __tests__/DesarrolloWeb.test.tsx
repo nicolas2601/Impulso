@@ -45,6 +45,16 @@ describe('Desarrollo web landing', () => {
     expect(screen.getByText(/Nadie serio te lo puede garantizar/)).toBeInTheDocument();
   });
 
+  it('shows the neon sign on the street and the printed boxes in the hand', () => {
+    render(<DesarrolloWebPage />);
+    const combo = screen.getByRole('region', { name: /combo que nadie más te da/i });
+    const photos = within(combo).getAllByRole('img');
+    expect(photos[0]).toHaveAttribute('src', '/trabajos/avisos/niko-neon-flex.webp');
+    expect(photos[0]).toHaveAttribute('alt', expect.stringMatching(/neón flex.*Niko/i));
+    expect(photos[1]).toHaveAttribute('src', '/trabajos/empaques/cajas-impresas.webp');
+    expect(photos[1]).toHaveAttribute('alt', expect.stringMatching(/cajas impresas/i));
+  });
+
   it('closes with a WhatsApp call to action', () => {
     render(<DesarrolloWebPage />);
     expect(screen.getByRole('link', { name: /cotizar mi página por whatsapp/i }).getAttribute('href')).toMatch(whatsappHref);

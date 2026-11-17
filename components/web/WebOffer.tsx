@@ -7,6 +7,7 @@ import { FaCheck, FaWhatsapp } from 'react-icons/fa';
 import { generateWhatsAppLink } from '@/utils/whatsapp';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 import { WEB_MARQUEE, WEB_PLANS, WEB_PROOF, planQuote, type WebPlan } from '@/data/webLanding';
+import { photoBySrc } from '@/data/realWork';
 
 const EASE_EXPO = [0.16, 1, 0.3, 1] as const;
 
@@ -85,9 +86,12 @@ export const WebProof = () => (
   </section>
 );
 
+const STREET = photoBySrc('/trabajos/avisos/niko-neon-flex.webp');
+const HAND = photoBySrc('/trabajos/empaques/cajas-impresas.webp');
+
 const STATIONS = [
-  { n: '01', place: 'En la calle', line: 'Tu aviso hace que te vean.', photo: '/projects/AVISOS.webp', alt: 'Letrero de neón de una heladería hecho por Impulso' },
-  { n: '02', place: 'En la mano', line: 'Tu empaque lleva un QR a tu web.', photo: '/Empaques/Empaques.webp', alt: 'Caja navideña impresa por Impulso' },
+  { n: '01', place: 'En la calle', line: 'Tu aviso hace que te vean.', photo: STREET.src, alt: STREET.alt },
+  { n: '02', place: 'En la mano', line: 'Tu empaque lleva un QR a tu web.', photo: HAND.src, alt: HAND.alt },
   { n: '03', place: 'En Google', line: 'Tu web cierra la venta por WhatsApp.', photo: '/portfolio/impulso-mobile.webp', alt: 'La web de Impulso abierta en un celular' },
 ];
 
