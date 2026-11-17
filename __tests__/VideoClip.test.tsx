@@ -59,10 +59,12 @@ afterEach(() => {
 const videoOf = (container: HTMLElement) => container.querySelector('video') as HTMLVideoElement;
 
 describe('VideoClip', () => {
-  it('loads nothing until needed and starts muted with its poster', () => {
+  it('loads nothing, not even the poster, until it nears the screen', () => {
     const { container } = render(<VideoClip video={withSound} />);
     const video = videoOf(container);
     expect(video).toHaveAttribute('preload', 'none');
+    expect(video).not.toHaveAttribute('poster');
+    enterViewport(true);
     expect(video).toHaveAttribute('poster', withSound.poster);
     expect(video.muted).toBe(true);
     expect(video).toHaveAttribute('playsinline');

@@ -8,6 +8,8 @@ import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 /** Only one clip may play with sound; turning one on silences the rest. */
 const SOUND_EVENT = 'impulso:video-sound';
 const VISIBLE_RATIO = 0.5;
+/** Posters are fetched only this close to the screen, so they never compete with the page's LCP image. */
+const POSTER_MARGIN = '300px 0px';
 
 const CONTROL =
   'grid h-11 w-11 place-items-center rounded-full bg-zinc-950/75 text-white outline-none ' +
@@ -27,6 +29,7 @@ export const VideoClip = ({ video, className = '' }: VideoClipProps) => {
   const heldByUser = useRef(false);
   const [muted, setMuted] = useState(true);
   const [playing, setPlaying] = useState(false);
+  const [near, setNear] = useState(false);
 
   const play = useCallback(() => {
     const el = ref.current;
@@ -53,6 +56,19 @@ export const VideoClip = ({ video, className = '' }: VideoClipProps) => {
     observer.observe(el);
     return () => observer.disconnect();
   }, [reduced, play, pause]);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || near) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setNear(true);
+      },
+      { rootMargin: POSTER_MARGIN },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [near]);
 
   useEffect(() => {
     const silence = (event: Event) => {
@@ -88,7 +104,7 @@ export const VideoClip = ({ video, className = '' }: VideoClipProps) => {
       <video
         ref={ref}
         aria-label={video.title}
-        poster={video.poster}
+        poster={near ? video.poster : undefined}
         preload="none"
         muted
         loop
